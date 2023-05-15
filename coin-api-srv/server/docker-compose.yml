@@ -1,0 +1,36 @@
+version: '3.7'
+
+services:
+  coin-mysql-db:
+    image: mysql:latest
+    container_name: coin-mysql-db
+    ports:
+     - "3306:3306"  
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: 123456
+      MYSQL_DATABASE: coin-mysql
+    command:
+      - --character-set-server=utf8mb4
+    volumes:
+      - coin-mysql-db-volume:/var/lib/mysql
+      
+ coin-api-srv:
+    build:
+      context: ./server
+      target: coin-srv-development
+    container_name: coin-api-server
+    ports:
+      - "4003:4003"
+    restart: always
+    depends_on:
+      - coin-mysql-db
+    volumes:
+      - ./server:/app
+    env_file:
+      - .env
+    environment:
+      - SYNC_DATA
+
+volumes:
+  coin-mysql-db-volume:
