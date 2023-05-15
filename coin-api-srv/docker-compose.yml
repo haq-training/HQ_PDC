@@ -14,8 +14,7 @@ services:
       - --character-set-server=utf8mb4
     volumes:
       - coin-mysql-db-volume:/var/lib/mysql
-      
- coin-api-srv:
+  coin-api-srv:
     build:
       context: ./server
       target: coin-srv-development

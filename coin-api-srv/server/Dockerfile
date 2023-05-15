@@ -12,9 +12,9 @@ FROM 19.7.0 AS ssm-srv-build
 WORKDIR /app/
 COPY package.json package-lock.json ./
 RUN true
-COPY tsconfig.json ./
+# COPY tsconfig.json ./
 RUN true
-COPY src /app/src
+# COPY src /app/src
 
 RUN npm install --legacy-peer-deps
 RUN npm run build
