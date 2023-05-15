@@ -8,7 +8,7 @@ import cron from 'cron';
 import axios from 'axios';
 import { Sequelize ,DataTypes} from "sequelize";
 
-const sequelize = new Sequelize('pets', 'root', '123456', {
+const sequelize = new Sequelize('coin-mysql', 'root', '123456', {
   host: 'localhost',
   dialect: 'mysql'
 });
@@ -30,18 +30,24 @@ const Category = sequelize.define('category', {
 
 
 const job = new cron.CronJob('0 */2 * * * *', async () => {
-  axios.get('https://api.coingecko.com/api/v3/coins/categories/list')
-    .then(async (response) => {
-      const data = response.data.map(({ category_id, name }) => ({ category_id: category_id, name }));
-      const newCats = await Category.bulkCreate(data, { returning: true });
-      newCats.forEach(category => {
+  try {
+    const existingCategories = await Category.findAll({ attributes: ['category_id'] });
+    const existingIds = existingCategories.map(category => category.category_id);
+    const response = await axios.get('https://api.coingecko.com/api/v3/coins/categories/list');
+    const newCategories = response.data.filter(category => !existingIds.includes(category.category_id));
+    if (newCategories.length > 0) {
+      const createdCategories = await Category.bulkCreate(newCategories, { returning: true });
+      createdCategories.forEach(category => {
         console.log(`Inserted row into the category table with id ${category.category_id}.`);
       });
-    })
-    .catch(error => {
-      console.log(error);
-    });
+    } else {
+      console.log('No new records found.');
+    }
+  } catch (error) {
+    console.log(error);
+  }
 });
+
 
 job.start();
 
