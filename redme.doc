@@ -1,0 +1,8 @@
+1, BE:
+- chạy lệnh:	1,cd coin-api-srv
+		2,cd server
+		3,npm npm install --legacy-peer-deps
+		4,npm start
+2,FE:
+- chạy lệnh:	1,npm npm install --legacy-peer-deps hoặc npm install
+		2,npm run dev
