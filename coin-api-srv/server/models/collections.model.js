@@ -1,4 +1,3 @@
-import { DataTypes } from 'sequelize';
 
 export default (sequelize, DataTypes) => {
     const Collections = sequelize.define(
