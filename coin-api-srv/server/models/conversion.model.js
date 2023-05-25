@@ -1,4 +1,4 @@
-import { DataTypes } from 'sequelize';
+
 
 export default (sequelize, DataTypes) => {
     const Conversion = sequelize.define(

@@ -1,5 +1,3 @@
-import { DataTypes } from 'sequelize';
-
 export default (sequelize, DataTypes) => {
     const Coin = sequelize.define(
         'coin',
@@ -89,3 +87,4 @@ export default (sequelize, DataTypes) => {
     );
     return Coin;
 };
+

@@ -1,9 +1,9 @@
-import getDatabase from '../models/config.js';
+import { coinDB } from '../loader/mysql.js';
 
 class coinService {
     async liste(req, res) {
         try {
-            await getDatabase.coin.findAll().then((response) => res.send({ data: response }));
+            await coinDB.coin.findAll().then((response) => res.send({ data: response }));
         } catch (error) {
             res.send('Error: ' + error);
         }

@@ -1,26 +1,27 @@
-import { Sequelize } from "sequelize";
-import models from "./init-models.js";
 import * as dotenv from "dotenv";
 dotenv.config();
-const db = new Sequelize(
-  process.env.DB_ENV,
-  process.env.ACCOUNT_ENV,
-  process.env.PASSWORD_ENV,
-  {
-    username: 'root', // Tên người dùng MySQL
-    password: '123456', // Mật khẩu của người dùng MySQL
-    database: 'coin-mysql', // Tên cơ sở dữ liệu
-    host: 'localhost',
-    dialect: 'mysql',
-  }
-);
-try {
-  await db.authenticate();
-  console.log("Connection has been established successfully.");
-} catch (error) {
-  console.error("Unable to connect to the database:", error);
-}
 
-const getDatabase = models(db);
+const mysql_option = {
+  host: process.env.MYSQL_HOST || '127.0.0.1',
+  port: parseInt(process.env.MYSQL_PORT || '3306', 10),
+  dialect: 'mysql',
+  define: {
+    freezeTableName: true,
+    charset: 'utf8',
+    collate: 'utf8_general_ci',
+    timestamps: true,
+  },
+  pool: {
+    max: 5,
+    min: 0,
+    acquire: 30000,
+    idle: 10000,
+  },
+};
 
-export default getDatabase;
+export const database = {
+  db_name: process.env.MYSQL_NAME || 'coin-mysql',
+  db_user: process.env.MYSQL_USER || 'root',
+  db_password: process.env.MYSQL_PASSWORD || '123456',
+  option: mysql_option,
+};

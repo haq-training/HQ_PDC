@@ -1,21 +1,31 @@
 import { Sequelize } from 'sequelize';
-import initModels from '../models/init-models';
-import { getDatabase } from '../models/config';
+import fs from "fs";
+import {database} from '../models/config.js';
+import {initModels} from '../models/init-models.js';
 
-import coin from '../dev_data/coin.json';
-import user from '../dev_data/user.json';
-import collections from '../dev_data/collections.json';
-import conversion from '../dev_data/conversion.json';
-import transaction from '../dev_data/transaction.json';
+// import coin from '../dev_data/coin.json' assert { type: 'json' };
+// import user from '../dev_data/user.json' assert { type: 'json' };
+// import collections from '../dev_data/collections.json' assert { type: 'json' };
+// import conversion from '../dev_data/conversion.json' assert { type: 'json' };
+// import transaction from '../dev_data/transaction.json' assert { type: 'json' };
 
-// export const sequelize = new Sequelize(getDatabase.username, getDatabase.password, getDatabase.database);
-// console.log(getDatabase);
-export const sequelize = new Sequelize('root', '123456', 'coin-mysql');
+const coin = JSON.parse(fs.readFileSync('dev_data/coin.json'));
+const user = JSON.parse(fs.readFileSync('dev_data/user.json'));
+const collections = JSON.parse(fs.readFileSync('dev_data/collections.json'));
+const conversion = JSON.parse(fs.readFileSync('dev_data/conversion.json'));
+const transaction = JSON.parse(fs.readFileSync('dev_data/transaction.json'));
+console.log(coin);
+console.log(user);
+console.log(collections);
+console.log(conversion);
+console.log(transaction);
+
+export const sequelize = new Sequelize( database.db_name,database.db_user, database.db_password,{ ...database.option});
 
 const models = initModels(sequelize);
+
 export const syncDatabase = async () => {
     if (process.env.NODE_ENV === 'development' && process.env.SYNC_DATA === 'true') {
-        console.log("123444ket noi du lieu");
         const isForceSync = process.env.SYNC_DATA === 'true';
         await sequelize
             .sync({ force: isForceSync, alter: true })
@@ -29,7 +39,6 @@ export const syncDatabase = async () => {
                     await models.collections.bulkCreate(collections);
                     await models.conversion.bulkCreate(conversion);
                     await models.transaction.bulkCreate(transaction);
-                    console.log("da lay duoc du lieu");
                 }
             })
             .catch((err) => {
@@ -38,4 +47,4 @@ export const syncDatabase = async () => {
     }
 };
 
-export * as coinDB from '../../models/init-models';
+export * as coinDB from '../models/init-models.js';
