@@ -10,7 +10,6 @@ const db = new Sequelize(
     username: 'root', // Tên người dùng MySQL
     password: '123456', // Mật khẩu của người dùng MySQL
     database: 'coin-mysql', // Tên cơ sở dữ liệu
-    host: 'localhost',
     dialect: 'mysql',
   }
 );

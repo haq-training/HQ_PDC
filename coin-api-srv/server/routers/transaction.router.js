@@ -1,5 +1,5 @@
 import { Router } from 'express';
-import transactionService from '../services/collections.service.js';
+import transactionService from '../services/transaction.service.js';
 const service = new transactionService();
 const routerTransaction = Router();
 
