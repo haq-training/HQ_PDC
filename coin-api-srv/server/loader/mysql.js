@@ -16,7 +16,6 @@ const models = initModels(sequelize);
 export const syncDatabase = async () => {
     if (process.env.NODE_ENV === 'development' && process.env.SYNC_DATA === 'true') {
         const isForceSync = process.env.SYNC_DATA === 'true';
-        console.log('isForceSync',isForceSync);
         await sequelize
             .sync({ force: isForceSync, alter: true })
             .then(() => {
@@ -24,7 +23,6 @@ export const syncDatabase = async () => {
             })
             .then(async () => {
                 if (isForceSync) {
-                    console.log('isForceSync, dã đổ dữ liệu vào trong db');
                     await models.users.bulkCreate(user);
                     await models.coin.bulkCreate(coin);
                     await models.collections.bulkCreate(collections);

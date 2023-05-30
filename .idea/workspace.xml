@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="13669f56-d155-4678-9e0b-76f75b1907ab" name="Default Changelist" comment="fix đồng bộ" />
+    <list default="true" id="13669f56-d155-4678-9e0b-76f75b1907ab" name="Default Changelist" comment="đồng bộ cơ sở dữ">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/coin-api-srv/server/loader/mysql.js" beforeDir="false" afterPath="$PROJECT_DIR$/coin-api-srv/server/loader/mysql.js" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -60,7 +63,7 @@
       <workItem from="1685074484952" duration="610000" />
       <workItem from="1685076336797" duration="8959000" />
       <workItem from="1685091294889" duration="7369000" />
-      <workItem from="1685412897443" duration="11754000" />
+      <workItem from="1685412897443" duration="11961000" />
     </task>
     <task id="LOCAL-00001" summary="fix đồng">
       <created>1685416144415</created>
@@ -76,7 +79,14 @@
       <option name="project" value="LOCAL" />
       <updated>1685429269210</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="đồng bộ cơ sở dữ">
+      <created>1685429773912</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1685429773912</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -97,6 +107,7 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="fix đồng" />
     <MESSAGE value="fix đồng bộ" />
-    <option name="LAST_COMMIT_MESSAGE" value="fix đồng bộ" />
+    <MESSAGE value="đồng bộ cơ sở dữ" />
+    <option name="LAST_COMMIT_MESSAGE" value="đồng bộ cơ sở dữ" />
   </component>
 </project>
