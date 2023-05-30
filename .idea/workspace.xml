@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="13669f56-d155-4678-9e0b-76f75b1907ab" name="Default Changelist" comment="đồng bộ cơ sở dữ">
+    <list default="true" id="13669f56-d155-4678-9e0b-76f75b1907ab" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/coin-api-srv/server/loader/mysql.js" beforeDir="false" afterPath="$PROJECT_DIR$/coin-api-srv/server/loader/mysql.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
