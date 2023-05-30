@@ -1,6 +1,6 @@
 [
   {
-    "id": 0,
+    "id": 1,
     "transactionType": "Buy",
     "createdAt": "12 january 2022",
     "symbol": "BTC",
@@ -10,7 +10,7 @@
     "usdBalance": "11,032.24"
   },
   {
-    "id": 1,
+    "id": 2,
     "transactionType": "Buy",
     "createdAt": "14 january 2022",
     "symbol": "BTC",
@@ -20,7 +20,7 @@
     "usdBalance": "21,032.24"
   },
   {
-    "id": 2,
+    "id": 3,
     "transactionType": "Sell",
     "createdAt": "15 january 2022",
     "symbol": "BTC",
@@ -30,7 +30,7 @@
     "usdBalance": "65,032.24"
   },
   {
-    "id": 3,
+    "id": 4,
     "transactionType": "Buy",
     "createdAt": "12 january 2022",
     "symbol": "BTC",
