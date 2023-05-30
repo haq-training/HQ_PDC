@@ -2,7 +2,7 @@ import * as dotenv from "dotenv";
 dotenv.config();
 
 const mysql_option = {
-  host: process.env.MYSQL_HOST || '127.0.0.1',
+  host: process.env.MYSQL_HOST || 'localhost',
   port: parseInt(process.env.MYSQL_PORT || '3306', 10),
   dialect: 'mysql',
   define: {
