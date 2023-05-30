@@ -1,7 +1,6 @@
 import express from 'express';
 import { createServer } from "http";
 import bodyParser from "body-parser";
-const app = express();
 import fs from "fs";
 // import cron from 'cron';
 // import axios from 'axios';
@@ -249,21 +248,23 @@ fs.readFileSync("./nodemon.json", "utf8", function (error, data) {
 });
 
 async function startServer() {
+  const app = express();
   await Promise.all([syncDatabase()]);
+  const httpServer = createServer(app);
+  await app.use(bodyParser.json());
+  await app.use(bodyParser.urlencoded({ extended: true }));
+
+  await app.use("/coin", routerCoin);
+  await app.use("/users", routerUsers);
+  await app.use("/conversion", routerConversion);
+  await app.use("/collections", routerCollections);
+  await app.use("/transaction", routerTransaction);
+
+  await httpServer.listen(3004);
 }
 
 startServer().catch((error) => {
   console.error('Unable start server: ', error);
 });
 
-const httpServer = createServer(app);
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: true }));
 
-app.use("/coin", routerCoin);
-app.use("/users", routerUsers);
-app.use("/conversion", routerConversion);
-app.use("/collections", routerCollections);
-app.use("/transaction", routerTransaction);
-
-httpServer.listen(3004);
