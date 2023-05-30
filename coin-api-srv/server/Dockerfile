@@ -2,7 +2,7 @@ FROM node:19.7.0 AS coin-srv-development
 WORKDIR /app/
 COPY package*.json ./
 RUN npm install --legacy-peer-deps
-COPY tsconfig.json ./
+COPY jsconfig.json ./
 EXPOSE 4003
 CMD npm start
 

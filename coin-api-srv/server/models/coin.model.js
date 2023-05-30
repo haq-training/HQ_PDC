@@ -1,4 +1,3 @@
-
 export default (sequelize, DataTypes) => {
     const Coin = sequelize.define(
         'coin',
@@ -88,3 +87,4 @@ export default (sequelize, DataTypes) => {
     );
     return Coin;
 };
+

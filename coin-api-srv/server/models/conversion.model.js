@@ -1,4 +1,5 @@
 
+
 export default (sequelize, DataTypes) => {
     const Conversion = sequelize.define(
         'conversion',

@@ -1,42 +1,42 @@
 [
-    {
-      "id": 0,
-      "transactionType": "Buy",
-      "createdAt": "12 january 2022",
-      "symbol": "BTC",
-      "status": "Pending",
-      "address": "0898hshiw36...",
-      "balance": "0.2231345",
-      "usdBalance": "11,032.24"
-    },
-    {
-      "id": 1,
-      "transactionType": "Buy",
-      "createdAt": "14 january 2022",
-      "symbol": "BTC",
-      "status": "Pending",
-      "address": "0898hshiw36...",
-      "balance": "0.2331345",
-      "usdBalance": "21,032.24"
-    },
-    {
-      "id": 2,
-      "transactionType": "Sell",
-      "createdAt": "15 january 2022",
-      "symbol": "BTC",
-      "status": "Pending",
-      "address": "0898hshiw36...",
-      "balance": "0.531345",
-      "usdBalance": "65,032.24"
-    },
-    {
-      "id": 3,
-      "transactionType": "Buy",
-      "createdAt": "12 january 2022",
-      "symbol": "BTC",
-      "status": "Pending",
-      "address": "0898hshiw36...",
-      "balance": "0.7531345",
-      "usdBalance": "68,032.24"
-    }
-  ]
+  {
+    "id": 0,
+    "transactionType": "Buy",
+    "createdAt": "12 january 2022",
+    "symbol": "BTC",
+    "status": "Pending",
+    "address": "0898hshiw36...",
+    "balance": "0.2231345",
+    "usdBalance": "11,032.24"
+  },
+  {
+    "id": 1,
+    "transactionType": "Buy",
+    "createdAt": "14 january 2022",
+    "symbol": "BTC",
+    "status": "Pending",
+    "address": "0898hshiw36...",
+    "balance": "0.2331345",
+    "usdBalance": "21,032.24"
+  },
+  {
+    "id": 2,
+    "transactionType": "Sell",
+    "createdAt": "15 january 2022",
+    "symbol": "BTC",
+    "status": "Pending",
+    "address": "0898hshiw36...",
+    "balance": "0.531345",
+    "usdBalance": "65,032.24"
+  },
+  {
+    "id": 3,
+    "transactionType": "Buy",
+    "createdAt": "12 january 2022",
+    "symbol": "BTC",
+    "status": "Pending",
+    "address": "0898hshiw36...",
+    "balance": "0.7531345",
+    "usdBalance": "68,032.24"
+  }
+]

@@ -5,12 +5,13 @@ services:
     image: mysql:latest
     container_name: coin-mysql-db
     ports:
-     - "3306:3306"  
+     - "3308:3306"
     restart: always
     environment:
       MYSQL_ROOT_PASSWORD: 123456
       MYSQL_DATABASE: coin-mysql
-      # Server: localhost
+      MYSQL_USER: admin
+      MYSQL_PASSWORD: 123456coin
     command:
       - --character-set-server=utf8mb4
     volumes:

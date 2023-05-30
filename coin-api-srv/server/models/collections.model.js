@@ -1,4 +1,5 @@
 
+
 export default (sequelize, DataTypes) => {
     const Collections = sequelize.define(
         'collections',
