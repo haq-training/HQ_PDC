@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="13669f56-d155-4678-9e0b-76f75b1907ab" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-    </list>
+    <list default="true" id="13669f56-d155-4678-9e0b-76f75b1907ab" name="Default Changelist" comment="redme" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -85,7 +83,14 @@
       <option name="project" value="LOCAL" />
       <updated>1685429773912</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="redme">
+      <created>1685456855102</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1685456855102</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -107,6 +112,7 @@
     <MESSAGE value="fix đồng" />
     <MESSAGE value="fix đồng bộ" />
     <MESSAGE value="đồng bộ cơ sở dữ" />
-    <option name="LAST_COMMIT_MESSAGE" value="đồng bộ cơ sở dữ" />
+    <MESSAGE value="redme" />
+    <option name="LAST_COMMIT_MESSAGE" value="redme" />
   </component>
 </project>
