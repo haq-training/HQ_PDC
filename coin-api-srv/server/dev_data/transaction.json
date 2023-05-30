@@ -1,98 +1,42 @@
 [
-    {
-      "idCollection": 1,
-      "nameCollection": "Artbyck",
-      "slug": "nft-details",
-      "title": "Intutive Motion",
-      "coverImage": "CollectionCover1",
-      "numberOfArtwork": 3,
-      "image": "CollectionImage1",
-      "avatar": "User1",
-      "userName": "Cameronwilliamson",
-      "userSlug": "cameronwilliamson"
-    },
-    {
-      "idCollection": 2,
-      "nameCollection": "Artbyck",
-      "slug": "nft-details",
-      "title": "Intutive Motion",
-      "coverImage": "CollectionCover2",
-      "numberOfArtwork": 3,
-      "image": "CollectionImage2",
-      "avatar": "User2",
-      "userName": "Cameronwilliamson",
-      "userSlug": "cameronwilliamson"
-    },
-    {
-      "idCollection": 3,
-      "nameCollection": "Artbyck",
-      "slug": "nft-details",
-      "title": "Intutive Motion",
-      "coverImage": "CollectionCover3",
-      "numberOfArtwork": 3,
-      "image": "CollectionImage3",
-      "avatar": "User3",
-      "userName": "Cameronwilliamson",
-      "userSlug": "cameronwilliamson"
-    },
-    {
-      "idCollection": 4,
-      "nameCollection": "Artbyck",
-      "slug": "nft-details",
-      "title": "Intutive Motion",
-      "coverImage": "CollectionCover4",
-      "numberOfArtwork": 3,
-      "image": "CollectionImage4",
-      "avatar": "User4",
-      "userName": "Cameronwilliamson",
-      "userSlug": "cameronwilliamson"
-    },
-    {
-      "idCollection": 5,
-      "nameCollection": "Artbyck",
-      "slug": "nft-details",
-      "title": "Intutive Motion",
-      "coverImage": "CollectionCover5",
-      "numberOfArtwork": 3,
-      "image": "CollectionImage5",
-      "avatar": "User5",
-      "userName": "Cameronwilliamson",
-      "userSlug": "cameronwilliamson"
-    },
-    {
-      "idCollection": 6,
-      "nameCollection": "Artbyck",
-      "slug": "nft-details",
-      "title": "Intutive Motion",
-      "coverImage": "CollectionCover6",
-      "numberOfArtwork": 3,
-      "image": "CollectionImage6",
-      "avatar": "User4",
-      "userName": "Cameronwilliamson",
-      "userSlug": "cameronwilliamson"
-    },
-    {
-      "idCollection": 7,
-      "nameCollection": "Artbyck",
-      "slug": "nft-details",
-      "title": "Intutive Motion",
-      "coverImage": "CollectionCover7",
-      "numberOfArtwork": 3,
-      "image": "CollectionImage2",
-      "avatar": "User1",
-      "userName": "Cameronwilliamson",
-      "userSlug": "cameronwilliamson"
-    },
-    {
-      "idCollection": 8,
-      "nameCollection": "Artbyck",
-      "slug": "nft-details",
-      "title": "Intutive Motion",
-      "coverImage": "CollectionCover8",
-      "numberOfArtwork": 3,
-      "image": "CollectionImage1",
-      "avatar": "User2",
-      "userName": "Cameronwilliamson",
-      "userSlug": "cameronwilliamson"
-    }
-  ]
+  {
+    "id": 0,
+    "transactionType": "Buy",
+    "createdAt": "12 january 2022",
+    "symbol": "BTC",
+    "status": "Pending",
+    "address": "0898hshiw36...",
+    "balance": "0.2231345",
+    "usdBalance": "11,032.24"
+  },
+  {
+    "id": 1,
+    "transactionType": "Buy",
+    "createdAt": "14 january 2022",
+    "symbol": "BTC",
+    "status": "Pending",
+    "address": "0898hshiw36...",
+    "balance": "0.2331345",
+    "usdBalance": "21,032.24"
+  },
+  {
+    "id": 2,
+    "transactionType": "Sell",
+    "createdAt": "15 january 2022",
+    "symbol": "BTC",
+    "status": "Pending",
+    "address": "0898hshiw36...",
+    "balance": "0.531345",
+    "usdBalance": "65,032.24"
+  },
+  {
+    "id": 3,
+    "transactionType": "Buy",
+    "createdAt": "12 january 2022",
+    "symbol": "BTC",
+    "status": "Pending",
+    "address": "0898hshiw36...",
+    "balance": "0.7531345",
+    "usdBalance": "68,032.24"
+  }
+]

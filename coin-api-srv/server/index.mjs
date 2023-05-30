@@ -3,9 +3,11 @@ import { createServer } from "http";
 import bodyParser from "body-parser";
 const app = express();
 import fs from "fs";
-import cron from 'cron';
-import axios from 'axios';
-import { Sequelize ,DataTypes} from "sequelize";
+// import cron from 'cron';
+// import axios from 'axios';
+// import { Sequelize ,DataTypes} from "sequelize";
+
+import { syncDatabase } from "./loader/mysql.js";
 import routerCoin from './routers/coin.router.js';
 import routerUsers from './routers/users.router.js';
 import routerConversion from './routers/conversion.router.js';
@@ -16,7 +18,7 @@ import routerTransaction from './routers/transaction.router.js';
 //   host: 'localhost',
 //   dialect: 'mysql'
 // });
-
+//
 // const Coin = sequelize.define('coin', {
 //   id: {
 //     type: DataTypes.STRING,
@@ -99,7 +101,7 @@ import routerTransaction from './routers/transaction.router.js';
 //   tableName: 'coin',
 //   timestamps: false
 // });
-
+//
 // const Conversion = sequelize.define('conversion', {
 //   coin_id: {
 //     type: DataTypes.STRING,
@@ -162,17 +164,17 @@ import routerTransaction from './routers/transaction.router.js';
 //   tableName: 'conversion',
 //   timestamps: false
 // });
-
-
+//
+//
 // const job = new cron.CronJob('0 */2 * * * *', async () => {
 //   try {
 //     const response = await axios.get('https://min-api.cryptocompare.com/data/top/totaltoptiervol?ascending=true&assetClass=ALL&[%E2%80%A6]tps:%2F%2Fwww.cryptocompare.com&limit=20&page=0&tsym=USD');
 //     const data = response.data.Data;
-
+//
 //     if (data.length > 0) {
 //       const coins = [];
 //       const conversions = [];
-
+//
 //       for (const item of data) {
 //         const coin = {
 //           id: item.CoinInfo.Id,
@@ -195,7 +197,7 @@ import routerTransaction from './routers/transaction.router.js';
 //           technology_adoption_rating: typeof item.CoinInfo.TechnologyAdoptionRating === 'string' ? item.CoinInfo.TechnologyAdoptionRating : '',
 //           market_performance_rating: typeof item.CoinInfo.MarketPerformanceRating === 'string' ? item.CoinInfo.MarketPerformanceRating : ''
 //         };
-
+//
 //         const conversion = {
 //           coin_id: item.CoinInfo.Id,
 //           conversion: item.ConversionInfo.Conversion,
@@ -212,21 +214,21 @@ import routerTransaction from './routers/transaction.router.js';
 //           raw_data: item.ConversionInfo.RAW[0,1],
 //           direct_pair_available: item.ConversionInfo.DirectPairAvailable,
 //         };
-        
+//
 //         coins.push(coin);
 //         conversions.push(conversion);
-        
+//
 //         }
-      
+//
 //         if (coins.length > 0) {
 //           await Coin.bulkCreate(coins, { ignoreDuplicates: true });
 //         }
-  
+//
 //         // Thêm bản ghi chỉ khi không có dữ liệu trong bảng Conversion
 //         if (conversions.length > 0) {
 //           await Conversion.bulkCreate(conversions, { ignoreDuplicates: true });
 //         }
-  
+//
 //         console.log(`Inserted data into Coin and Conversion tables for coins.`);
 //       } else {
 //         console.log('No data found.');
@@ -235,16 +237,23 @@ import routerTransaction from './routers/transaction.router.js';
 //       console.log(error);
 //     }
 //   });
-  
+//
 //   job.start();
 
 
-
-fs.readFileSync("./nodemon.json", "utf8", function (err, data) {
+fs.readFileSync("./nodemon.json", "utf8", function (error, data) {
   if (error) {
     console.log(error);
   }
   return JSON.parse(data);
+});
+
+async function startServer() {
+  await Promise.all([syncDatabase()]);
+}
+
+startServer().catch((error) => {
+  console.error('Unable start server: ', error);
 });
 
 const httpServer = createServer(app);
