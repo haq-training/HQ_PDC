@@ -91,7 +91,7 @@ const startDataInsertion = async () => {
   }
 };
 
-const job = new cron.CronJob('0 */2 * * * *', startDataInsertion);
+const job = new cron.CronJob('0 0 */2 * * *', startDataInsertion);
 job.start();
 
 
