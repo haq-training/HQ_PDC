@@ -29,7 +29,7 @@ async function startServer() {
   await app.use("/collections", routerCollections);
   await app.use("/transaction", routerTransaction);
 
-  await httpServer.listen(3005);
+  await httpServer.listen(3006);
 }
 
 startServer().catch((error) => {

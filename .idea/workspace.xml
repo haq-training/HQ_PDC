@@ -1,7 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="13669f56-d155-4678-9e0b-76f75b1907ab" name="Default Changelist" comment="redme" />
+    <list default="true" id="13669f56-d155-4678-9e0b-76f75b1907ab" name="Default Changelist" comment="fix looix">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/coin-api-srv/server/index.mjs" beforeDir="false" afterPath="$PROJECT_DIR$/coin-api-srv/server/index.mjs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/coin-api-srv/server/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/coin-api-srv/server/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/coin-api-srv/server/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/coin-api-srv/server/package.json" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -10,7 +15,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="feature/HP" />
+        <entry key="$PROJECT_DIR$" value="feature/register+" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -33,7 +38,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="js.linters.configure.manually.selectedeslint" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../ssm-api-srv" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.standard" value="true" />
     <property name="node.js.selected.package.eslint" value="$PROJECT_DIR$/coin-api-srv/server/node_modules/eslint" />
@@ -61,6 +66,8 @@
       <workItem from="1685076336797" duration="8959000" />
       <workItem from="1685091294889" duration="7369000" />
       <workItem from="1685412897443" duration="11961000" />
+      <workItem from="1685500292151" duration="6417000" />
+      <workItem from="1685525677325" duration="115000" />
     </task>
     <task id="LOCAL-00001" summary="fix đồng">
       <created>1685416144415</created>
