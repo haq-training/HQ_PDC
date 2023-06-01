@@ -11,7 +11,7 @@ const transaction = JSON.parse(fs.readFileSync('dev_data/transaction.json'));
 
 export const sequelize = new Sequelize( database.db_name,database.db_user, database.db_password,{ ...database.option});
 
-const models = initModels(sequelize);
+export const models = initModels(sequelize);
 
 const insertData = async () => {
   try {
@@ -115,4 +115,3 @@ export const syncDatabase = async () => {
   }
 };
 
-export * as coinDB from '../models/init-models.js';

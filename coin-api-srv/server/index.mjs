@@ -22,14 +22,12 @@ async function startServer() {
   const httpServer = createServer(app);
   await app.use(bodyParser.json());
   await app.use(bodyParser.urlencoded({ extended: true }));
-
   await app.use("/coin", routerCoin);
   await app.use("/users", routerUsers);
   await app.use("/conversion", routerConversion);
   await app.use("/collections", routerCollections);
   await app.use("/transaction", routerTransaction);
-
-  await httpServer.listen(3005);
+  await httpServer.listen(4003);
 }
 
 startServer().catch((error) => {
