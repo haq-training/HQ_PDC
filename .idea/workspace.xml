@@ -1,11 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="13669f56-d155-4678-9e0b-76f75b1907ab" name="Default Changelist" comment="fix looix">
+    <list default="true" id="13669f56-d155-4678-9e0b-76f75b1907ab" name="Default Changelist" comment="dong bo">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/coin-api-srv/docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/coin-api-srv/docker-compose.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/coin-api-srv/server/index.mjs" beforeDir="false" afterPath="$PROJECT_DIR$/coin-api-srv/server/index.mjs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/coin-api-srv/server/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/coin-api-srv/server/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/coin-api-srv/server/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/coin-api-srv/server/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/coin-api-srv/server/loader/mysql.js" beforeDir="false" afterPath="$PROJECT_DIR$/coin-api-srv/server/loader/mysql.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/coin-api-srv/server/models/users.model.js" beforeDir="false" afterPath="$PROJECT_DIR$/coin-api-srv/server/models/users.model.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/coin-api-srv/server/routers/users.router.js" beforeDir="false" afterPath="$PROJECT_DIR$/coin-api-srv/server/routers/users.router.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/coin-api-srv/server/services/coin.service.js" beforeDir="false" afterPath="$PROJECT_DIR$/coin-api-srv/server/services/coin.service.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/coin-api-srv/server/services/collections.service.js" beforeDir="false" afterPath="$PROJECT_DIR$/coin-api-srv/server/services/collections.service.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/coin-api-srv/server/services/conversion.service.js" beforeDir="false" afterPath="$PROJECT_DIR$/coin-api-srv/server/services/conversion.service.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/coin-api-srv/server/services/transaction.service.js" beforeDir="false" afterPath="$PROJECT_DIR$/coin-api-srv/server/services/transaction.service.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/coin-api-srv/server/services/users.service.js" beforeDir="false" afterPath="$PROJECT_DIR$/coin-api-srv/server/services/users.service.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -15,10 +22,18 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="feature/register+" />
+        <entry key="$PROJECT_DIR$" value="feature/HP" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitSEFilterConfiguration">
+    <file-type-list>
+      <filtered-out-file-type name="LOCAL_BRANCH" />
+      <filtered-out-file-type name="REMOTE_BRANCH" />
+      <filtered-out-file-type name="TAG" />
+      <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
+    </file-type-list>
   </component>
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$PROJECT_DIR$/coin-api-srv/server/index.mjs" root0="FORCE_HIGHLIGHTING" />
@@ -66,8 +81,9 @@
       <workItem from="1685076336797" duration="8959000" />
       <workItem from="1685091294889" duration="7369000" />
       <workItem from="1685412897443" duration="11961000" />
-      <workItem from="1685500292151" duration="6417000" />
-      <workItem from="1685525677325" duration="115000" />
+      <workItem from="1685528589356" duration="681000" />
+      <workItem from="1685584593681" duration="5215000" />
+      <workItem from="1685591800066" duration="10907000" />
     </task>
     <task id="LOCAL-00001" summary="fix đồng">
       <created>1685416144415</created>
@@ -120,6 +136,7 @@
     <MESSAGE value="fix đồng bộ" />
     <MESSAGE value="đồng bộ cơ sở dữ" />
     <MESSAGE value="redme" />
-    <option name="LAST_COMMIT_MESSAGE" value="redme" />
+    <MESSAGE value="dong bo" />
+    <option name="LAST_COMMIT_MESSAGE" value="dong bo" />
   </component>
 </project>

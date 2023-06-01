@@ -7,4 +7,12 @@ routerUsers.get('/', (req, res) => {
     return service.liste(req, res);
 });
 
+routerUsers.post("/register", (req, res) => {
+    return service.register(req, res);
+  });
+
+routerUsers.get("/login", (req, res) => {
+  return service.login(req, res);
+});
+
 export default routerUsers;
