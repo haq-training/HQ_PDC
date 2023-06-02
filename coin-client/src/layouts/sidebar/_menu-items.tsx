@@ -25,4 +25,9 @@ export const menuItems = [
     icon: <ProfileIcon />,
     href: routes.profile,
   },
+  {
+    name: 'Register',
+    icon: <ProfileIcon />,
+    href: routes.register,
+  },
 ];

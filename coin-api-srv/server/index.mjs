@@ -1,5 +1,6 @@
 import express from 'express';
 import { createServer } from "http";
+import session from 'express-session';
 import bodyParser from "body-parser";
 import fs from "fs";
 import { syncDatabase } from "./loader/mysql.js";
@@ -17,6 +18,7 @@ fs.readFileSync("./nodemon.json", "utf8", function (error, data) {
 });
 
 async function startServer() {
+
   const app = express();
   await Promise.all([syncDatabase()]);
   const httpServer = createServer(app);
@@ -27,6 +29,12 @@ async function startServer() {
   await app.use("/conversion", routerConversion);
   await app.use("/collections", routerCollections);
   await app.use("/transaction", routerTransaction);
+  await app.use(session({
+    secret: 'your-secret-key',
+    resave: false,
+    saveUninitialized: false,
+    routerUsers
+  }));
   await httpServer.listen(4003);
 }
 

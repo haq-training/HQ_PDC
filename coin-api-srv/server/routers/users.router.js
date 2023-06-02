@@ -15,4 +15,8 @@ routerUsers.get("/login", (req, res) => {
   return service.login(req, res);
 });
 
+routerUsers.post("/logout", (req, res) => {
+  return service.logout(req, res);
+});
+
 export default routerUsers;

@@ -1,5 +1,4 @@
 import bcrypt from "bcrypt";
-import passport from "passport";
 import { models } from '../loader/mysql.js';
 
 class usersService {
@@ -65,6 +64,17 @@ class usersService {
       res.status(401).json({ error: "User does not exist" });
     }
   };
+
+  logout = (req, res) => {
+    req.session.destroy((err) => {
+      if (err) {
+        res.status(500).json({ error: err.message });
+      } else {
+        res.send('Logged out successfully');
+      }
+    });
+  };
+
 
 }
 
