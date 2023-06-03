@@ -1,4 +1,5 @@
 const routes = {
+  register:'/register',
   home: '/',
   retro: '/retro',
   nftDetails: '/nft-details',
@@ -11,7 +12,6 @@ const routes = {
   portfolio: '/profile?view=portfolio',
   history: '/profile?view=history',
   classic: '/classic',
-  register: '/register',
 };
 
 export default routes;
