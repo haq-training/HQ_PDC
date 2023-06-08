@@ -7,7 +7,8 @@ import ActiveLink from '@/components/ui/links/active-link';
 import { ChevronForward } from '@/components/icons/chevron-forward';
 import { PowerIcon } from '@/components/icons/power';
 import { useModal } from '@/components/modal-views/context';
-import { useContext } from 'react';
+import React, { useContext } from 'react';
+import Link from "next/link";
 
 export default function WalletConnect({
   btnClassName,
@@ -84,11 +85,8 @@ export default function WalletConnect({
           </div>
         </div>
       ) : (
-        <Button
-          onClick={() => openModal('WALLET_CONNECT_VIEW')}
-          className={cn('shadow-main hover:shadow-large', btnClassName)}
-        >
-          CONNECT
+        <Button>
+          <Link href="/auth/register">Đăng ký</Link>
         </Button>
       )}
     </>

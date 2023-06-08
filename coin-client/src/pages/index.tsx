@@ -7,6 +7,7 @@ import ModernScreen from '@/components/screens/modern-screen';
 import MinimalScreen from '@/components/screens/minimal-screen';
 import ClassicScreen from '@/components/screens/classic-screen';
 import RetroScreen from '@/components/screens/retro-screen';
+import LoginPage from '@/pages/auth/login';
 
 export const getStaticProps: GetStaticProps = async () => {
   return {
@@ -18,6 +19,7 @@ const HomePage: NextPageWithLayout<
   InferGetStaticPropsType<typeof getStaticProps>
 > = () => {
   const { layout } = useLayout();
+  const isLoggedIn = false;
 
   // render minimal screen/page
   if (layout === LAYOUT_OPTIONS.MINIMAL) {
@@ -33,7 +35,14 @@ const HomePage: NextPageWithLayout<
   if (layout === LAYOUT_OPTIONS.RETRO) {
     return <RetroScreen />;
   }
-
+  //
+  // if (layout === LAYOUT_OPTIONS.MODERN) {
+  //   return <ModernScreen />;
+  // }
+  //
+  if (!isLoggedIn) {
+    return <LoginPage />;
+  }
   // render default screen/page which is modern
   return <ModernScreen />;
 };

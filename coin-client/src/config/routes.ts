@@ -1,5 +1,6 @@
 const routes = {
   register:'/register',
+  login :'/login',
   home: '/',
   retro: '/retro',
   nftDetails: '/nft-details',
