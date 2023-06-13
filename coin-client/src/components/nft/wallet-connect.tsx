@@ -11,9 +11,9 @@ import React, { useContext } from 'react';
 import Link from "next/link";
 
 export default function WalletConnect({
-  btnClassName,
-  anchorClassName,
-}: {
+                                        btnClassName,
+                                        anchorClassName,
+                                      }: {
   btnClassName?: string;
   anchorClassName?: string;
 }) {
@@ -58,7 +58,6 @@ export default function WalletConnect({
                           </span>
                           <span className="rounded-lg bg-gray-100 px-2 py-1 text-sm tracking-tighter dark:bg-gray-800">
                             {address.slice(0, 6)}
-                            {'...'}
                             {address.slice(address.length - 6)}
                           </span>
                         </div>
@@ -85,9 +84,20 @@ export default function WalletConnect({
           </div>
         </div>
       ) : (
-        <Button>
-          <Link href="/auth/register">Đăng ký</Link>
-        </Button>
+        <div className="flex">
+          <Button
+            onClick={() => openModal('WALLET_CONNECT_VIEW')}
+            className={cn('shadow-main hover:shadow-large', btnClassName)}
+          >
+            CONNECT
+          </Button>
+          <Link href="/auth/login">
+          <Button className="text-white-500 ml-2">
+           Đăng Xuất
+          </Button>
+          </Link>
+        </div>
+
       )}
     </>
   );

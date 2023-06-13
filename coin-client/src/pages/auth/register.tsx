@@ -1,7 +1,6 @@
-import { useRouter } from 'next/router';
+import axios from 'axios';
 import Link from 'next/link';
-import React, { useReducer, useEffect } from 'react';
-import { createStyles, makeStyles, Theme } from '@material-ui/core/styles';
+import React, { useReducer } from 'react';
 
 import TextField from '@material-ui/core/TextField';
 import Card from '@material-ui/core/Card';
@@ -10,29 +9,6 @@ import CardActions from '@material-ui/core/CardActions';
 import CardHeader from '@material-ui/core/CardHeader';
 import Button from '@/components/ui/button';
 
-const useStyles = makeStyles((theme: Theme) =>
-  createStyles({
-    container: {
-      display: 'flex',
-      flexWrap: 'wrap',
-      width: 400,
-      margin: `${theme.spacing(0)} auto`,
-      marginTop: theme.spacing(15),
-    },
-    loginBtn: {
-      marginTop: theme.spacing(2),
-      flexGrow: 1
-    },
-    header: {
-      textAlign: 'center',
-      background: '#212121',
-      color: '#fff'
-    },
-    card: {
-      marginTop: theme.spacing(10),
-    }
-  })
-);
 
 //state type
 
@@ -103,21 +79,45 @@ const reducer = (state: State, action: Action): State => {
       };
   }
 };
+
+
+const getUsers = async () => {
+  try {
+    const response = await axios.get('http://localhost:4003/users');
+    console.log(response.data);
+    // Xử lý dữ liệu trả về từ API nếu cần
+  } catch (error) {
+    console.error('Error:', error);
+    // Xử lý lỗi nếu có
+  }
+};
+
+getUsers();
+
+
 function RegisterPage() {
-  const classes = useStyles();
+
   const [state, dispatch] = useReducer(reducer, initialState);
 
-  const handleRegister = () => {
+
+  const handleRegister = async () => {
     if (state.username.trim() && state.password.trim() && state.confirmPassword.trim()) {
-      if (state.password === state.confirmPassword) {
+      try {
+        const response = await axios.post('http://localhost:4003/users/register', {
+          username: state.username,
+          password: state.password,
+          // Thêm các thông tin khác nếu cần
+        });
+        console.log(response.data);
         dispatch({
           type: 'registerSuccess',
           payload: 'Registration Successful'
         });
-      } else {
+      } catch (error) {
+        console.error(error);
         dispatch({
           type: 'registerFailed',
-          payload: 'Password and Confirm Password do not match'
+          payload: 'Registration Failed'
         });
       }
     } else {
@@ -127,6 +127,7 @@ function RegisterPage() {
       });
     }
   };
+
 
   const handleKeyPress = (event: React.KeyboardEvent) => {
     if (event.keyCode === 13 || event.which === 13) {
@@ -160,9 +161,9 @@ function RegisterPage() {
 
 
   return (
-    <form className={classes.container} noValidate autoComplete="off">
-      <Card className={classes.card}>
-        <CardHeader className={classes.header} title="Đăng ký" />
+    <form className="flex flex-wrap w-400 mx-auto justify-center" noValidate autoComplete="off">
+      <Card className="mt-10">
+        <CardHeader className="text-center bg-gray-900 text-white" title="Đăng Ký" />
         <CardContent>
           <div>
             <TextField
@@ -203,15 +204,16 @@ function RegisterPage() {
           </div>
         </CardContent>
         <CardActions>
+          <Link href="/auth/login" >
           <Button
             size="large"
-            className={classes.loginBtn}
+            className="mt-2 flex-grow ml-60"
             onClick={handleRegister}
             disabled={!state.username || !state.password || !state.confirmPassword}
           >
-            <Link href="/auth/login">Đăng Ký</Link>
+            Đăng Ký
           </Button>
-
+          </Link>
         </CardActions>
       </Card>
     </form>
