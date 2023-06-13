@@ -1,19 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="13669f56-d155-4678-9e0b-76f75b1907ab" name="Default Changelist" comment="dong bo">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/coin-api-srv/docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/coin-api-srv/docker-compose.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/coin-api-srv/server/index.mjs" beforeDir="false" afterPath="$PROJECT_DIR$/coin-api-srv/server/index.mjs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/coin-api-srv/server/loader/mysql.js" beforeDir="false" afterPath="$PROJECT_DIR$/coin-api-srv/server/loader/mysql.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/coin-api-srv/server/models/users.model.js" beforeDir="false" afterPath="$PROJECT_DIR$/coin-api-srv/server/models/users.model.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/coin-api-srv/server/routers/users.router.js" beforeDir="false" afterPath="$PROJECT_DIR$/coin-api-srv/server/routers/users.router.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/coin-api-srv/server/services/coin.service.js" beforeDir="false" afterPath="$PROJECT_DIR$/coin-api-srv/server/services/coin.service.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/coin-api-srv/server/services/collections.service.js" beforeDir="false" afterPath="$PROJECT_DIR$/coin-api-srv/server/services/collections.service.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/coin-api-srv/server/services/conversion.service.js" beforeDir="false" afterPath="$PROJECT_DIR$/coin-api-srv/server/services/conversion.service.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/coin-api-srv/server/services/transaction.service.js" beforeDir="false" afterPath="$PROJECT_DIR$/coin-api-srv/server/services/transaction.service.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/coin-api-srv/server/services/users.service.js" beforeDir="false" afterPath="$PROJECT_DIR$/coin-api-srv/server/services/users.service.js" afterDir="false" />
-    </list>
+    <list default="true" id="13669f56-d155-4678-9e0b-76f75b1907ab" name="Default Changelist" comment="dong bo" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -59,7 +47,7 @@
     <property name="node.js.selected.package.eslint" value="$PROJECT_DIR$/coin-api-srv/server/node_modules/eslint" />
     <property name="node.js.selected.package.standard" value="" />
     <property name="nodejs_package_manager_path" value="npm" />
-    <property name="ts.external.directory.path" value="$APPLICATION_HOME_DIR$/plugins/JavaScriptLanguage/jsLanguageServicesImpl/external" />
+    <property name="ts.external.directory.path" value="$PROJECT_DIR$/coin-client/node_modules/typescript/lib" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
