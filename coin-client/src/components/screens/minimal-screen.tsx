@@ -24,6 +24,23 @@ const topPoolsLimit = (breakpoint: string) => {
 
 export default function MinimalScreen() {
 
+  useEffect(() => {
+    fetchCoinData();
+  }, []);
+
+  const endpoint = `${process.env.NEXT_PUBLIC_REST_API_ENDPOINT}/coin`;
+  console.log('endpoint',endpoint)
+
+  async function fetchCoinData() {
+    console.log('Fetching coin data');
+    try {
+      const response = await httpClient.get<any>(endpoint);
+      console.log('Response:', response);
+    } catch (error) {
+      console.error(error);
+    }
+  }
+
   const [limit, setLimit] = useState(4);
   const breakpoint = useBreakpoint();
   useEffect(() => {
