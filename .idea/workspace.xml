@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="13669f56-d155-4678-9e0b-76f75b1907ab" name="Default Changelist" comment="man hinh register + login" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="feature/register+logout" />
+      </map>
+    </option>
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitSEFilterConfiguration">
+    <file-type-list>
+      <filtered-out-file-type name="LOCAL_BRANCH" />
+      <filtered-out-file-type name="REMOTE_BRANCH" />
+      <filtered-out-file-type name="TAG" />
+      <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
+    </file-type-list>
+  </component>
+  <component name="ProblemsViewState">
+    <option name="selectedIndex" value="1" />
+  </component>
+  <component name="ProjectId" id="2QEEUQOgohtOXdqevHv6BvTiSMJ" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="js.linters.configure.manually.selectedeslint" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../sm-client" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.detected.package.standard" value="true" />
+    <property name="node.js.selected.package.eslint" value="$PROJECT_DIR$/coin-client/node_modules/eslint" />
+    <property name="node.js.selected.package.standard" value="" />
+    <property name="nodejs_package_manager_path" value="npm" />
+    <property name="ts.external.directory.path" value="$PROJECT_DIR$/coin-client/node_modules/typescript/lib" />
+    <property name="vue.rearranger.settings.migration" value="true" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/coin-client" />
+      <recent name="$PROJECT_DIR$/coin-client/src" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/coin-client/src/data/utils" />
+    </key>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="13669f56-d155-4678-9e0b-76f75b1907ab" name="Default Changelist" comment="" />
+      <created>1684910362961</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1684910362961</updated>
+      <workItem from="1684910366461" duration="50000" />
+      <workItem from="1684922938247" duration="3612000" />
+      <workItem from="1684985920680" duration="2402000" />
+      <workItem from="1684988873304" duration="552000" />
+      <workItem from="1685025554582" duration="1452000" />
+      <workItem from="1685067039582" duration="1171000" />
+      <workItem from="1685068426455" duration="5694000" />
+      <workItem from="1685074484952" duration="610000" />
+      <workItem from="1685076336797" duration="8959000" />
+      <workItem from="1685091294889" duration="7369000" />
+      <workItem from="1685412897443" duration="11961000" />
+      <workItem from="1685528589356" duration="681000" />
+      <workItem from="1685584593681" duration="5215000" />
+      <workItem from="1685591800066" duration="10907000" />
+      <workItem from="1685671391187" duration="12258000" />
+      <workItem from="1685959204897" duration="684000" />
+      <workItem from="1685975961390" duration="5165000" />
+      <workItem from="1686017398622" duration="25920000" />
+      <workItem from="1686061111808" duration="170000" />
+      <workItem from="1686062623402" duration="1200000" />
+      <workItem from="1686103252492" duration="18759000" />
+      <workItem from="1686127985685" duration="354000" />
+      <workItem from="1686128596103" duration="3518000" />
+      <workItem from="1686147757702" duration="1205000" />
+      <workItem from="1686189336782" duration="11278000" />
+      <workItem from="1686233739267" duration="1206000" />
+      <workItem from="1686292604472" duration="11945000" />
+      <workItem from="1686535032063" duration="18783000" />
+      <workItem from="1686559775226" duration="7056000" />
+      <workItem from="1686581606632" duration="3699000" />
+      <workItem from="1686586354132" duration="1745000" />
+      <workItem from="1686621930081" duration="1293000" />
+      <workItem from="1686627130893" duration="1828000" />
+      <workItem from="1686629141719" duration="13443000" />
+      <workItem from="1686651311583" duration="2485000" />
+      <workItem from="1686666937120" duration="1355000" />
+      <workItem from="1686707938843" duration="9390000" />
+      <workItem from="1686717800955" duration="18098000" />
+      <workItem from="1686796008828" duration="15732000" />
+      <workItem from="1686838391404" duration="5268000" />
+      <workItem from="1686880610031" duration="18249000" />
+      <workItem from="1686906924064" duration="6633000" />
+      <workItem from="1687104803842" duration="618000" />
+      <workItem from="1687139533676" duration="2381000" />
+    </task>
+    <task id="LOCAL-00001" summary="fix đồng">
+      <created>1685416144415</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1685416144415</updated>
+    </task>
+    <task id="LOCAL-00002" summary="fix đồng bộ">
+      <created>1685429269210</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1685429269210</updated>
+    </task>
+    <task id="LOCAL-00003" summary="đồng bộ cơ sở dữ">
+      <created>1685429773912</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1685429773912</updated>
+    </task>
+    <task id="LOCAL-00004" summary="redme">
+      <created>1685456855102</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1685456855102</updated>
+    </task>
+    <task id="LOCAL-00005" summary="man hinh register + login">
+      <created>1687160080533</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1687160080533</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="fix đồng" />
+    <MESSAGE value="fix đồng bộ" />
+    <MESSAGE value="đồng bộ cơ sở dữ" />
+    <MESSAGE value="redme" />
+    <MESSAGE value="dong bo" />
+    <MESSAGE value="man hinh register + login" />
+    <option name="LAST_COMMIT_MESSAGE" value="man hinh register + login" />
+  </component>
+</project>
