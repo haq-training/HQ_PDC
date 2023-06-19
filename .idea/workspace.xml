@@ -1,21 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="13669f56-d155-4678-9e0b-76f75b1907ab" name="Default Changelist" comment="man hinh register + login">
-      <change afterPath="$PROJECT_DIR$/coin-client/src/pages/auth/index.tsx" afterDir="false" />
+    <list default="true" id="13669f56-d155-4678-9e0b-76f75b1907ab" name="Default Changelist" comment="get ]coin">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/coin-client/.env.local.example" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/coin-client/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/coin-client/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/coin-client/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/coin-client/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/coin-client/src/components/auth/registerFrom.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/coin-client/src/components/nft/wallet-connect.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/coin-client/src/components/nft/wallet-connect.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/coin-client/src/components/screens/minimal-screen.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/coin-client/src/components/screens/minimal-screen.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/coin-client/src/data/utils/client.ts" beforeDir="false" afterPath="$PROJECT_DIR$/coin-client/src/data/utils/client.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/coin-client/src/layouts/_minimal.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/coin-client/src/layouts/_minimal.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/coin-client/src/pages/auth/login.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/coin-client/src/pages/auth/login.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/coin-client/src/pages/auth/register.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/coin-client/src/pages/auth/register.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/coin-client/src/pages/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/coin-client/src/pages/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/coin-client/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/coin-client/yarn.lock" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -25,7 +12,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="main" />
+        <entry key="$PROJECT_DIR$" value="feature/coin" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
