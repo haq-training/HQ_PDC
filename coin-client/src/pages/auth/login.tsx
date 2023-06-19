@@ -1,13 +1,17 @@
 import Link from 'next/link';
-import React, { useReducer, useEffect } from 'react';
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import { useRouter } from 'next/router';
+import React, { useReducer,useEffect } from 'react';
 import TextField from '@material-ui/core/TextField';
 import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
 import CardActions from '@material-ui/core/CardActions';
 import CardHeader from '@material-ui/core/CardHeader';
 import Button from '@/components/ui/button';
+import routes from '@/config/routes';
+import httpClient from '@/data/utils/client';
 
-// State type
 type State = {
     username: string;
     password: string;
@@ -73,35 +77,54 @@ const reducer = (state: State, action: Action): State => {
 
 function LoginPage() {
     const [state, dispatch] = useReducer(reducer, initialState);
+    const router = useRouter();
 
     useEffect(() => {
-        if (state.username.trim() && state.password.trim()) {
-            dispatch({
-                type: 'setIsButtonDisabled',
-                payload: false,
-            });
-        } else {
-            dispatch({
-                type: 'setIsButtonDisabled',
-                payload: true,
-            });
+        const token = localStorage.getItem('token');
+        if (token) {
+            router.push('/');
         }
-    }, [state.username, state.password]);
+    }, []);
 
-    const handleLogin = () => {
-        if (state.username === 'admin' && state.password === '1234') {
-            dispatch({
-                type: 'loginSuccess',
-                payload: 'Login Successfully',
-            });
+    const handleLogin = async () => {
+        if (state.username.trim() && state.password.trim()) {
+            try {
+                const response = await httpClient.post('/users/login', {
+                    userName: state.username,
+                    userPass: state.password,
+                });
+                const token = response.token;
+                if (token) {
+                    localStorage.setItem('token', token);
+                    dispatch({
+                        type: 'loginSuccess',
+                        payload: 'Login Successfully',
+                    });
+                        router.push(routes.home);
+                        toast.success('Login Successfully');
+                } else {
+                    dispatch({
+                        type: 'loginFailed',
+                        payload: 'Incorrect username or password',
+                    });
+                    toast.error('Login Failed');
+                }
+            } catch (error) {
+                console.error(error);
+                dispatch({
+                    type: 'loginFailed',
+                    payload: 'Login Failed',
+                });
+                toast.warning('Incorrect username or password');
+            }
         } else {
             dispatch({
                 type: 'loginFailed',
-                payload: 'Incorrect username or password',
+                payload: 'Please fill in all fields',
             });
+            toast.info('Please fill in all fields');
         }
     };
-
 
     const handleKeyPress = (event: React.KeyboardEvent) => {
         if (event.keyCode === 13 || event.which === 13) {
@@ -158,12 +181,12 @@ function LoginPage() {
               </CardContent>
               <CardActions className="flex flex-col">
                   <div className="mb-2 w-full">
-                      <Link href="/?layout=Minimal">
+                      <Link href="/">
                       <Button
                         size="large"
                         className="flex-grow w-full"
                         onClick={handleLogin}
-                        disabled={state.isButtonDisabled}
+                        disabled={!state.username || !state.password }
                       >
                          Đăng nhập
 

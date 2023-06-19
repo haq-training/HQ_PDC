@@ -19,6 +19,11 @@ export default function WalletConnect({
 }) {
   const { openModal } = useModal();
   const { address, disconnectWallet, balance } = useContext(WalletContext);
+
+    const handleLogout = () => {
+        localStorage.removeItem('token');
+        localStorage.removeItem('accessToken');
+    };
   return (
     <>
       {address ? (
@@ -92,7 +97,7 @@ export default function WalletConnect({
             CONNECT
           </Button>
           <Link href="/auth/login">
-          <Button className="text-white-500 ml-2">
+          <Button className="text-white-500 ml-2" onClick={handleLogout}>
            Đăng Xuất
           </Button>
           </Link>

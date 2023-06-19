@@ -1,134 +1,104 @@
-import axios from 'axios';
 import Link from 'next/link';
 import React, { useReducer } from 'react';
-
 import TextField from '@material-ui/core/TextField';
 import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
 import CardActions from '@material-ui/core/CardActions';
 import CardHeader from '@material-ui/core/CardHeader';
 import Button from '@/components/ui/button';
-
-
-//state type
+import httpClient from '@/data/utils/client';
 
 type State = {
-  username: string
-  password:  string
-  confirmPassword: string
-  isButtonDisabled: boolean
-  helperText: string
-  isError: boolean
+  username: string;
+  password: string;
+  isButtonDisabled: boolean;
+  helperText: string;
+  isError: boolean;
 };
 
 const initialState: State = {
   username: '',
   password: '',
-  confirmPassword: '',
   isButtonDisabled: true,
   helperText: '',
-  isError: false
+  isError: false,
 };
 
-type Action = { type: 'setUsername', payload: string }
-  | { type: 'setPassword', payload: string }
-  | { type: 'setConfirmPassword', payload: string }
-  | { type: 'setIsButtonDisabled', payload: boolean }
-  | { type: 'registerSuccess', payload: string }
-  | { type: 'registerFailed', payload: string }
-  | { type: 'setIsError', payload: boolean };
-
+type Action =
+    | { type: 'setUsername'; payload: string }
+    | { type: 'setPassword'; payload: string }
+    | { type: 'setIsButtonDisabled'; payload: boolean }
+    | { type: 'registerSuccess'; payload: string }
+    | { type: 'registerFailed'; payload: string }
+    | { type: 'setIsError'; payload: boolean };
 const reducer = (state: State, action: Action): State => {
   switch (action.type) {
     case 'setUsername':
       return {
         ...state,
-        username: action.payload
+        username: action.payload,
       };
     case 'setPassword':
       return {
         ...state,
-        password: action.payload
-      };
-    case 'setConfirmPassword':
-      return {
-        ...state,
-        confirmPassword: action.payload
+        password: action.payload,
       };
     case 'setIsButtonDisabled':
       return {
         ...state,
-        isButtonDisabled: action.payload
+        isButtonDisabled: action.payload,
       };
     case 'registerSuccess':
       return {
         ...state,
         helperText: action.payload,
-        isError: false
+        isError: false,
       };
     case 'registerFailed':
       return {
         ...state,
         helperText: action.payload,
-        isError: true
+        isError: true,
       };
     case 'setIsError':
       return {
         ...state,
-        isError: action.payload
+        isError: action.payload,
       };
+    default:
+      return state;
   }
+
 };
-
-
-const getUsers = async () => {
-  try {
-    const response = await axios.get('http://localhost:4003/users');
-    console.log(response.data);
-    // Xử lý dữ liệu trả về từ API nếu cần
-  } catch (error) {
-    console.error('Error:', error);
-    // Xử lý lỗi nếu có
-  }
-};
-
-getUsers();
-
 
 function RegisterPage() {
-
   const [state, dispatch] = useReducer(reducer, initialState);
 
-
   const handleRegister = async () => {
-    if (state.username.trim() && state.password.trim() && state.confirmPassword.trim()) {
+    if (state.username.trim() && state.password.trim()) {
       try {
-        const response = await axios.post('http://localhost:4003/users/register', {
-          username: state.username,
-          password: state.password,
-          // Thêm các thông tin khác nếu cần
+      await httpClient.post('/users/register', {
+          userName: state.username,
+          userPass: state.password,
         });
-        console.log(response.data);
         dispatch({
           type: 'registerSuccess',
-          payload: 'Registration Successful'
+          payload: 'Registration Successful',
         });
       } catch (error) {
         console.error(error);
         dispatch({
           type: 'registerFailed',
-          payload: 'Registration Failed'
+          payload: 'Registration Failed',
         });
       }
     } else {
       dispatch({
         type: 'registerFailed',
-        payload: 'Please fill in all fields'
+        payload: 'Please fill in all fields',
       });
     }
   };
-
-
   const handleKeyPress = (event: React.KeyboardEvent) => {
     if (event.keyCode === 13 || event.which === 13) {
       state.isButtonDisabled || handleRegister();
@@ -147,14 +117,6 @@ function RegisterPage() {
     (event) => {
       dispatch({
         type: 'setPassword',
-        payload: event.target.value
-      });
-    };
-
-  const handleConfirmPasswordChange: React.ChangeEventHandler<HTMLInputElement> =
-    (event) => {
-      dispatch({
-        type: 'setConfirmPassword',
         payload: event.target.value
       });
     };
@@ -189,18 +151,6 @@ function RegisterPage() {
               onChange={handlePasswordChange}
               onKeyPress={handleKeyPress}
             />
-            <TextField
-              error={state.isError}
-              fullWidth
-              id="confirmPassword"
-              type="password"
-              label="Confirm Password"
-              placeholder="Confirm Password"
-              margin="normal"
-              helperText={state.helperText}
-              onChange={handleConfirmPasswordChange}
-              onKeyPress={handleKeyPress}
-            />
           </div>
         </CardContent>
         <CardActions>
@@ -209,7 +159,7 @@ function RegisterPage() {
             size="large"
             className="mt-2 flex-grow ml-60"
             onClick={handleRegister}
-            disabled={!state.username || !state.password || !state.confirmPassword}
+            disabled={!state.username || !state.password }
           >
             Đăng Ký
           </Button>
