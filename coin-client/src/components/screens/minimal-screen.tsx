@@ -9,6 +9,7 @@ import { priceFeedData } from '@/data/static/price-feed';
 import { useBreakpoint } from '@/lib/hooks/use-breakpoint';
 //images
 import AuthorImage from '@/assets/images/author.jpg';
+import httpClient from '@/data/utils/client';
 
 const topPoolsLimit = (breakpoint: string) => {
   switch (breakpoint) {
@@ -22,6 +23,7 @@ const topPoolsLimit = (breakpoint: string) => {
 };
 
 export default function MinimalScreen() {
+
   const [limit, setLimit] = useState(4);
   const breakpoint = useBreakpoint();
   useEffect(() => {

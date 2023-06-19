@@ -1,49 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="13669f56-d155-4678-9e0b-76f75b1907ab" name="Default Changelist" comment="dong bo">
-      <change beforePath="$PROJECT_DIR$/coin-api-srv/.env" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/coin-api-srv/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/coin-api-srv/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/coin-api-srv/.idea/Criptic - React Next Web3 NFT Crypto Dashboard.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/coin-api-srv/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/coin-api-srv/.idea/modules.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/coin-api-srv/docker-compose.yml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/coin-api-srv/server/.eslintrc.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/coin-api-srv/server/.prettierignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/coin-api-srv/server/.prettierrc" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/coin-api-srv/server/Dockerfile" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/coin-api-srv/server/dev_data/Dump20230522/coin-mysql_coin.sql" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/coin-api-srv/server/dev_data/Dump20230522/coin-mysql_collections.sql" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/coin-api-srv/server/dev_data/Dump20230522/coin-mysql_conversion.sql" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/coin-api-srv/server/dev_data/Dump20230522/coin-mysql_transaction.sql" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/coin-api-srv/server/dev_data/Dump20230522/coin-mysql_users.sql" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/coin-api-srv/server/dev_data/collections.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/coin-api-srv/server/dev_data/transaction.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/coin-api-srv/server/dev_data/user.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/coin-api-srv/server/index.mjs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/coin-api-srv/server/jsconfig.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/coin-api-srv/server/loader/mysql.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/coin-api-srv/server/models/coin.model.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/coin-api-srv/server/models/collections.model.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/coin-api-srv/server/models/config.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/coin-api-srv/server/models/conversion.model.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/coin-api-srv/server/models/init-models.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/coin-api-srv/server/models/transaction.model.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/coin-api-srv/server/models/users.model.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/coin-api-srv/server/nodemon.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/coin-api-srv/server/package-lock.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/coin-api-srv/server/package.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/coin-api-srv/server/routers/coin.router.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/coin-api-srv/server/routers/collections.router.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/coin-api-srv/server/routers/conversion.router.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/coin-api-srv/server/routers/transaction.router.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/coin-api-srv/server/routers/users.router.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/coin-api-srv/server/services/coin.service.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/coin-api-srv/server/services/collections.service.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/coin-api-srv/server/services/conversion.service.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/coin-api-srv/server/services/transaction.service.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/coin-api-srv/server/services/users.service.js" beforeDir="false" />
+    <list default="true" id="13669f56-d155-4678-9e0b-76f75b1907ab" name="Default Changelist" comment="man hinh register + login">
+      <change afterPath="$PROJECT_DIR$/coin-client/src/pages/auth/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/coin-client/.env.local.example" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/coin-client/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/coin-client/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/coin-client/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/coin-client/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/coin-client/src/components/auth/registerFrom.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/coin-client/src/components/nft/wallet-connect.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/coin-client/src/components/nft/wallet-connect.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/coin-client/src/components/screens/minimal-screen.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/coin-client/src/components/screens/minimal-screen.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/coin-client/src/data/utils/client.ts" beforeDir="false" afterPath="$PROJECT_DIR$/coin-client/src/data/utils/client.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/coin-client/src/layouts/_minimal.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/coin-client/src/layouts/_minimal.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/coin-client/src/pages/auth/login.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/coin-client/src/pages/auth/login.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/coin-client/src/pages/auth/register.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/coin-client/src/pages/auth/register.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/coin-client/src/pages/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/coin-client/src/pages/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/coin-client/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/coin-client/yarn.lock" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -53,7 +25,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="feature/register+logout" />
+        <entry key="$PROJECT_DIR$" value="main" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -66,6 +38,9 @@
       <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
     </file-type-list>
   </component>
+  <component name="ProblemsViewState">
+    <option name="selectedIndex" value="1" />
+  </component>
   <component name="ProjectId" id="2QEEUQOgohtOXdqevHv6BvTiSMJ" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
@@ -77,14 +52,23 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="js.linters.configure.manually.selectedeslint" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../ssm-api-srv" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../sm-client" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.standard" value="true" />
-    <property name="node.js.selected.package.eslint" value="$PROJECT_DIR$/coin-api-srv/server/node_modules/eslint" />
+    <property name="node.js.selected.package.eslint" value="$PROJECT_DIR$/coin-client/node_modules/eslint" />
     <property name="node.js.selected.package.standard" value="" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="ts.external.directory.path" value="$PROJECT_DIR$/coin-client/node_modules/typescript/lib" />
     <property name="vue.rearranger.settings.migration" value="true" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/coin-client" />
+      <recent name="$PROJECT_DIR$/coin-client/src" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/coin-client/src/data/utils" />
+    </key>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -108,6 +92,36 @@
       <workItem from="1685528589356" duration="681000" />
       <workItem from="1685584593681" duration="5215000" />
       <workItem from="1685591800066" duration="10907000" />
+      <workItem from="1685671391187" duration="12258000" />
+      <workItem from="1685959204897" duration="684000" />
+      <workItem from="1685975961390" duration="5165000" />
+      <workItem from="1686017398622" duration="25920000" />
+      <workItem from="1686061111808" duration="170000" />
+      <workItem from="1686062623402" duration="1200000" />
+      <workItem from="1686103252492" duration="18759000" />
+      <workItem from="1686127985685" duration="354000" />
+      <workItem from="1686128596103" duration="3518000" />
+      <workItem from="1686147757702" duration="1205000" />
+      <workItem from="1686189336782" duration="11278000" />
+      <workItem from="1686233739267" duration="1206000" />
+      <workItem from="1686292604472" duration="11945000" />
+      <workItem from="1686535032063" duration="18783000" />
+      <workItem from="1686559775226" duration="7056000" />
+      <workItem from="1686581606632" duration="3699000" />
+      <workItem from="1686586354132" duration="1745000" />
+      <workItem from="1686621930081" duration="1293000" />
+      <workItem from="1686627130893" duration="1828000" />
+      <workItem from="1686629141719" duration="13443000" />
+      <workItem from="1686651311583" duration="2485000" />
+      <workItem from="1686666937120" duration="1355000" />
+      <workItem from="1686707938843" duration="9390000" />
+      <workItem from="1686717800955" duration="18098000" />
+      <workItem from="1686796008828" duration="15732000" />
+      <workItem from="1686838391404" duration="5268000" />
+      <workItem from="1686880610031" duration="18249000" />
+      <workItem from="1686906924064" duration="6633000" />
+      <workItem from="1687104803842" duration="618000" />
+      <workItem from="1687139533676" duration="2381000" />
     </task>
     <task id="LOCAL-00001" summary="fix đồng">
       <created>1685416144415</created>
@@ -161,7 +175,27 @@
     <MESSAGE value="đồng bộ cơ sở dữ" />
     <MESSAGE value="redme" />
     <MESSAGE value="dong bo" />
-    <MESSAGE value="tach server va client" />
-    <option name="LAST_COMMIT_MESSAGE" value="tach server va client" />
+    <option name="LAST_COMMIT_MESSAGE" value="dong bo" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/coin-client/src/config/routes.ts</url>
+          <line>9</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/coin-client/src/components/profile/retro-profile.tsx</url>
+          <line>6</line>
+          <option name="timeStamp" value="3" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/coin-api-srv/server/models/config.js</url>
+          <line>10</line>
+          <option name="timeStamp" value="4" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

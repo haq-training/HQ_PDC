@@ -1,5 +1,6 @@
 import Logo from '@/components/ui/logo';
 import cn from 'classnames';
+import Link from "next/link";
 import { FlashIcon } from '@/components/icons/flash';
 import SearchButton from '@/components/search/button';
 import ActiveLink from '@/components/ui/links/active-link';
@@ -11,6 +12,7 @@ import { useBreakpoint } from '@/lib/hooks/use-breakpoint';
 import { useDrawer } from '@/components/drawer-views/context';
 import { useWindowScroll } from '@/lib/hooks/use-window-scroll';
 import routes from '@/config/routes';
+import React from "react";
 
 function NotificationButton() {
   return (
