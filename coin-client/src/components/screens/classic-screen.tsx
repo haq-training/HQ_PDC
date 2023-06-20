@@ -9,8 +9,36 @@ import Avatar from '@/components/ui/avatar';
 import TopupButton from '@/components/ui/topup-button';
 //images
 import AuthorImage from '@/assets/images/author.jpg';
+import {useEffect, useState} from 'react';
+import axios from 'axios';
 
 export default function ClassicScreen() {
+    const [data, setData] = useState<any>([]);
+
+    useEffect(() => {
+        const fetchData = async () => {
+            try {
+                const response = await axios.get('http://localhost:4003/coin/', {
+                    headers: {
+                        token: `Bearer ${typeof window !== 'undefined' ? localStorage.getItem('token') : null}`
+                    },
+                    method: 'GET'
+                }).then((res) => {
+                    return res;
+                });
+                const dataCoin = await response.data;
+                if (dataCoin) {
+                    setData(dataCoin.data);
+                }
+                return dataCoin;
+            } catch (error) {
+                console.error(error);
+            }
+        };
+        fetchData().catch((e) => {
+            console.error('Loi: ', e);
+        });
+    }, []);
   return (
     <>
       <NextSeo
@@ -19,7 +47,7 @@ export default function ClassicScreen() {
       />
       <div className="flex flex-wrap">
         <div className="mb-8 w-full sm:mb-0  dark:[&_.swiper-scrollbar>_.swiper-scrollbar-drag]:bg-body/50">
-          <CoinSlider coins={coinSlideData} />
+          <CoinSlider coins={data} />
         </div>
       </div>
 
