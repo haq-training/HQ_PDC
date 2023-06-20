@@ -1,7 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="13669f56-d155-4678-9e0b-76f75b1907ab" name="Default Changelist" comment="man hinh register + login" />
+    <list default="true" id="2c87eb2a-9eb0-4a16-a2b8-a40dc13ff1b4" name="Default Changelist" comment="tich hop API coin vao 4 layout">
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_14_59__19_06_2023__Default_Changelist_.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/coin-client/src/components/screens/classic-screen.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/coin-client/src/components/screens/classic-screen.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/coin-client/src/components/screens/minimal-screen.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/coin-client/src/components/screens/minimal-screen.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/coin-client/src/components/screens/modern-screen.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/coin-client/src/components/screens/modern-screen.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/coin-client/src/components/screens/retro-screen.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/coin-client/src/components/screens/retro-screen.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/coin-client/src/components/transaction/transaction-table.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/coin-client/src/components/transaction/transaction-table.tsx" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -10,7 +18,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="feature/coin" />
+        <entry key="$PROJECT_DIR$" value="main" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -37,13 +45,13 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="js.linters.configure.manually.selectedeslint" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../coin-api-srv-PD" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.standard" value="true" />
     <property name="node.js.selected.package.eslint" value="$PROJECT_DIR$/coin-client/node_modules/eslint" />
     <property name="node.js.selected.package.standard" value="" />
     <property name="nodejs_package_manager_path" value="npm" />
-    <property name="ts.external.directory.path" value="$APPLICATION_HOME_DIR$/plugins/JavaScriptLanguage/jsLanguageServicesImpl/external" />
+    <property name="ts.external.directory.path" value="$PROJECT_DIR$/coin-client/node_modules/typescript/lib" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
@@ -58,7 +66,7 @@
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="13669f56-d155-4678-9e0b-76f75b1907ab" name="Default Changelist" comment="" />
+      <changelist id="2c87eb2a-9eb0-4a16-a2b8-a40dc13ff1b4" name="Default Changelist" comment="tich hop API coin vao 4 layout" />
       <created>1684910362961</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
@@ -107,6 +115,7 @@
       <workItem from="1686906924064" duration="6633000" />
       <workItem from="1687104803842" duration="618000" />
       <workItem from="1687139533676" duration="2381000" />
+      <workItem from="1687272611546" duration="374000" />
     </task>
     <task id="LOCAL-00001" summary="fix đồng">
       <created>1685416144415</created>

@@ -26,9 +26,9 @@ export default function ClassicScreen() {
                 }).then((res) => {
                     return res;
                 });
-                const dataCoin = await response.data;
+                const dataCoin = await response?.data;
                 if (dataCoin) {
-                    setData(dataCoin.data);
+                    setData(dataCoin?.data);
                 }
                 return dataCoin;
             } catch (error) {
