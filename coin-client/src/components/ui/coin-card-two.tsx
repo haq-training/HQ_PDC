@@ -3,61 +3,60 @@ import { ArrowUp } from '@/components/icons/arrow-up';
 import { Scrollbar, A11y } from 'swiper';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { StaticImageData } from 'next/image';
+import cn from 'classnames';
 
 type CoinCardProps = {
   id: string;
+  full_name: string;
   name: string;
-  symbol: string;
-  logo: StaticImageData;
-  balance: string;
-  usdBalance: string;
-  change: string;
-  isChangePositive: boolean;
-  color?: string;
+  image_url: string;
+  internal: string;
+  net_hashes_per_second: number;
+  algorithm: string;
+  max_supply: number;
+  block_number:number;
+  isBorder?: boolean;
 };
 
 export function CoinCard({
+  full_name,
   name,
-  symbol,
-  logo,
-  balance,
-  usdBalance,
-  change,
-  isChangePositive,
-  color = '#FDEDD4',
+  net_hashes_per_second,
+    isBorder,
+    block_number
 }: CoinCardProps) {
   return (
-    <div
-      className="relative flex flex-col rounded-lg px-8 py-8 xl:flex-row xl:py-0 3xl:justify-center "
-      style={{ backgroundColor: color }}
-    >
-      <div className="relative h-20 w-16 rtl:order-2 lg:h-24 xl:h-32 3xl:h-36">
-        <Image src={logo} alt={name} fill priority />
-      </div>
-      <div className="content mt-2 xl:px-8">
-        <div className="mt-8 mb-2 text-sm font-medium tracking-wider text-gray-900 lg:text-lg 2xl:text-xl 3xl:text-2xl">
-          {balance}
-          <span className="uppercase"> {symbol}</span>
-        </div>
-        <div className="flex items-center justify-between text-xs font-medium 2xl:text-sm">
-          <span className="tracking-wider text-gray-600">{usdBalance} USD</span>
+      <div
+          className={cn(
+              'flex items-center gap-4 rounded-lg bg-white p-5 dark:bg-light-dark lg:flex-row',
+              {
+                'light:border light:border-slate-200': !isBorder,
+                'shadow-card': !isBorder,
+              }
+          )}
+      >
+        <div className="w-full flex-col">
+          <div className="mb-3 flex items-center">
+            <h4 className="text-sm font-medium text-gray-900 ltr:ml-3 rtl:mr-3 dark:text-white">
+              {full_name}
+            </h4>
+          </div>
+
+          <div className="mb-2 text-sm font-medium tracking-tighter text-gray-900 dark:text-white lg:text-lg 2xl:text-xl 3xl:text-2xl">
+            {net_hashes_per_second}
+            <span className="ml-3">{name}</span>
+          </div>
+          <div className="flex items-center text-xs font-medium 2xl:text-sm">
           <span
-            className={`flex items-center  ${
-              isChangePositive ? 'text-green-500' : 'text-red-500'
-            }`}
+              className="truncate tracking-tighter text-gray-600 ltr:mr-5 rtl:ml-5 dark:text-gray-400 2xl:w-24 3xl:w-auto"
           >
-            <span
-              className={`ltr:mr-2 rtl:ml-2 ${
-                !isChangePositive ? 'rotate-180' : ''
-              }`}
-            >
-              <ArrowUp />
-            </span>
-            {change}
+            {block_number} USD
           </span>
+            <ArrowUp />
+          </div>
         </div>
+
       </div>
-    </div>
   );
 }
 
@@ -112,14 +111,15 @@ export default function CoinSlider({ coins }: CoinSliderProps) {
           <SwiperSlide key={coin.id}>
             <CoinCard
               id={coin.id}
+              full_name={coin.full_name}
               name={coin.name}
-              symbol={coin.symbol}
-              logo={coin.logo}
-              balance={coin.balance}
-              usdBalance={coin.usdBalance}
-              change={coin.change}
-              isChangePositive={coin.isChangePositive}
-              color={coin.color}
+              image_url={coin.image_url}
+              internal={coin.internal}
+              net_hashes_per_second={coin.net_hashes_per_second}
+              algorithm={coin.algorithm}
+              max_supply={coin.max_supply}
+              block_number={coin.block_number}
+              isBorder={coin.isBorder}
             />
           </SwiperSlide>
         ))}

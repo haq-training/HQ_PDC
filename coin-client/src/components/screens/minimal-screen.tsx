@@ -5,11 +5,10 @@ import TopPools from '@/components/ui/top-pools';
 import TransactionTable from '@/components/transaction/transaction-table';
 import TransactCoin from '@/components/ui/transact-coin';
 import PriceFeedSlider from '@/components/ui/live-price-feed';
-import { priceFeedData } from '@/data/static/price-feed';
 import { useBreakpoint } from '@/lib/hooks/use-breakpoint';
 //images
 import AuthorImage from '@/assets/images/author.jpg';
-import httpClient from '@/data/utils/client';
+import axios from 'axios';
 
 const topPoolsLimit = (breakpoint: string) => {
   switch (breakpoint) {
@@ -22,7 +21,34 @@ const topPoolsLimit = (breakpoint: string) => {
   }
 };
 
-export default function MinimalScreen() {
+export default function MinimalScreen(){
+
+  const [data, setData] = useState<any>([]);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await axios.get('http://localhost:4003/coin/', {
+          headers: {
+            token: `Bearer ${typeof window !== 'undefined' ? localStorage.getItem('token') : null}`
+          },
+          method: 'GET'
+        }).then((res) => {
+          return res;
+        });
+        const dataCoin = await response.data;
+        if (dataCoin) {
+          setData(dataCoin.data);
+        }
+        return dataCoin;
+      } catch (error) {
+        console.error(error);
+      }
+    };
+    fetchData().catch((e) => {
+      console.error('Loi: ', e);
+    });
+  }, []);
 
   const [limit, setLimit] = useState(4);
   const breakpoint = useBreakpoint();
@@ -38,7 +64,7 @@ export default function MinimalScreen() {
       <div className="">
         <PriceFeedSlider
           limit={4}
-          priceFeeds={priceFeedData}
+          priceFeeds={data}
           gridClassName="grid-cols-1 gap-6 2xl:grid-cols-4"
         />
         <div className="mt-6 grid grid-cols-1 items-start gap-6 md:grid-cols-2 lg:grid-cols-12">

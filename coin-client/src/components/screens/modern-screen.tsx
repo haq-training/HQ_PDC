@@ -4,14 +4,41 @@ import CoinSlider from '@/components/ui/coin-card';
 import TopPools from '@/components/ui/top-pools';
 import TransactionTable from '@/components/transaction/transaction-table';
 import TopCurrencyTable from '@/components/top-currency/currency-table';
-import { coinSlideData } from '@/data/static/coin-slide-data';
 import Avatar from '@/components/ui/avatar';
 import TopupButton from '@/components/ui/topup-button';
 
 //images
 import AuthorImage from '@/assets/images/author.jpg';
+import {useEffect, useState} from 'react';
+import axios from 'axios';
 
 export default function ModernScreen() {
+    const [data, setData] = useState<any>([]);
+
+    useEffect(() => {
+        const fetchData = async () => {
+            try {
+                const response = await axios.get('http://localhost:4003/coin/', {
+                    headers: {
+                        token: `Bearer ${typeof window !== 'undefined' ? localStorage.getItem('token') : null}`
+                    },
+                    method: 'GET'
+                }).then((res) => {
+                    return res;
+                });
+                const dataCoin = await response.data;
+                if (dataCoin) {
+                    setData(dataCoin.data);
+                }
+                return dataCoin;
+            } catch (error) {
+                console.error(error);
+            }
+        };
+        fetchData().catch((e) => {
+            console.error('Loi: ', e);
+        });
+    }, []);
   return (
     <>
       <NextSeo
@@ -20,7 +47,7 @@ export default function ModernScreen() {
       />
       <div className="flex flex-wrap">
         <div className="mb-8 w-full sm:mb-0 sm:w-1/2 sm:ltr:pr-6 sm:rtl:pl-6 md:w-[calc(100%-256px)] lg:w-[calc(100%-288px)] 2xl:w-[calc(100%-320px)] 3xl:w-[calc(100%-358px)]">
-          <CoinSlider coins={coinSlideData} />
+          <CoinSlider coins={data} />
         </div>
         <div className="w-full sm:w-1/2 md:w-64 lg:w-72 2xl:w-80 3xl:w-[358px]">
           <div className="flex h-full flex-col justify-center rounded-lg bg-white p-6 shadow-card dark:bg-light-dark xl:p-8">

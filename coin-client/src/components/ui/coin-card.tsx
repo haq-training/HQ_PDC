@@ -3,62 +3,55 @@ import { ArrowUp } from '@/components/icons/arrow-up';
 import { Scrollbar, A11y } from 'swiper';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { StaticImageData } from 'next/image';
+import cn from 'classnames';
 
 type CoinCardProps = {
-  id: string;
-  name: string;
-  symbol: string;
-  logo: StaticImageData;
-  balance: string;
-  usdBalance: string;
-  change: string;
-  isChangePositive: boolean;
-  color?: string;
+    id: string;
+    full_name: string;
+    name: string;
+    image_url: string;
+    internal: string;
+    net_hashes_per_second: number;
+    algorithm: string;
+    max_supply: number;
+    block_number:number;
+    isBorder?: boolean;
 };
 
 export function CoinCard({
-  name,
-  symbol,
-  logo,
-  balance,
-  usdBalance,
-  change,
-  isChangePositive,
-  color = '#FDEDD4',
-}: CoinCardProps) {
+                             full_name,
+                             name,
+                             net_hashes_per_second,
+                             isBorder,
+                             block_number
+                         }: CoinCardProps) {
   return (
+      <div
+          className={cn(
+              'flex items-center gap-4 rounded-lg bg-white p-5 dark:bg-light-dark lg:flex-row',
+              {
+                  'light:border light:border-slate-200': !isBorder,
+                  'shadow-card': !isBorder,
+              }
+          )}
+      >
     <div
       className="relative rounded-lg p-6 xl:p-8"
-      style={{ backgroundColor: color }}
     >
       <h4 className="mb-8 text-sm font-medium uppercase tracking-wider text-gray-900">
-        {name}
+        {full_name}
       </h4>
-      <div className="relative h-20 lg:h-24 xl:h-28 3xl:h-36">
-        <Image src={logo} alt={name} height={112} priority />
-      </div>
+
       <div className="mt-8 mb-2 text-sm font-medium tracking-wider text-gray-900 lg:text-lg 2xl:text-xl 3xl:text-2xl">
-        {balance}
-        <span className="uppercase"> {symbol}</span>
+        {net_hashes_per_second}
+        <span className="uppercase"> {name}</span>
       </div>
       <div className="flex items-center justify-between text-xs font-medium 2xl:text-sm">
-        <span className="tracking-wider text-gray-600">{usdBalance} USD</span>
-        <span
-          className={`flex items-center  ${
-            isChangePositive ? 'text-green-500' : 'text-red-500'
-          }`}
-        >
-          <span
-            className={`ltr:mr-2 rtl:ml-2 ${
-              !isChangePositive ? 'rotate-180' : ''
-            }`}
-          >
-            <ArrowUp />
-          </span>
-          {change}
-        </span>
+        <span className="tracking-wider text-gray-600">{block_number} USD</span>
+
       </div>
     </div>
+      </div>
   );
 }
 
@@ -109,15 +102,16 @@ export default function CoinSlider({ coins }: CoinSliderProps) {
         {coins.map((coin) => (
           <SwiperSlide key={coin.id}>
             <CoinCard
-              id={coin.id}
-              name={coin.name}
-              symbol={coin.symbol}
-              logo={coin.logo}
-              balance={coin.balance}
-              usdBalance={coin.usdBalance}
-              change={coin.change}
-              isChangePositive={coin.isChangePositive}
-              color={coin.color}
+                id={coin.id}
+                full_name={coin.full_name}
+                name={coin.name}
+                image_url={coin.image_url}
+                internal={coin.internal}
+                net_hashes_per_second={coin.net_hashes_per_second}
+                algorithm={coin.algorithm}
+                max_supply={coin.max_supply}
+                block_number={coin.block_number}
+                isBorder={coin.isBorder}
             />
           </SwiperSlide>
         ))}
