@@ -31,49 +31,49 @@ const shapes: Record<ShapeNames, string[]> = {
 };
 
 function Avatar({
-  image,
-  alt,
-  className,
-  size = 'md',
-  shape = 'circle',
-  width,
-  height,
-}: AvatarProps) {
+                  image,
+                  alt,
+                  className,
+                  size = 'md',
+                  shape = 'circle',
+                  width,
+                  height,
+                }: AvatarProps) {
   const sizeClassNames = sizes[size];
   return (
-    <figure
-      className={cn(
-        'relative shrink-0 overflow-hidden',
-        className,
-        shapes[shape],
-        shape === 'circle' && sizeClassNames
-      )}
-    >
-      {shape === 'circle' ? (
-        size === 'xs' || 'sm' ? (
-          <Image
-            src={image}
-            alt={alt}
-            width={width}
-            height={height}
-            priority
-            className="rounded-full"
-          />
+      <figure
+          className={cn(
+              'relative shrink-0 overflow-hidden',
+              className,
+              shapes[shape],
+              shape === 'circle' && sizeClassNames
+          )}
+      >
+        {shape === 'circle' ? (
+            size === 'xs' || 'sm' ? (
+                <Image
+                    src={image}
+                    alt={alt}
+                    width={width}
+                    height={height}
+                    priority
+                    className="rounded-full"
+                />
+            ) : (
+                <Image
+                    src={image}
+                    alt={alt}
+                    width={width}
+                    height={height}
+                    priority
+                    placeholder="blur"
+                    className="rounded-full"
+                />
+            )
         ) : (
-          <Image
-            src={image}
-            alt={alt}
-            width={width}
-            height={height}
-            priority
-            placeholder="blur"
-            className="rounded-full"
-          />
-        )
-      ) : (
-        <Image src={image} alt={alt} className="rounded-[6px]" width={width} />
-      )}
-    </figure>
+            <Image src={image} alt={alt} className="rounded-[6px]" width={width} />
+        )}
+      </figure>
   );
 }
 
