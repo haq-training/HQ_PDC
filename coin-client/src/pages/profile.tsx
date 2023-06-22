@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import type { GetStaticProps, InferGetStaticPropsType } from 'next';
 import { NextSeo } from 'next-seo';
 import type { NextPageWithLayout } from '@/types';
@@ -14,6 +14,7 @@ import { authorData } from '@/data/static/author';
 import RootLayout from '@/layouts/_root-layout';
 import { makeStyles, createStyles } from '@material-ui/core/styles';
 import Link from "next/link";
+import { useRouter } from 'next/router';
 
 const useStyles = makeStyles((theme) =>
   createStyles({
@@ -51,6 +52,14 @@ const AuthorProfilePage: NextPageWithLayout<
   > = () => {
   const { layout } = useLayout();
   const classes = useStyles();
+    const router = useRouter();
+
+    useEffect(() => {
+        const token = localStorage.getItem('token');
+        if (!token) {
+            router.push('/auth/login');
+        }
+    }, []);
 
   // render retro layout profile
   if (layout === LAYOUT_OPTIONS.RETRO) {

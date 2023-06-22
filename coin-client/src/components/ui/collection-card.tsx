@@ -1,46 +1,57 @@
 import Image from '@/components/ui/image';
 import cn from 'classnames';
-import { StaticImageData } from 'next/image';
 import AnchorLink from '@/components/ui/links/anchor-link';
 import Avatar from '@/components/ui/avatar';
 
 type ItemType = {
-  id?: string | number;
-  name: string;
+  idCollection: string | number;
+  nameCollection: string;
   slug: string;
   title: string;
-  cover_image: StaticImageData;
-  image?: StaticImageData;
+  coverImage: string;
+  image: string;
   number_of_artwork: number;
-  user: {
-    avatar?: StaticImageData;
-    name: string;
-    slug: string;
-  };
+  avatar: string;
+  userName: string;
+  userSlug: string;
 };
 type CardProps = {
   item: ItemType;
   className?: string;
+  idCollection: string | number;
+  onClick?: (id: string | number) => void;
 };
 
-export default function CollectionCard({ item, className = '' }: CardProps) {
-  const { name, slug, title, cover_image, image, number_of_artwork, user } =
+export default function CollectionCard({  item,
+                                         className = '',
+                                         idCollection,
+                                         onClick, }: CardProps) {
+  const { nameCollection, slug, title, coverImage, image, number_of_artwork,userName,userSlug } =
   item ?? {};
+
+  const handleCardClick = () => {
+    if (onClick) {
+      onClick(idCollection);
+    }
+  };
+
   return (
       <div
           className={cn(
               'group relative overflow-hidden rounded-lg transition-transform hover:-translate-y-1',
               className
           )}
+          onClick={handleCardClick}
       >
         <div className="relative flex aspect-[8/11] w-full justify-center overflow-hidden rounded-lg">
           <Image
-              src={cover_image}
-              placeholder="blur"
+              src={coverImage}
+              placeholder="empty"
               width={600}
               priority
               quality={100}
-              alt={name}
+              height={600}
+              alt={nameCollection}
           />
         </div>
         <div className="absolute top-0 left-0 z-[5] flex h-full w-full flex-col justify-between bg-gradient-to-t from-black p-5 md:p-6">
@@ -51,12 +62,20 @@ export default function CollectionCard({ item, className = '' }: CardProps) {
           <div className="flex justify-between gap-3">
             <div
                 className="inline-flex h-8 shrink-0 items-center rounded-2xl bg-white/20 px-4 text-xs font-medium uppercase -tracking-wide text-white
-          backdrop-blur-[40px]"
+          backdrop-blur-[40px] "
             >
-              {name}
+              {nameCollection}
             </div>
             {image && (
-                <Avatar image={image} alt={name} shape="rounded" width={64} />
+                <Image
+                    src={image}
+                    placeholder="empty"
+                    width={60}
+                    priority
+                    quality={100}
+                    height={60}
+                    alt={nameCollection}
+                />
             )}
           </div>
           <div className="block">
@@ -67,21 +86,20 @@ export default function CollectionCard({ item, className = '' }: CardProps) {
               {number_of_artwork} Artworks
             </div>
             <AnchorLink
-                href={user?.slug}
+                href={userName}
                 className="relative z-10 mt-3.5 inline-flex items-center rounded-3xl bg-white/20 p-2 backdrop-blur-[40px]"
             >
               <Avatar
                   //@ts-ignore
-                  image={user?.avatar}
-                  alt={user?.name}
+                  image={image}
+                  alt={userSlug}
                   size="xs"
                   width={24}
                   height={24}
                   className="rounded-full"
               />
-
               <div className="truncate text-sm -tracking-wide text-white ltr:ml-2 ltr:pr-2 rtl:mr-2 rtl:pl-2">
-                @{user?.name}
+                @{userName}
               </div>
             </AnchorLink>
           </div>

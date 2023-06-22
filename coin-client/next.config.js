@@ -9,6 +9,9 @@ const withPWA = require('next-pwa')({
 
 const nextConfig = withPWA({
   reactStrictMode: true,
+  images: {
+    domains: ['i.imgur.com','daihocdaivietsaigon.edu.vn','vothisaucamau.edu.vn'],
+  },
   ...(process.env.NODE_ENV === 'production' && {
     typescript: {
       ignoreBuildErrors: true,

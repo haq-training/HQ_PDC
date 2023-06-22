@@ -1,3 +1,6 @@
+import React, { useEffect, useState  } from 'react';
+import axios from 'axios';
+import { useRouter } from 'next/router';
 import cn from 'classnames';
 import ListCard from '@/components/ui/list-card';
 import ParamTab, { TabPanel } from '@/components/ui/param-tab';
@@ -7,12 +10,12 @@ import CollectionCard from '@/components/ui/collection-card';
 import { useLayout } from '@/lib/hooks/use-layout';
 import { LAYOUT_OPTIONS } from '@/lib/constants';
 // static data
-import { collections } from '@/data/static/collections';
 import {
   authorWallets,
   authorNetworks,
   authorProtocols,
 } from '@/data/static/author-profile';
+import routes from '@/config/routes';
 
 const tabMenu = [
   {
@@ -30,6 +33,39 @@ const tabMenu = [
 ];
 
 export default function ProfileTab() {
+  const router = useRouter();
+  const [data, setData] = useState<any>([]);
+
+  useEffect(() => {
+
+    const fetchData = async () => {
+      try {
+        const response = await axios.get('http://localhost:4003/collections/', {
+          headers: {
+            token: `Bearer ${typeof window !== 'undefined' ? localStorage.getItem('token') : null}`
+          },
+          method: 'GET'
+        }).then((res) => {
+          return res;
+        });
+        const dataCollection = await response.data;
+        if (dataCollection) {
+          setData(dataCollection.data);
+        }
+        return dataCollection;
+      } catch (error) {
+        console.error(error);
+      }
+    };
+    fetchData().catch((e) => {
+      console.error('Loi: ', e);
+    });
+  }, []);
+
+  const handleCollectionClick = (id) => {
+    router.push(`${routes.nftDetails}?idCollection=${id}`);
+  };
+
   const { layout } = useLayout();
   return (
       <ParamTab tabMenu={tabMenu}>
@@ -42,12 +78,15 @@ export default function ProfileTab() {
                       : 'md:grid-cols-1'
               )}
           >
-            {collections?.map((collection) => (
-                <CollectionCard
-                    item={collection}
-                    key={`collection-key-${collection?.id}`}
-                />
-            ))}
+            {data?.map((collection) =>  (
+                  <CollectionCard
+                      item={collection}
+                      key={`collection-key-${collection?.idCollection}`}
+                      idCollection={collection?.idCollection}
+                      onClick={handleCollectionClick}
+                  />
+              )
+            )}
           </div>
         </TabPanel>
         <TabPanel className="focus:outline-none">

@@ -13,7 +13,7 @@ const routes = {
   portfolio: '/profile?view=portfolio',
   history: '/profile?view=history',
   classic: '/classic',
-  homeMinimal:'/?layout=Minimal',
+  layoutDetails:'/layout-details',
 };
 
 export default routes;
