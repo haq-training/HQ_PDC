@@ -1,4 +1,6 @@
 import React, { useEffect } from "react";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faEdit } from '@fortawesome/free-solid-svg-icons';
 import type { GetStaticProps, InferGetStaticPropsType } from 'next';
 import { NextSeo } from 'next-seo';
 import type { NextPageWithLayout } from '@/types';
@@ -25,7 +27,7 @@ const useStyles = makeStyles((theme) =>
       border: 'none',
       borderRadius: '4px',
       fontSize: '16px',
-      marginLeft: theme.spacing(67),
+      marginLeft: theme.spacing(33),
       marginTop: theme.spacing(1),
     },
     imageButtons: {
@@ -35,7 +37,7 @@ const useStyles = makeStyles((theme) =>
       border: 'none',
       borderRadius: '4px',
       fontSize: '16px',
-      marginLeft: theme.spacing(34),
+      marginLeft: theme.spacing(12),
       marginTop: theme.spacing(1),
     },
   })
@@ -60,8 +62,7 @@ const AuthorProfilePage: NextPageWithLayout<
             router.push('/auth/login');
         }
     }, []);
-
-  // render retro layout profile
+    
   if (layout === LAYOUT_OPTIONS.RETRO) {
     return (
       <>
@@ -77,15 +78,28 @@ const AuthorProfilePage: NextPageWithLayout<
               className="object-cover"
               alt="Cover Image"
             />
-          <Button className={classes.imageButtons}> <Link href="/updateAuth">UPDADE IMAGE</Link></Button>
         </div>
         <div className="mx-auto flex w-full shrink-0 flex-col md:px-4 xl:px-6 3xl:max-w-[1700px] 3xl:px-12">
-          <Avatar
-            size="xl"
-            image={authorData?.avatar?.thumbnail}
-            alt="Author"
-            className="z-10 mx-auto -mt-12 dark:border-gray-500 sm:-mt-14 md:mx-0 md:-mt-16 xl:mx-0 3xl:-mt-20"
-          />
+            <div className="flex items-center">
+                <Avatar
+                    size="xl"
+                    image={authorData?.avatar?.thumbnail}
+                    alt="Author"
+                    className="z-10 -mt-12 dark:border-gray-500 sm:-mt-14 md:mx-0 md:-mt-16 xl:mx-0 3xl:-mt-20"
+                />
+                <Link href="/editUser">
+                    <Button
+                        className="ml-4"
+                    >
+                        <FontAwesomeIcon icon={faEdit} />
+                    </Button>
+                </Link>
+                <Link href="/add-collection">
+                    <Button className={classes.imageButtons}>
+                      Thêm Collection
+                    </Button>
+                </Link>
+            </div>
           <RetroProfile />
         </div>
       </>
@@ -107,18 +121,31 @@ const AuthorProfilePage: NextPageWithLayout<
           className="object-cover"
           alt="Cover Image"
         />
-        <Button className={classes.imageButton}> <Link href="/updateAuth">UPDADE IMAGE</Link></Button>
       </div>
-      <div className="mx-auto flex w-full shrink-0 flex-col md:px-4 xl:px-6 3xl:max-w-[1700px] 3xl:px-12">
-        <Avatar
-          size="xl"
-          image={authorData?.avatar?.thumbnail}
-          alt="Author"
-          className="z-10 mx-auto -mt-12 dark:border-gray-500 sm:-mt-14 md:mx-0 md:-mt-16 xl:mx-0 3xl:-mt-20"
-        />
-        <Profile />
-      </div>
-    </>
+        <div className="mx-auto flex w-full shrink-0 flex-col md:px-4 xl:px-6 3xl:max-w-[1700px] 3xl:px-12">
+            <div className="flex items-center">
+                <Avatar
+                    size="xl"
+                    image={authorData?.avatar?.thumbnail}
+                    alt="Author"
+                    className="z-10 -mt-12 dark:border-gray-500 sm:-mt-14 md:mx-0 md:-mt-16 xl:mx-0 3xl:-mt-20"
+                />
+                <Link href="/editUser">
+                    <Button
+                        className="ml-4"
+                    >
+                        <FontAwesomeIcon icon={faEdit} />
+                    </Button>
+                </Link>
+                <Link href="/add-collection">
+                    <Button className={classes.imageButtons}>
+                        Thêm Collection
+                    </Button>
+                </Link>
+            </div>
+            <Profile />
+        </div>
+</>
   );
 };
 

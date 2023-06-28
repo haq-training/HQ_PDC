@@ -6,6 +6,7 @@ import TransactCoin from '@/components/ui/transact-coin';
 import WalletCard from '@/components/ui/wallet-card-two';
 //images
 import AuthorImage from '@/assets/images/author.jpg';
+import Link from "next/link";
 
 export default function Sidebar({ className }: { className?: string }) {
   return (
@@ -20,12 +21,14 @@ export default function Sidebar({ className }: { className?: string }) {
         <div className="relative z-20 pb-5">
           <div className="my-16 mx-5 flex h-full flex-col justify-between overflow-x-hidden rounded-lg bg-transparent sm:mx-6 sm:flex-row lg:mx-0 lg:flex-col lg:p-6 xl:my-0 2xl:p-8">
             <div className="w-full sm:w-[48%] lg:w-full">
+              <Link href="/editUser">
               <Avatar
                 image={AuthorImage}
                 alt="Author"
                 className="mx-auto mb-6"
                 size="lg"
               />
+              </Link>
               <h3 className="mb-2 text-center text-sm uppercase tracking-wider text-gray-500 dark:text-gray-400 3xl:mb-3">
                 My Balance
               </h3>

@@ -29,12 +29,12 @@ const initialState: State = {
 };
 
 type Action =
-  | { type: 'setUsername'; payload: string }
-  | { type: 'setPassword'; payload: string }
-  | { type: 'setIsButtonDisabled'; payload: boolean }
-  | { type: 'loginSuccess'; payload: string }
-  | { type: 'loginFailed'; payload: string }
-  | { type: 'setIsError'; payload: boolean };
+    | { type: 'setUsername'; payload: string }
+    | { type: 'setPassword'; payload: string }
+    | { type: 'setIsButtonDisabled'; payload: boolean }
+    | { type: 'loginSuccess'; payload: string }
+    | { type: 'loginFailed'; payload: string }
+    | { type: 'setIsError'; payload: boolean };
 
 const reducer = (state: State, action: Action): State => {
     switch (action.type) {
@@ -100,8 +100,8 @@ function LoginPage() {
                         type: 'loginSuccess',
                         payload: 'Login Successfully',
                     });
-                        router.push(routes.home);
-                        toast.success('Login Successfully');
+                    router.push(routes.home);
+                    toast.success('Login Successfully');
                 } else {
                     dispatch({
                         type: 'loginFailed',
@@ -149,63 +149,63 @@ function LoginPage() {
     };
 
     return (
-      <form className="flex flex-wrap w-400 mx-auto flex justify-center" noValidate autoComplete="off">
-          <Card className="mt-10">
-              <CardHeader className="text-center bg-gray-900 text-white" title="Đăng nhập" />
-              <CardContent>
-                  <div>
-                      <TextField
-                        error={state.isError}
-                        fullWidth
-                        id="username"
-                        type="text"
-                        label="Username"
-                        placeholder="Username"
-                        margin="normal"
-                        onChange={handleUsernameChange}
-                        onKeyPress={handleKeyPress}
-                      />
-                      <TextField
-                        error={state.isError}
-                        fullWidth
-                        id="password"
-                        type="password"
-                        label="Password"
-                        placeholder="Password"
-                        margin="normal"
-                        helperText={state.helperText}
-                        onChange={handlePasswordChange}
-                        onKeyPress={handleKeyPress}
-                      />
-                  </div>
-              </CardContent>
-              <CardActions className="flex flex-col">
-                  <div className="mb-2 w-full">
-                      <Link href="/">
-                      <Button
-                        size="large"
-                        className="flex-grow w-full"
-                        onClick={handleLogin}
-                        disabled={!state.username || !state.password }
-                      >
-                         Đăng nhập
+        <form className="flex flex-wrap w-400 mx-auto flex justify-center" noValidate autoComplete="off">
+            <Card className="mt-10">
+                <CardHeader className="text-center bg-gray-900 text-white" title="Đăng nhập" />
+                <CardContent>
+                    <div>
+                        <TextField
+                            error={state.isError}
+                            fullWidth
+                            id="username"
+                            type="text"
+                            label="Username"
+                            placeholder="Username"
+                            margin="normal"
+                            onChange={handleUsernameChange}
+                            onKeyPress={handleKeyPress}
+                        />
+                        <TextField
+                            error={state.isError}
+                            fullWidth
+                            id="password"
+                            type="password"
+                            label="Password"
+                            placeholder="Password"
+                            margin="normal"
+                            helperText={state.helperText}
+                            onChange={handlePasswordChange}
+                            onKeyPress={handleKeyPress}
+                        />
+                    </div>
+                </CardContent>
+                <CardActions className="flex flex-col">
+                    <div className="mb-2 w-full">
+                        <Link href="/">
+                            <Button
+                                size="large"
+                                className="flex-grow w-full"
+                                onClick={handleLogin}
+                                disabled={!state.username || !state.password }
+                            >
+                                Đăng nhập
 
-                      </Button>
-                      </Link>
-                  </div>
-                  <div className="flex justify-center w-full">
-                    <div className="text-sm text-gray-600">
-                        Chưa có tài khoản?
-                        <Link href="/auth/register">
-                        <Button className="text-white-500 mt-5 ml-3 ">
-                            Đăng ký ngay
-                        </Button>
+                            </Button>
                         </Link>
                     </div>
-                  </div>
-              </CardActions>
-          </Card>
-      </form>
+                    <div className="flex justify-center w-full">
+                        <div className="text-sm text-gray-600">
+                            Chưa có tài khoản?
+                            <Link href="/auth/register">
+                                <Button className="text-white-500 mt-5 ml-3 ">
+                                    Đăng ký ngay
+                                </Button>
+                            </Link>
+                        </div>
+                    </div>
+                </CardActions>
+            </Card>
+        </form>
     );
 }
 

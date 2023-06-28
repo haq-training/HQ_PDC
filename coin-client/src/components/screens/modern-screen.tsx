@@ -6,7 +6,7 @@ import TransactionTable from '@/components/transaction/transaction-table';
 import TopCurrencyTable from '@/components/top-currency/currency-table';
 import Avatar from '@/components/ui/avatar';
 import TopupButton from '@/components/ui/topup-button';
-
+import Link from "next/link";
 //images
 import AuthorImage from '@/assets/images/author.jpg';
 import {useEffect, useState} from 'react';
@@ -51,12 +51,14 @@ export default function ModernScreen() {
         </div>
         <div className="w-full sm:w-1/2 md:w-64 lg:w-72 2xl:w-80 3xl:w-[358px]">
           <div className="flex h-full flex-col justify-center rounded-lg bg-white p-6 shadow-card dark:bg-light-dark xl:p-8">
-            <Avatar
+              <Link href="/editUser">
+              <Avatar
               image={AuthorImage}
               alt="Author"
               className="mx-auto mb-6"
               size="lg"
             />
+              </Link>
             <h3 className="mb-2 text-center text-sm uppercase tracking-wider text-gray-500 dark:text-gray-400 3xl:mb-3">
               My Balance
             </h3>

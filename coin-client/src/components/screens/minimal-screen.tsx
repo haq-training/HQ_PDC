@@ -5,7 +5,7 @@ import TopPools from '@/components/ui/top-pools';
 import TransactionTable from '@/components/transaction/transaction-table';
 import TransactCoin from '@/components/ui/transact-coin';
 import PriceFeedSlider from '@/components/ui/live-price-feed';
-import { priceFeedData } from '@/data/static/price-feed';
+import Link from "next/link";
 import { useBreakpoint } from '@/lib/hooks/use-breakpoint';
 //images
 import AuthorImage from '@/assets/images/author.jpg';
@@ -72,12 +72,14 @@ export default function MinimalScreen(){
           <div className="flex items-center rounded-lg bg-white p-6 shadow-card dark:bg-light-dark md:col-span-1 md:h-[678px] lg:col-span-5 lg:h-[644px] xl:col-span-3 xl:row-start-1 xl:row-end-2 xl:h-auto 2xl:col-span-3 2xl:h-full 2xl:p-6 3xl:col-span-3 3xl:p-8">
             <div className="w-full">
               <div className="mb-8 h-full">
+                <Link href="/editUser">
                 <Avatar
                   image={AuthorImage}
                   alt="Author"
                   className="mx-auto mb-6"
                   size="lg"
                 />
+                </Link>
                 <h3 className="mb-2 text-center text-sm uppercase tracking-wider text-gray-500 dark:text-gray-400 3xl:mb-3">
                   My Balance
                 </h3>

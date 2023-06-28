@@ -1,4 +1,5 @@
 import React, { useEffect, useState  } from 'react';
+import jwt from 'jsonwebtoken';
 import axios from 'axios';
 import cn from 'classnames';
 import {
@@ -22,6 +23,12 @@ const COLUMNS = [
   {
     Header: 'ID',
     accessor: 'id',
+    minWidth: 60,
+    maxWidth: 80,
+  },
+  {
+    Header: 'User',
+    accessor: 'idUser',
     minWidth: 60,
     maxWidth: 80,
   },
@@ -106,23 +113,27 @@ export default function TransactionTable() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get('http://localhost:4003/transaction/', {
-          headers: {
-            token: `Bearer ${typeof window !== 'undefined' ? localStorage.getItem('token') : null}`
-          },
-          method: 'GET'
-        }).then((res) => {
-          return res;
-        });
-        const dataTransaction = await response.data;
-        if (dataTransaction) {
-          setDataTransactions(dataTransaction.data);
+        const token = typeof window !== 'undefined' ? localStorage.getItem('token') : null;
+        if (token) {
+          const decodedToken = jwt.decode(token);
+          const userId = decodedToken.idUser;
+          const response = await axios.get(`http://localhost:4003/transaction/${userId}`, {
+            headers: {
+              token: `Bearer ${token}`
+            },
+            method: 'GET'
+          });
+          const dataTransaction = await response.data;
+          if (dataTransaction) {
+            setDataTransactions(dataTransaction.data);
+          }
+          return dataTransaction;
         }
-        return dataTransaction;
       } catch (error) {
         console.error(error);
       }
     };
+
     fetchData().catch((e) => {
       console.error('Loi: ', e);
     });

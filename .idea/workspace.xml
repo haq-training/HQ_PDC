@@ -1,20 +1,28 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="2c87eb2a-9eb0-4a16-a2b8-a40dc13ff1b4" name="Default Changelist" comment="fix bug">
+    <list default="true" id="2c87eb2a-9eb0-4a16-a2b8-a40dc13ff1b4" name="Default Changelist" comment="tich hop API collection + chi tiet colection">
+      <change afterPath="$PROJECT_DIR$/coin-client/src/components/ui/avatar/Iconify.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/coin-client/src/components/ui/avatar/Image.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/coin-client/src/components/ui/avatar/RHFUploadAvatar.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/coin-client/src/components/ui/avatar/RejectionFiles.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/coin-client/src/components/ui/avatar/UploadAvatar.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/coin-client/src/pages/add-collection.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/coin-client/src/pages/changeThePassword.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/coin-client/src/pages/editUser.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/coin-client/next.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/coin-client/next.config.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/coin-client/src/components/nft/classic-nft-details.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/coin-client/src/components/nft/classic-nft-details.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/coin-client/src/components/nft/minimal-nft-details.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/coin-client/src/components/nft/minimal-nft-details.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/coin-client/src/components/nft/nft-details.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/coin-client/src/components/nft/nft-details.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/coin-client/src/components/nft/retro-nft-details.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/coin-client/src/components/nft/retro-nft-details.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/coin-client/src/components/profile/profile-tab.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/coin-client/src/components/profile/profile-tab.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/coin-client/src/components/ui/avatar.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/coin-client/src/components/ui/avatar.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/coin-client/src/components/ui/collection-card.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/coin-client/src/components/ui/collection-card.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/coin-client/src/config/routes.ts" beforeDir="false" afterPath="$PROJECT_DIR$/coin-client/src/config/routes.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/coin-client/src/layouts/sidebar/_menu-items.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/coin-client/src/layouts/sidebar/_menu-items.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/coin-client/src/pages/nft-details.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/coin-client/src/pages/nft-details.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/coin-client/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/coin-client/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/coin-client/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/coin-client/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/coin-client/src/components/screens/classic-screen.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/coin-client/src/components/screens/classic-screen.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/coin-client/src/components/screens/minimal-screen.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/coin-client/src/components/screens/minimal-screen.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/coin-client/src/components/screens/modern-screen.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/coin-client/src/components/screens/modern-screen.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/coin-client/src/components/transaction/transaction-table.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/coin-client/src/components/transaction/transaction-table.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/coin-client/src/layouts/sidebar/_default.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/coin-client/src/layouts/sidebar/_default.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/coin-client/src/layouts/sidebar/_retro-left.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/coin-client/src/layouts/sidebar/_retro-left.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/coin-client/src/layouts/sidebar/_retro-right.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/coin-client/src/layouts/sidebar/_retro-right.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/coin-client/src/pages/auth/login.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/coin-client/src/pages/auth/login.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/coin-client/src/pages/profile.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/coin-client/src/pages/profile.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/coin-client/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/coin-client/yarn.lock" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -51,7 +59,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="js.linters.configure.manually.selectedeslint" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../sm-client" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../coin-api-srv-PD" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.standard" value="true" />
     <property name="node.js.selected.package.eslint" value="$PROJECT_DIR$/coin-client/node_modules/eslint" />
@@ -66,6 +74,7 @@
       <recent name="$PROJECT_DIR$/coin-client/src" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/coin-client/src/components/ui/avatar" />
       <recent name="$PROJECT_DIR$/coin-client/src/pages" />
       <recent name="$PROJECT_DIR$/coin-client/src/data/utils" />
     </key>
@@ -128,6 +137,16 @@
       <workItem from="1687398788834" duration="10828000" />
       <workItem from="1687409985261" duration="16273000" />
       <workItem from="1687444027052" duration="2152000" />
+      <workItem from="1687485778081" duration="2141000" />
+      <workItem from="1687489980291" duration="16201000" />
+      <workItem from="1687697877222" duration="44000" />
+      <workItem from="1687745246924" duration="7639000" />
+      <workItem from="1687755419351" duration="13720000" />
+      <workItem from="1687789941267" duration="3248000" />
+      <workItem from="1687830924254" duration="22853000" />
+      <workItem from="1687917317985" duration="5057000" />
+      <workItem from="1687922580169" duration="9418000" />
+      <workItem from="1687939929675" duration="1158000" />
     </task>
     <task id="LOCAL-00001" summary="fix đồng">
       <created>1685416144415</created>
@@ -205,6 +224,21 @@
     <MESSAGE value="man hinh register + login" />
     <MESSAGE value="tich hop API Transaction vao 4 layout" />
     <MESSAGE value="fix bug" />
-    <option name="LAST_COMMIT_MESSAGE" value="fix bug" />
+    <MESSAGE value="tich hop API collection + chi tiet colection" />
+    <option name="LAST_COMMIT_MESSAGE" value="tich hop API collection + chi tiet colection" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/coin-client/src/components/screens/classic-screen.tsx</url>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/coin-client/src/components/screens/retro-screen.tsx</url>
+          <option name="timeStamp" value="2" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

@@ -11,6 +11,7 @@ import { menuItems } from '@/layouts/sidebar/_menu-items';
 //images
 import AuthorImage from '@/assets/images/author.jpg';
 import ShapeImage from '@/assets/images/sidebar-shape.png';
+import Link from "next/link";
 
 export default function Sidebar({ className }: { className?: string }) {
   const { closeDrawer } = useDrawer();
@@ -39,12 +40,13 @@ export default function Sidebar({ className }: { className?: string }) {
 
       <Scrollbar style={{ height: 'calc(100% - 96px)' }}>
         <div className="px-6 pb-5 2xl:px-8">
+          <Link href="/changeThePassword">
           <AuthorCard
             image={AuthorImage}
-            name="Cameron Williamson"
+            name="Change Password"
             role="admin"
           />
-
+          </Link>
           <div className="mt-12">
             {menuItems.map((item, index) => (
               <MenuItem
