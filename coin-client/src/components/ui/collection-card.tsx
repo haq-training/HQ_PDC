@@ -5,6 +5,7 @@ import Avatar from '@/components/ui/avatar';
 
 type ItemType = {
   idCollection: string | number;
+  idUser: number;
   nameCollection: string;
   slug: string;
   title: string;
@@ -19,19 +20,21 @@ type CardProps = {
   item: ItemType;
   className?: string;
   idCollection: string | number;
-  onClick?: (id: string | number) => void;
+  idUser: string | number;
+  onClick?: (id: string | number, idUser: string | number ) => void;
 };
 
 export default function CollectionCard({  item,
                                          className = '',
                                          idCollection,
+                                         idUser,
                                          onClick, }: CardProps) {
-  const { nameCollection, slug, title, coverImage, image, number_of_artwork,userName,userSlug } =
+  const { nameCollection, slug, title,coverImage, image, number_of_artwork,userName,userSlug } =
   item ?? {};
 
   const handleCardClick = () => {
     if (onClick) {
-      onClick(idCollection);
+      onClick(idCollection,idUser);
     }
   };
 

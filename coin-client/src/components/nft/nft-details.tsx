@@ -5,6 +5,7 @@ import Avatar from '@/components/ui/avatar';
 
 type ItemType = {
   idCollection: string | number;
+  idUser: string | number;
   nameCollection: string;
   slug: string;
   title: string;
@@ -27,12 +28,13 @@ export default function NftDetails({ item, className = '' }: CardProps) {
     slug,
     title,
     coverImage,
+    idUser,
     image,
     numberOfArtwork,
     userName,
     avatar,
     userSlug,
-  } = item ?? {};
+  } = item ?? [];
 
   return (
       <div

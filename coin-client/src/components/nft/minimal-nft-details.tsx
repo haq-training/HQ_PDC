@@ -5,6 +5,7 @@ import Avatar from '@/components/ui/avatar';
 
 type ItemType = {
   idCollection: string | number;
+  idUser: string | number;
   nameCollection: string;
   slug: string;
   title: string;
@@ -25,6 +26,7 @@ export default function MinimalNFTDetails({ item, className = '' }: CardProps) {
   const {
     nameCollection,
     slug,
+    idUser,
     title,
     coverImage,
     image,
@@ -32,7 +34,7 @@ export default function MinimalNFTDetails({ item, className = '' }: CardProps) {
     userName,
     avatar,
     userSlug,
-  } = item ?? {};
+  } = item ?? [];
 
   return (
       <div

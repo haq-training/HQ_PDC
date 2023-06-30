@@ -11,6 +11,7 @@ type ItemType = {
   coverImage: string;
   numberOfArtwork: number;
   image: string;
+  idUser: string | number;
   avatar: string;
   userName: string;
   userSlug: string;
@@ -30,9 +31,10 @@ export default function RetroNFTDetails({ item, className = '' }: CardProps) {
     image,
     numberOfArtwork,
     userName,
+    idUser,
     avatar,
     userSlug,
-  } = item ?? {};
+  } = item ?? [];
 
   return (
       <div

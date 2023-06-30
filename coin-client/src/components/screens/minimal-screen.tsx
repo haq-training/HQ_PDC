@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { NextSeo } from 'next-seo';
 import Avatar from '@/components/ui/avatar';
 import TopPools from '@/components/ui/top-pools';
@@ -8,6 +8,7 @@ import PriceFeedSlider from '@/components/ui/live-price-feed';
 import Link from "next/link";
 import { useBreakpoint } from '@/lib/hooks/use-breakpoint';
 //images
+import jwt from 'jsonwebtoken';
 import AuthorImage from '@/assets/images/author.jpg';
 import axios from 'axios';
 
@@ -51,6 +52,39 @@ export default function MinimalScreen(){
     });
   }, []);
 
+
+  const [dataUser , setDataUser] = useState([]);
+  const dataUsers  = React.useMemo(() => dataUser, [dataUser]);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const token = typeof window !== 'undefined' ? localStorage.getItem('token') : null;
+        if (token) {
+          const decodedToken = jwt.decode(token);
+          const userId = decodedToken.idUser;
+          const response = await axios.get(`http://localhost:4003/users/${userId}`, {
+            headers: {
+              token: `Bearer ${token}`
+            },
+            method: 'GET'
+          });
+          const user = await response.data;
+          if (user) {
+            setDataUser(user);
+          }
+          return user;
+        }
+      } catch (error) {
+        console.error(error);
+      }
+    };
+
+    fetchData().catch((e) => {
+      console.error('Loi: ', e);
+    });
+  }, []);
+
   const [limit, setLimit] = useState(4);
   const breakpoint = useBreakpoint();
   useEffect(() => {
@@ -73,15 +107,20 @@ export default function MinimalScreen(){
             <div className="w-full">
               <div className="mb-8 h-full">
                 <Link href="/editUser">
-                <Avatar
-                  image={AuthorImage}
-                  alt="Author"
-                  className="mx-auto mb-6"
-                  size="lg"
-                />
+                  {dataUsers.userAvarta && (
+                      <Avatar
+                          image={dataUsers.userAvarta}
+                          alt="Author"
+                          className="mx-auto mb-6"
+                          size="lg"
+                          width={96}
+                          height={96}
+                      />
+                  )}
+
                 </Link>
                 <h3 className="mb-2 text-center text-sm uppercase tracking-wider text-gray-500 dark:text-gray-400 3xl:mb-3">
-                  My Balance
+                  {dataUsers.userName}
                 </h3>
                 <div className="mb-7 text-center font-medium tracking-tighter text-gray-900 dark:text-white xl:text-2xl 3xl:mb-8 3xl:text-[32px]">
                   $10,86,000

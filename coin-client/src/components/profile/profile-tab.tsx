@@ -1,5 +1,6 @@
 import React, { useEffect, useState  } from 'react';
 import axios from 'axios';
+import jwt from 'jsonwebtoken';
 import { useRouter } from 'next/router';
 import cn from 'classnames';
 import ListCard from '@/components/ui/list-card';
@@ -34,36 +35,39 @@ const tabMenu = [
 
 export default function ProfileTab() {
   const router = useRouter();
-  const [data, setData] = useState<any>([]);
-
+  const [dataCollection, setData] = useState<any>([]);
+  const data = React.useMemo(() => dataCollection, [dataCollection]);
   useEffect(() => {
-
     const fetchData = async () => {
       try {
-        const response = await axios.get('http://localhost:4003/collections/', {
-          headers: {
-            token: `Bearer ${typeof window !== 'undefined' ? localStorage.getItem('token') : null}`
-          },
-          method: 'GET'
-        }).then((res) => {
-          return res;
-        });
-        const dataCollection = await response.data;
-        if (dataCollection) {
-          setData(dataCollection.data);
+        const token = typeof window !== 'undefined' ? localStorage.getItem('token') : null;
+        if (token) {
+          const decodedToken = jwt.decode(token);
+          const userId = decodedToken.idUser;
+          const response = await axios.get(`http://localhost:4003/collections/${userId}`, {
+            headers: {
+              token: `Bearer ${token}`
+            },
+            method: 'GET'
+          });
+          const collection = await response.data;
+          if (collection.data) {
+            setData(collection.data);
+          }
+          return collection.data;
         }
-        return dataCollection;
       } catch (error) {
         console.error(error);
       }
     };
+
     fetchData().catch((e) => {
       console.error('Loi: ', e);
     });
   }, []);
 
-  const handleCollectionClick = (id) => {
-    router.push(`${routes.nftDetails}?idCollection=${id}`);
+  const handleCollectionClick = (idCollection, idUser) => {
+    router.push(`${routes.nftDetails}?idUser=${idUser}&idCollection=${idCollection}`);
   };
 
   const { layout } = useLayout();
@@ -78,12 +82,14 @@ export default function ProfileTab() {
                       : 'md:grid-cols-1'
               )}
           >
-            {data?.map((collection) =>  (
+            {data.map((collection) =>  (
                   <CollectionCard
                       item={collection}
                       key={`collection-key-${collection?.idCollection}`}
                       idCollection={collection?.idCollection}
-                      onClick={handleCollectionClick}
+                      idUser={collection.idUser}
+                      onClick={() => handleCollectionClick(collection.idCollection, collection.idUser)}
+
                   />
               )
             )}

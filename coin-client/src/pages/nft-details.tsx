@@ -23,7 +23,7 @@ const NFTDetailsPage: NextPageWithLayout<
 > = () => {
 
   const router = useRouter();
-  const { idCollection } = router.query;
+  const { idCollection, idUser } = router.query;
 
   useEffect(() => {
     const token = localStorage.getItem('token');
@@ -32,14 +32,14 @@ const NFTDetailsPage: NextPageWithLayout<
     }
   }, []);
 
-  const [dataId, setDataId] = useState<any>([]);
+  const [dataId, setDataId] = useState({});
   const data = React.useMemo(() => dataId, [dataId]);
 
   useEffect(() => {
 
     const fetchData = async () => {
       try {
-        const response = await axios.get(`http://localhost:4003/collections/${idCollection}/`, {
+        const response = await axios.get(`http://localhost:4003/collections/${idUser}/${idCollection}`, {
           headers: {
             token: `Bearer ${typeof window !== 'undefined' ? localStorage.getItem('token') : null}`
           },
@@ -81,7 +81,7 @@ const NFTDetailsPage: NextPageWithLayout<
         title="NFT details"
         description="Criptic - React Next Web3 NFT Crypto Dashboard Template"
       />
-      <NftDetails item={data} />
+      <NftDetails item={data[0]} />
     </>
   );
 };

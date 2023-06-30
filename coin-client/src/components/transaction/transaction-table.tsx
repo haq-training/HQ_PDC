@@ -1,7 +1,6 @@
 import React, { useEffect, useState  } from 'react';
 import jwt from 'jsonwebtoken';
 import axios from 'axios';
-import cn from 'classnames';
 import {
   useTable,
   useResizeColumns,
@@ -15,9 +14,6 @@ import { ChevronDown } from '@/components/icons/chevron-down';
 import { LongArrowRight } from '@/components/icons/long-arrow-right';
 import { LongArrowLeft } from '@/components/icons/long-arrow-left';
 import { LinkIcon } from '@/components/icons/link-icon';
-import { TransactionData } from '@/data/static/transaction-data';
-import { useBreakpoint } from '@/lib/hooks/use-breakpoint';
-import { useIsMounted } from '@/lib/hooks/use-is-mounted';
 
 const COLUMNS = [
   {
