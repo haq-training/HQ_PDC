@@ -12,6 +12,7 @@ import jwt from 'jsonwebtoken';
 import AuthorImage from '@/assets/images/author.jpg';
 import React, {useEffect, useState} from 'react';
 import axios from 'axios';
+import User from '@/pages/User';
 
 export default function ModernScreen() {
     const [data, setData] = useState<any>([]);
@@ -85,7 +86,7 @@ export default function ModernScreen() {
         </div>
         <div className="w-full sm:w-1/2 md:w-64 lg:w-72 2xl:w-80 3xl:w-[358px]">
           <div className="flex h-full flex-col justify-center rounded-lg bg-white p-6 shadow-card dark:bg-light-dark xl:p-8">
-              <Link href="/editUser">
+              <Link href="/User">
                   {dataUsers.userAvarta && (
                       <Avatar
                           image={dataUsers.userAvarta}

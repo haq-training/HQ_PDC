@@ -1,12 +1,12 @@
 import React, { useState,useEffect} from 'react';
 import jwt from 'jsonwebtoken';
 import axios from 'axios';
-import EditUserForm from '@/components/ui/editUserForm';
+import RootLayout from '@/layouts/_root-layout';
+import UserForm from '@/components/ui/UserForm';
 
-function EditUser() {
+function User() {
     const [dataUser , setDataUser] = useState([]);
     const data = React.useMemo(() => dataUser, [dataUser]);
-    console.log('data',data)
 
     useEffect(() => {
         const fetchData = async () => {
@@ -38,10 +38,12 @@ function EditUser() {
     }, []);
 
     return (
-        <div className="flex flex-wrap w-400 mx-auto justify-center" noValidate autoComplete="off">
-            <EditUserForm item={data} />
-        </div>
-    );
+        <RootLayout>
+            <div className="flex flex-wrap w-400 mx-auto justify-center" noValidate autoComplete="off">
+                <UserForm item={data} />
+            </div>
+        </RootLayout>
+);
 }
 
-export default EditUser;
+export default User;

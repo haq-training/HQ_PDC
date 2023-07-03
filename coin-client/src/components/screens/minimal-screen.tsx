@@ -11,6 +11,7 @@ import { useBreakpoint } from '@/lib/hooks/use-breakpoint';
 import jwt from 'jsonwebtoken';
 import AuthorImage from '@/assets/images/author.jpg';
 import axios from 'axios';
+import User from '@/pages/User';
 
 const topPoolsLimit = (breakpoint: string) => {
   switch (breakpoint) {
@@ -106,7 +107,7 @@ export default function MinimalScreen(){
           <div className="flex items-center rounded-lg bg-white p-6 shadow-card dark:bg-light-dark md:col-span-1 md:h-[678px] lg:col-span-5 lg:h-[644px] xl:col-span-3 xl:row-start-1 xl:row-end-2 xl:h-auto 2xl:col-span-3 2xl:h-full 2xl:p-6 3xl:col-span-3 3xl:p-8">
             <div className="w-full">
               <div className="mb-8 h-full">
-                <Link href="/editUser">
+                <Link href="/User">
                   {dataUsers.userAvarta && (
                       <Avatar
                           image={dataUsers.userAvarta}
