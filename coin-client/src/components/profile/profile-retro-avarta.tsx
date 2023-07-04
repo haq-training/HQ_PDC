@@ -1,5 +1,6 @@
 import Avatar from '@/components/ui/avatar';
 import Button from '@/components/ui/button';
+import jwt from 'jsonwebtoken';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import {faEdit} from '@fortawesome/free-solid-svg-icons';
 import Link from 'next/link';

@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="2c87eb2a-9eb0-4a16-a2b8-a40dc13ff1b4" name="Default Changelist" comment="fix transaction va xay dung + tich hop API doi mat khau">
+    <list default="true" id="2c87eb2a-9eb0-4a16-a2b8-a40dc13ff1b4" name="Default Changelist" comment="fix sua ten user">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/coin-client/src/components/ui/UserForm.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/coin-client/src/components/ui/UserForm.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/coin-client/src/components/profile/profile-retro-avarta.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/coin-client/src/components/profile/profile-retro-avarta.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -141,7 +141,7 @@
       <workItem from="1688368757871" duration="5507000" />
       <workItem from="1688435669110" duration="3448000" />
       <workItem from="1688439410216" duration="1946000" />
-      <workItem from="1688444290747" duration="2042000" />
+      <workItem from="1688444290747" duration="2825000" />
     </task>
     <task id="LOCAL-00001" summary="fix đồng">
       <created>1685416144415</created>
@@ -199,7 +199,14 @@
       <option name="project" value="LOCAL" />
       <updated>1688377491119</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="fix sua ten user">
+      <created>1688446426214</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1688446426214</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -228,7 +235,8 @@
     <MESSAGE value="fix bug" />
     <MESSAGE value="tich hop API collection + chi tiet colection" />
     <MESSAGE value="fix transaction va xay dung + tich hop API doi mat khau" />
-    <option name="LAST_COMMIT_MESSAGE" value="fix transaction va xay dung + tich hop API doi mat khau" />
+    <MESSAGE value="fix sua ten user" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix sua ten user" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
