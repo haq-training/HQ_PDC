@@ -1,0 +1,51 @@
+
+import jwt from 'jsonwebtoken';
+import RetroProfile from '@/components/profile/retro-profile';
+import React, {useEffect, useState} from 'react';
+import axios from 'axios';
+import ProfileRetroCover from '@/components/profile/profile-retro-cover';
+import ProfileRetroAvarta from '@/components/profile/profile-retro-avarta';
+
+export default function ProifleRetro(){
+
+    const [dataUser , setDataUser] = useState([]);
+    const data = React.useMemo(() => dataUser, [dataUser]);
+
+    useEffect(() => {
+        const fetchData = async () => {
+            try {
+                const token = typeof window !== 'undefined' ? localStorage.getItem('token') : null;
+                if (token) {
+                    const decodedToken = jwt.decode(token);
+                    const userId = decodedToken.idUser;
+                    const response = await axios.get(`http://localhost:4003/users/${userId}`, {
+                        headers: {
+                            token: `Bearer ${token}`
+                        },
+                        method: 'GET'
+                    });
+                    const user = await response.data;
+                    if (user) {
+                        setDataUser(user);
+                    }
+                    return user;
+                }
+            } catch (error) {
+                console.error(error);
+            }
+        };
+
+        fetchData().catch((e) => {
+            console.error('Loi: ', e);
+        });
+    }, []);
+    return(
+        <>
+            <ProfileRetroCover  item={data}/>
+            <div className="mx-auto flex w-full shrink-0 flex-col md:px-4 xl:px-6 3xl:max-w-[1700px] 3xl:px-12">
+                <ProfileRetroAvarta  item={data}/>
+                <RetroProfile />
+            </div>
+        </>
+    );
+}
