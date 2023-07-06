@@ -13,6 +13,7 @@ const routes = {
   portfolio: '/profile?view=portfolio',
   history: '/profile?view=history',
   classic: '/classic',
+  editCollection: '/editCollection',
   layoutDetails:'/layout-details',
 };
 

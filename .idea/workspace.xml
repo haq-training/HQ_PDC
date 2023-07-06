@@ -1,9 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="2c87eb2a-9eb0-4a16-a2b8-a40dc13ff1b4" name="Default Changelist" comment="fix sua ten user">
+    <list default="true" id="2c87eb2a-9eb0-4a16-a2b8-a40dc13ff1b4" name="Default Changelist" comment="fix bug">
+      <change afterPath="$PROJECT_DIR$/coin-client/src/components/nft/editCollectionForm.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/coin-client/src/pages/editCollection.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/coin-client/src/components/profile/profile-retro-avarta.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/coin-client/src/components/profile/profile-retro-avarta.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/coin-client/next.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/coin-client/next.config.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/coin-client/src/components/ui/collection-card.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/coin-client/src/components/ui/collection-card.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/coin-client/src/config/routes.ts" beforeDir="false" afterPath="$PROJECT_DIR$/coin-client/src/config/routes.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/coin-client/src/pages/add-collection.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/coin-client/src/pages/add-collection.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -13,7 +18,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="feature/xay_dung_man_hinh_edit_user_va_man_hinh_tao_moi_collection" />
+        <entry key="$PROJECT_DIR$" value="main" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -36,6 +41,7 @@
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="Git.Branch.Popup.ShowAllRemotes" value="true" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
@@ -141,7 +147,13 @@
       <workItem from="1688368757871" duration="5507000" />
       <workItem from="1688435669110" duration="3448000" />
       <workItem from="1688439410216" duration="1946000" />
-      <workItem from="1688444290747" duration="2825000" />
+      <workItem from="1688444290747" duration="12575000" />
+      <workItem from="1688464795763" duration="4048000" />
+      <workItem from="1688469193111" duration="471000" />
+      <workItem from="1688522162523" duration="2683000" />
+      <workItem from="1688525515442" duration="20445000" />
+      <workItem from="1688552683439" duration="3948000" />
+      <workItem from="1688569690258" duration="3444000" />
     </task>
     <task id="LOCAL-00001" summary="fix đồng">
       <created>1685416144415</created>
@@ -206,7 +218,14 @@
       <option name="project" value="LOCAL" />
       <updated>1688446426214</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="fix bug">
+      <created>1688453194567</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1688453194567</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -232,11 +251,11 @@
     <MESSAGE value="dong bo" />
     <MESSAGE value="man hinh register + login" />
     <MESSAGE value="tich hop API Transaction vao 4 layout" />
-    <MESSAGE value="fix bug" />
     <MESSAGE value="tich hop API collection + chi tiet colection" />
     <MESSAGE value="fix transaction va xay dung + tich hop API doi mat khau" />
     <MESSAGE value="fix sua ten user" />
-    <option name="LAST_COMMIT_MESSAGE" value="fix sua ten user" />
+    <MESSAGE value="fix bug" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix bug" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -248,6 +267,15 @@
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/coin-client/src/components/screens/retro-screen.tsx</url>
           <option name="timeStamp" value="2" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/coin-client/src/pages/profile.tsx</url>
+          <option name="timeStamp" value="3" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/coin-client/src/pages/editCollection.tsx</url>
+          <line>3</line>
+          <option name="timeStamp" value="4" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

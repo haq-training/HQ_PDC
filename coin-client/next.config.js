@@ -10,7 +10,7 @@ const withPWA = require('next-pwa')({
 const nextConfig = withPWA({
   reactStrictMode: true,
   images: {
-    domains: ['i.imgur.com','daihocdaivietsaigon.edu.vn','vothisaucamau.edu.vn','localhost'],
+    domains: ['i.imgur.com','daihocdaivietsaigon.edu.vn','vothisaucamau.edu.vn','localhost','www.cryptocompare.com'],
   },
   ...(process.env.NODE_ENV === 'production' && {
     typescript: {
