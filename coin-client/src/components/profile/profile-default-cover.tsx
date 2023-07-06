@@ -4,7 +4,7 @@ import jwt from 'jsonwebtoken';
 import axios from 'axios';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import {faEdit} from '@fortawesome/free-solid-svg-icons';
-import React, { useRef } from 'react';
+import React, {useEffect, useState,useRef} from 'react';
 
 type ItemType = {
     userCover: string;
@@ -18,9 +18,14 @@ export default function ProfileDefaultCover({ item }: CardProps){
     const { userCover } = item;
     const fileInputRef = useRef<HTMLInputElement>(null);
 
+    const [userCoverCard, setUserCover] = useState(userCover);
+    useEffect(() => {
+        setUserCover(userCover );
+    }, [userCover]);
     const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         const file = e.target.files && e.target.files[0];
         if (file) {
+            setUserCover(URL.createObjectURL(file));
             const token = typeof window !== 'undefined' ? localStorage.getItem('token') : null;
             const formData = new FormData();
             const decodedToken = jwt.decode(token);
@@ -48,9 +53,9 @@ export default function ProfileDefaultCover({ item }: CardProps){
     };
     return(
         <div className="relative h-36 w-full overflow-hidden rounded-lg sm:h-44 md:h-64 xl:h-80 2xl:h-96 3xl:h-[448px]">
-            {userCover && (
+            {userCoverCard && (
                 <Image
-                    src={userCover}
+                    src={userCoverCard}
                     placeholder="empty"
                     fill
                     className="object-cover"

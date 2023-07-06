@@ -6,7 +6,6 @@ import UserForm from '@/components/ui/UserForm';
 
 function User() {
     const [dataUser , setDataUser] = useState([]);
-    const data = React.useMemo(() => dataUser, [dataUser]);
 
     useEffect(() => {
         const fetchData = async () => {
@@ -40,7 +39,7 @@ function User() {
     return (
         <RootLayout>
             <div className="flex flex-wrap w-400 mx-auto justify-center" noValidate autoComplete="off">
-                <UserForm item={data} />
+                <UserForm item={dataUser} />
             </div>
         </RootLayout>
 );

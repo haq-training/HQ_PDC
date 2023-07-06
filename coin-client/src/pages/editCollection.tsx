@@ -9,7 +9,7 @@ export default function EditCollection() {
     const router = useRouter();
     const { idUser, idCollection} = router.query;
 
-    const [dataId, setDataId] = useState('');
+    const [dataId, setDataId] = useState([]);
 
     useEffect(() => {
 

@@ -2,6 +2,7 @@ import React, { useReducer } from 'react';
 import Link from 'next/link';
 import jwt from 'jsonwebtoken';
 import axios from 'axios';
+import RootLayout from '@/layouts/_root-layout';
 import { toast } from 'react-toastify';
 import TextField from '@material-ui/core/TextField';
 import Card from '@material-ui/core/Card';
@@ -9,7 +10,6 @@ import CardContent from '@material-ui/core/CardContent';
 import CardActions from '@material-ui/core/CardActions';
 import CardHeader from '@material-ui/core/CardHeader';
 import Button from '@/components/ui/button';
-import routes from '@/config/routes';
 import {useRouter} from 'next/router';
 
 type State = {
@@ -85,9 +85,6 @@ const reducer = (state: State, action: Action): State => {
 
 function ChangePassword() {
     const [state, dispatch] = useReducer(reducer, initialState);
-    const router = useRouter();
-
-
     const handlePasswordChange = (event: React.ChangeEvent<HTMLInputElement>) => {
         dispatch({
             type: 'setCurrentPassword',
@@ -148,7 +145,6 @@ function ChangePassword() {
                     type: 'changePasswordSuccess',
                     payload: 'Password changed successfully',
                 });
-                router.push(routes.home);
                 toast.success('Password changed successfully');
             } else {
                 dispatch({
@@ -169,6 +165,7 @@ function ChangePassword() {
 
 
     return (
+        <RootLayout>
         <form className="flex flex-wrap w-400 mx-auto justify-center" noValidate autoComplete="off">
             <Card className="mt-10">
                 <CardHeader className="text-center bg-gray-900 text-white" title="Đổi mật khẩu" />
@@ -227,6 +224,7 @@ function ChangePassword() {
                 </CardActions>
             </Card>
         </form>
+        </RootLayout>
     );
 }
 

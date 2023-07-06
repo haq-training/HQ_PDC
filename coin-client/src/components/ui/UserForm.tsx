@@ -1,5 +1,5 @@
 import TextField from '@material-ui/core/TextField';
-import React, { useState } from 'react';
+import React, { useState,useEffect } from 'react';
 import Card from '@material-ui/core/Card';
 import axios from 'axios';
 import jwt from 'jsonwebtoken';
@@ -7,6 +7,8 @@ import CardContent from '@material-ui/core/CardContent';
 import CardHeader from '@material-ui/core/CardHeader';
 import Image from '@/components/ui/image';
 import Button from '@/components/ui/button';
+import routes from '@/config/routes';
+import {useRouter} from 'next/router';
 
 type ItemType = {
     userName: string;
@@ -19,11 +21,16 @@ type CardProps = {
 };
 
 export default function UserForm({ item }: CardProps) {
+    const router = useRouter();
     const { userName = '', userAvarta, userCover } = item;
-    const [newUserName, setNewUserName] = useState(userName);
+    const [newUserName, setNewUserName] = useState(userName || '');
     const handleUserNameChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         setNewUserName(e.target.value);
     };
+
+    useEffect(() => {
+        setNewUserName(userName);
+    }, [userName]);
 
     const handleSaveUserName = async () => {
         try {
@@ -40,6 +47,7 @@ export default function UserForm({ item }: CardProps) {
                     method: 'PUT'
                 }
             );
+            router.push(routes.home);
             console.log('UserName updated successfully!');
         } catch (error) {
             console.error('Failed to update UserName:', error);

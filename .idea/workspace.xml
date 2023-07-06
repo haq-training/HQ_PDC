@@ -1,14 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="2c87eb2a-9eb0-4a16-a2b8-a40dc13ff1b4" name="Default Changelist" comment="fix bug">
-      <change afterPath="$PROJECT_DIR$/coin-client/src/components/nft/editCollectionForm.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/coin-client/src/pages/editCollection.tsx" afterDir="false" />
+    <list default="true" id="2c87eb2a-9eb0-4a16-a2b8-a40dc13ff1b4" name="Default Changelist" comment="fix bug add COllection">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/coin-client/next.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/coin-client/next.config.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/coin-client/src/components/ui/collection-card.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/coin-client/src/components/ui/collection-card.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/coin-client/src/config/routes.ts" beforeDir="false" afterPath="$PROJECT_DIR$/coin-client/src/config/routes.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/coin-client/src/pages/add-collection.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/coin-client/src/pages/add-collection.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/coin-client/src/components/nft/editCollectionForm.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/coin-client/src/components/nft/editCollectionForm.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/coin-client/src/components/profile/profile-default-avarta.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/coin-client/src/components/profile/profile-default-avarta.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/coin-client/src/components/profile/profile-default-cover.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/coin-client/src/components/profile/profile-default-cover.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/coin-client/src/components/profile/profile-retro-avarta.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/coin-client/src/components/profile/profile-retro-avarta.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/coin-client/src/components/profile/profile-retro-cover.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/coin-client/src/components/profile/profile-retro-cover.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/coin-client/src/components/ui/UserForm.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/coin-client/src/components/ui/UserForm.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/coin-client/src/pages/User.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/coin-client/src/pages/User.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/coin-client/src/pages/changeThePassword.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/coin-client/src/pages/changeThePassword.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/coin-client/src/pages/editCollection.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/coin-client/src/pages/editCollection.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -46,7 +49,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="js.linters.configure.manually.selectedeslint" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../coin-api-srv-PD" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.standard" value="true" />
     <property name="node.js.selected.package.eslint" value="$PROJECT_DIR$/coin-client/node_modules/eslint" />
@@ -154,6 +157,9 @@
       <workItem from="1688525515442" duration="20445000" />
       <workItem from="1688552683439" duration="3948000" />
       <workItem from="1688569690258" duration="3444000" />
+      <workItem from="1688608716681" duration="623000" />
+      <workItem from="1688609594251" duration="7610000" />
+      <workItem from="1688617579306" duration="675000" />
     </task>
     <task id="LOCAL-00001" summary="fix đồng">
       <created>1685416144415</created>
@@ -225,7 +231,14 @@
       <option name="project" value="LOCAL" />
       <updated>1688453194567</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="fix bug add COllection">
+      <created>1688608879707</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1688608879707</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -255,7 +268,8 @@
     <MESSAGE value="fix transaction va xay dung + tich hop API doi mat khau" />
     <MESSAGE value="fix sua ten user" />
     <MESSAGE value="fix bug" />
-    <option name="LAST_COMMIT_MESSAGE" value="fix bug" />
+    <MESSAGE value="fix bug add COllection" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix bug add COllection" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

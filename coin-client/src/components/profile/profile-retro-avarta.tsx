@@ -4,7 +4,7 @@ import jwt from 'jsonwebtoken';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import {faEdit} from '@fortawesome/free-solid-svg-icons';
 import Link from 'next/link';
-import React, {useRef} from 'react';
+import React, {useEffect, useState,useRef} from 'react';
 import {createStyles, makeStyles} from '@material-ui/core/styles';
 import axios from 'axios';
 
@@ -19,7 +19,8 @@ const useStyles = makeStyles((theme) =>
             fontSize: '16px',
             marginLeft: theme.spacing(34),
             marginTop: theme.spacing(1),
-        })
+        },
+    })
 );
 
 type ItemType = {
@@ -33,12 +34,17 @@ type CardProps = {
 export default function ProfileRetroAvarta({ item }: CardProps){
     const { userAvarta } = item;
     const classes = useStyles();
+    const [userAvartaCard, setUserAvarta] = useState(userAvarta);
 
+    useEffect(() => {
+        setUserAvarta(userAvarta );
+    }, [userAvarta]);
     const fileInputRef = useRef<HTMLInputElement>(null);
 
     const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         const file = e.target.files && e.target.files[0];
         if (file) {
+            setUserAvarta(URL.createObjectURL(file));
             const token = typeof window !== 'undefined' ? localStorage.getItem('token') : null;
             const formData = new FormData();
             const decodedToken = jwt.decode(token);
@@ -66,9 +72,9 @@ export default function ProfileRetroAvarta({ item }: CardProps){
     };
     return(
         <div className="flex items-center">
-            {userAvarta && (
+            {userAvartaCard && (
                 <Avatar
-                    image={userAvarta}
+                    image={userAvartaCard}
                     alt="Author"
                     className="mr-2 mt-4"
                     size="lg"

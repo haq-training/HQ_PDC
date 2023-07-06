@@ -1,7 +1,6 @@
-import React, { useState } from 'react';
+import React, {useEffect, useState} from 'react';
 import { useRouter } from 'next/router';
 import axios from 'axios';
-import { toast } from 'react-toastify';
 import TextField from '@material-ui/core/TextField';
 import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
@@ -33,15 +32,14 @@ type CardProps = {
 export default function EditCollectionForm ({ item,idCollection,idUser}: CardProps) {
 
     const router = useRouter();
-    console.log(item)
-
-    console.log(item[0]?.nameCollection || '')
-    console.log(item[0]?.title || '')
 
     const [nameCollectionCard, setNameCollection] = useState(item[0]?.nameCollection || '' );
     const [titleCard, setTitle] = useState(item[0]?.title || '');
-    console.log('nameCollectionCard',nameCollectionCard)
-    console.log('titleCard',titleCard)
+
+    useEffect(() => {
+        setNameCollection(item[0]?.nameCollection ||'' );
+        setTitle(item[0]?.title || '');
+    }, [item[0]?.nameCollection,item[0]?.title ]);
 
 
     const handleNameChange = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -66,7 +64,6 @@ export default function EditCollectionForm ({ item,idCollection,idUser}: CardPro
                     },
                 }
             );
-            console.log(response);
             router.push(routes.profile);
         } catch (error) {
             console.error(error);
