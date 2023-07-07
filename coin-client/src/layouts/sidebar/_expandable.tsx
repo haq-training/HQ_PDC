@@ -3,7 +3,6 @@ import { useRouter } from 'next/router';
 import { motion } from 'framer-motion';
 import cn from 'classnames';
 import jwt from 'jsonwebtoken';
-import AuthorCard from '@/components/ui/author-card';
 import Logo from '@/components/ui/logo';
 import LogoIcon from '@/components/ui/logo-icon';
 import { MenuItem } from '@/components/ui/collapsible-menu';
@@ -16,7 +15,6 @@ import { menuItems } from '@/layouts/sidebar/_menu-items';
 import routes from '@/config/routes';
 import Avatar from '@/components/ui/avatar';
 //images
-import AuthorImage from '@/assets/images/author.jpg';
 import axios from 'axios';
 
 export default function Sidebar({ className }: { className?: string }) {
@@ -161,10 +159,20 @@ export default function Sidebar({ className }: { className?: string }) {
                   }}
                   className="cursor-pointer pb-2"
                   onClick={() =>
-                      router.push({ pathname: routes.profile, query: { ...restQuery } })
+                      router.push({ pathname: routes.changeThePassword, query: { ...restQuery } })
                   }
               >
-                <AuthorCard image={AuthorImage} />
+                <div className="flex items-center">
+                  {dataUsers.userAvarta && (
+                      <Avatar
+                          image={dataUsers.userAvarta}
+                          name="Cameron Williamson"
+                          role="admin"
+                          width={36}
+                          height={36}
+                      />
+                  )}
+                </div>
               </motion.div>
           ) : (
               <div>
@@ -178,20 +186,25 @@ export default function Sidebar({ className }: { className?: string }) {
                     }}
                     onClick={() =>
                         router.push({
-                          pathname: routes.profile,
+                          pathname: routes.changeThePassword,
                           query: { ...restQuery },
                         })
                     }
                 >
-                  {dataUsers.userAvarta && (
-                      <Avatar
-                          image={dataUsers.userAvarta}
-                          name="Cameron Williamson"
-                          role="admin"
-                          width={36}
-                          height={36}
-                      />
-                  )}
+                  <div className="flex items-center">
+                    {dataUsers.userAvarta && (
+                        <Avatar
+                            image={dataUsers.userAvarta}
+                            name="Cameron Williamson"
+                            role="admin"
+                            width={36}
+                            height={36}
+                        />
+                    )}
+                    <h3 className="mt-3 ml-1 text-center text-sm uppercase tracking-wider text-gray-500 dark:text-gray-400 3xl:mb-3">
+                      ĐỔI MẬT KHẨU
+                    </h3>
+                  </div>
                 </motion.div>
               </div>
           )}

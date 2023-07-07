@@ -1,4 +1,4 @@
-import React, { useReducer } from 'react';
+import React, { useReducer,useState,useEffect } from 'react';
 import Link from 'next/link';
 import jwt from 'jsonwebtoken';
 import axios from 'axios';
@@ -150,13 +150,13 @@ function ChangePassword() {
                 localStorage.removeItem('token');
                 localStorage.removeItem('accessToken');
                 router.push(routes.login);
-                toast.success('Password changed successfully');
+                toast.success('Đổi mật khẩu thành công');
             } else {
                 dispatch({
                     type: 'changePasswordFailed',
                     payload: 'Failed to change password',
                 });
-                toast.error('Failed to change password');
+                toast.error('Mật khẩu sai');
             }
         } catch (error) {
             console.error(error);
@@ -164,10 +164,15 @@ function ChangePassword() {
                 type: 'changePasswordFailed',
                 payload: 'Failed to change password',
             });
-            toast.error('Failed to change password');
+            toast.info('Mật khẩu sai');
         }
     };
 
+    useEffect(() => {
+        if (state.helperText === 'Đổi mật khẩu thành công') {
+            router.push(routes.login);
+        }
+    }, [state.helperText]);
 
     return (
         <RootLayout>

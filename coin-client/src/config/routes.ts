@@ -15,6 +15,7 @@ const routes = {
   classic: '/classic',
   editCollection: '/editCollection',
   User: '/User',
+  changeThePassword: '/changeThePassword',
   layoutDetails:'/layout-details',
 };
 

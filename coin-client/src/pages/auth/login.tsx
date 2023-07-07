@@ -2,7 +2,7 @@ import Link from 'next/link';
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { useRouter } from 'next/router';
-import React, { useReducer,useEffect } from 'react';
+import React, {useReducer, useEffect, useState} from 'react';
 import TextField from '@material-ui/core/TextField';
 import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
@@ -11,6 +11,7 @@ import CardHeader from '@material-ui/core/CardHeader';
 import Button from '@/components/ui/button';
 import routes from '@/config/routes';
 import httpClient from '@/data/utils/client';
+import Notification from '@/components/ui/notification';
 
 type State = {
     username: string;
@@ -78,6 +79,7 @@ const reducer = (state: State, action: Action): State => {
 function LoginPage() {
     const [state, dispatch] = useReducer(reducer, initialState);
     const router = useRouter();
+    const [notification, setNotification] = useState('');
 
     useEffect(() => {
         const token = localStorage.getItem('token');
@@ -101,13 +103,15 @@ function LoginPage() {
                         payload: 'Login Successfully',
                     });
                     router.push(routes.home);
-                    toast.success('Login Successfully');
+                    toast.success('Đăng nhập thành công');
+                    setNotification('Đăng nhập thành công');
                 } else {
                     dispatch({
                         type: 'loginFailed',
                         payload: 'Incorrect username or password',
                     });
-                    toast.error('Login Failed');
+                    toast.error('Đăng nhập sai');
+                    setNotification('Đăng nhập sai');
                 }
             } catch (error) {
                 console.error(error);
@@ -115,14 +119,16 @@ function LoginPage() {
                     type: 'loginFailed',
                     payload: 'Login Failed',
                 });
-                toast.warning('Incorrect username or password');
+                toast.warning('Tên hoặc mật khẩu chưa đúng');
+                setNotification('Tên hoặc mật khẩu chưa đúng');
             }
         } else {
             dispatch({
                 type: 'loginFailed',
                 payload: 'Please fill in all fields',
             });
-            toast.info('Please fill in all fields');
+            toast.info('vui lòng điền vào form');
+            setNotification('vui lòng điền vào form');
         }
     };
 
@@ -149,63 +155,64 @@ function LoginPage() {
     };
 
     return (
-        <form className="flex flex-wrap w-400 mx-auto flex justify-center" noValidate autoComplete="off">
-            <Card className="mt-10">
-                <CardHeader className="text-center bg-gray-900 text-white" title="Đăng nhập" />
-                <CardContent>
-                    <div>
-                        <TextField
-                            error={state.isError}
-                            fullWidth
-                            id="username"
-                            type="text"
-                            label="Username"
-                            placeholder="Username"
-                            margin="normal"
-                            onChange={handleUsernameChange}
-                            onKeyPress={handleKeyPress}
-                        />
-                        <TextField
-                            error={state.isError}
-                            fullWidth
-                            id="password"
-                            type="password"
-                            label="Password"
-                            placeholder="Password"
-                            margin="normal"
-                            helperText={state.helperText}
-                            onChange={handlePasswordChange}
-                            onKeyPress={handleKeyPress}
-                        />
-                    </div>
-                </CardContent>
-                <CardActions className="flex flex-col">
-                    <div className="mb-2 w-full">
-                        <Link href="/">
-                            <Button
-                                size="large"
-                                className="flex-grow w-full"
-                                onClick={handleLogin}
-                                disabled={!state.username || !state.password }
-                            >
-                                Đăng nhập
+        <>
+            <form className="flex flex-wrap w-400 mx-auto flex justify-center" noValidate autoComplete="off">
+                <Card className="mt-10">
+                    <CardHeader className="text-center bg-gray-900 text-white" title="Đăng nhập" />
+                    <CardContent>
+                        <div>
+                            <TextField
+                                error={state.isError}
+                                fullWidth
+                                id="username"
+                                type="text"
+                                label="Username"
+                                placeholder="Username"
+                                margin="normal"
+                                onChange={handleUsernameChange}
+                                onKeyPress={handleKeyPress}
+                            />
+                            <TextField
+                                error={state.isError}
+                                fullWidth
+                                id="password"
+                                type="password"
+                                label="Password"
+                                placeholder="Password"
+                                margin="normal"
+                                helperText={state.helperText}
+                                onChange={handlePasswordChange}
+                                onKeyPress={handleKeyPress}
+                            />
+                        </div>
+                    </CardContent>
+                    <CardActions className="flex flex-col">
+                        <div className="mb-2 w-full" >
+                            <Link href="/">
+                                <Button
+                                    size="large"
+                                    className="flex-grow w-full"
+                                    onClick={handleLogin}
+                                    disabled={!state.username || !state.password }
+                                >
+                                    Đăng nhập
 
-                            </Button>
-                        </Link>
-                    </div>
-                    <div className="flex justify-center w-full">
-                        <div className="text-sm text-gray-600">
-                            Chưa có tài khoản?
-                            <Link href="/auth/register">
-                                <Button className="text-white-500 mt-5 ml-3 ">
-                                    Đăng ký ngay
                                 </Button>
                             </Link>
                         </div>
-                    </div>
-                </CardActions>
-            </Card>
-        </form>
+                        <div className="flex justify-center w-full">
+                            <div className="text-sm text-gray-600">
+                                Chưa có tài khoản?
+                                    <Button className="text-white-500 mt-5 ml-3 "onClick={() => router.push(routes.register)}>
+                                        Đăng ký ngay
+                                    </Button>
+                            </div>
+                        </div>
+                    </CardActions>
+                </Card>
+            </form>
+            <Notification message={notification} />
+        </>
     );
 }
 

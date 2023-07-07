@@ -1,10 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="2c87eb2a-9eb0-4a16-a2b8-a40dc13ff1b4" name="Default Changelist" comment="fix bug add COllection">
+    <list default="true" id="2c87eb2a-9eb0-4a16-a2b8-a40dc13ff1b4" name="Default Changelist" comment="fix bug router">
+      <change afterPath="$PROJECT_DIR$/coin-client/src/components/ui/notification.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/coin-client/src/components/ui/collection-card.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/coin-client/src/components/ui/collection-card.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/coin-client/src/config/routes.ts" beforeDir="false" afterPath="$PROJECT_DIR$/coin-client/src/config/routes.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/coin-client/src/layouts/sidebar/_default.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/coin-client/src/layouts/sidebar/_default.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/coin-client/src/layouts/sidebar/_expandable.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/coin-client/src/layouts/sidebar/_expandable.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/coin-client/src/layouts/sidebar/_menu-items.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/coin-client/src/layouts/sidebar/_menu-items.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/coin-client/src/layouts/sidebar/_retro-left.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/coin-client/src/layouts/sidebar/_retro-left.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/coin-client/src/pages/auth/login.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/coin-client/src/pages/auth/login.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/coin-client/src/pages/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/coin-client/src/pages/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/coin-client/src/pages/changeThePassword.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/coin-client/src/pages/changeThePassword.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -243,7 +250,14 @@
       <option name="project" value="LOCAL" />
       <updated>1688618425898</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="fix bug router">
+      <created>1688713671469</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1688713671469</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -274,7 +288,8 @@
     <MESSAGE value="fix sua ten user" />
     <MESSAGE value="fix bug" />
     <MESSAGE value="fix bug add COllection" />
-    <option name="LAST_COMMIT_MESSAGE" value="fix bug add COllection" />
+    <MESSAGE value="fix bug router" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix bug router" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

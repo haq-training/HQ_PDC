@@ -1,5 +1,4 @@
 import cn from 'classnames';
-import AuthorCard from '@/components/ui/author-card';
 import Logo from '@/components/ui/logo';
 import { MenuItem } from '@/components/ui/collapsible-menu';
 import Scrollbar from '@/components/ui/scrollbar';
@@ -8,11 +7,47 @@ import { useDrawer } from '@/components/drawer-views/context';
 import { Close } from '@/components/icons/close';
 import { menuItems } from '@/layouts/sidebar/_menu-items';
 //images
-import AuthorImage from '@/assets/images/author.jpg';
-import Link from "next/link";
+import jwt from 'jsonwebtoken';
+import routes from '@/config/routes';
+import {useRouter} from 'next/router';
+import Avatar from '@/components/ui/avatar';
+import React, {useEffect, useState} from 'react';
+import axios from 'axios';
 
 export default function Sidebar({ className }: { className?: string }) {
   const { closeDrawer } = useDrawer();
+  const router = useRouter();
+  const [dataUser , setDataUser] = useState([]);
+  const dataUsers  = React.useMemo(() => dataUser, [dataUser]);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const token = typeof window !== 'undefined' ? localStorage.getItem('token') : null;
+        if (token) {
+          const decodedToken = jwt.decode(token);
+          const userId = decodedToken.idUser;
+          const response = await axios.get(`http://localhost:4003/users/${userId}`, {
+            headers: {
+              token: `Bearer ${token}`
+            },
+            method: 'GET'
+          });
+          const user = await response.data;
+          if (user) {
+            setDataUser(user);
+          }
+          return user;
+        }
+      } catch (error) {
+        console.error(error);
+      }
+    };
+
+    fetchData().catch((e) => {
+      console.error('Loi: ', e);
+    });
+  }, []);
   return (
     <aside
       className={cn(
@@ -50,13 +85,25 @@ export default function Sidebar({ className }: { className?: string }) {
             ))}
           </div>
         </div>
-        <Link href="/changeThePassword">
-          <AuthorCard
-              image={AuthorImage}
-              name="Change Password"
-              role="admin"
-          />
-        </Link>
+        <div className="ml-10" onClick={() => router.push(routes.changeThePassword)}>
+          <div className="flex items-center ">
+            {dataUsers.userAvarta && (
+                <Avatar
+                    image={dataUsers.userAvarta}
+                    name="Cameron Williamson"
+                    role="admin"
+                    width={36}
+                    height={36}
+                />
+            )}
+            <h3 className="mt-3 ml-1 text-center text-sm uppercase tracking-wider text-gray-500 dark:text-gray-400 3xl:mb-3">
+              ĐỔI MẬT KHẨU
+            </h3>
+          </div>
+        </div>
+
+
+
       </Scrollbar>
     </aside>
   );
