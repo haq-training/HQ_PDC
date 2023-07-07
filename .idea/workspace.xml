@@ -3,13 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="2c87eb2a-9eb0-4a16-a2b8-a40dc13ff1b4" name="Default Changelist" comment="fix bug add COllection">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/coin-client/src/components/screens/classic-screen.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/coin-client/src/components/screens/classic-screen.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/coin-client/src/components/screens/minimal-screen.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/coin-client/src/components/screens/minimal-screen.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/coin-client/src/components/screens/modern-screen.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/coin-client/src/components/screens/modern-screen.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/coin-client/src/components/ui/collection-card.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/coin-client/src/components/ui/collection-card.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/coin-client/src/config/routes.ts" beforeDir="false" afterPath="$PROJECT_DIR$/coin-client/src/config/routes.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/coin-client/src/pages/add-collection.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/coin-client/src/pages/add-collection.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/coin-client/src/pages/changeThePassword.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/coin-client/src/pages/changeThePassword.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/coin-client/src/pages/auth/login.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/coin-client/src/pages/auth/login.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/coin-client/src/pages/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/coin-client/src/pages/index.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

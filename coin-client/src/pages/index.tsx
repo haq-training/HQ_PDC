@@ -9,6 +9,7 @@ import MinimalScreen from '@/components/screens/minimal-screen';
 import ClassicScreen from '@/components/screens/classic-screen';
 import RetroScreen from '@/components/screens/retro-screen';
 import { useRouter } from 'next/router';
+import routes from '@/config/routes';
 
 
 type HomePageProps = {};
@@ -21,7 +22,7 @@ const HomePage: NextPage<HomePageProps> = () => {
   useEffect(() => {
     const token = localStorage.getItem('token');
     if (!token) {
-      router.push('/auth/login');
+      router.push(routes.login);
     } else {
       setIsLoggedIn(true);
     }
