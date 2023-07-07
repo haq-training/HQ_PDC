@@ -85,7 +85,7 @@ export default function Sidebar({ className }: { className?: string }) {
             ))}
           </div>
         </div>
-        <div className="ml-10" onClick={() => router.push(routes.changeThePassword)}>
+        <div className="ml-8" onClick={() => router.push(routes.changeThePassword)}>
           <div className="flex items-center ">
             {dataUsers.userAvarta && (
                 <Avatar

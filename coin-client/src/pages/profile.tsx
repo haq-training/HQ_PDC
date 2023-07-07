@@ -7,6 +7,7 @@ import { LAYOUT_OPTIONS } from '@/lib/constants';
 import RootLayout from '@/layouts/_root-layout';
 import { useRouter } from 'next/router';
 import ProfileDefault from '@/components/profile/profile-default';
+import ProifleRetro from '@/components/profile/proifle-retro';
 
 
 export const getStaticProps: GetStaticProps = async () => {
@@ -36,7 +37,7 @@ const AuthorProfilePage: NextPageWithLayout<
           title="Profile"
           description="Criptic - React Next Web3 NFT Crypto Dashboard Template"
         />
-        <ProfileDefault/>
+        <ProifleRetro/>
       </>
     );
   }

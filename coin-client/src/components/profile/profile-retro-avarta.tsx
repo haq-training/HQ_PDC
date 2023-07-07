@@ -17,7 +17,7 @@ const useStyles = makeStyles((theme) =>
             border: 'none',
             borderRadius: '4px',
             fontSize: '16px',
-            marginLeft: theme.spacing(34),
+            marginLeft: theme.spacing(46),
             marginTop: theme.spacing(1),
         },
     })

@@ -43,7 +43,7 @@ export default function NftDetails({ item, className = '' }: CardProps) {
               className
           )}
       >
-        <div className="relative flex aspect-[8/11] w-full justify-center overflow-hidden rounded-lg">
+        <div className="relative flex aspect-[8/11]  justify-center overflow-hidden rounded-lg">
           {coverImage && (
               <Image
               src={coverImage}
