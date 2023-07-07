@@ -13,28 +13,29 @@ import CardHeader from '@material-ui/core/CardHeader';
 import Button from '@/components/ui/button';
 import {useRouter} from 'next/router';
 import routes from '@/config/routes';
+import Avatar from '@/components/ui/avatar';
 type State = {
     nameCollection: string;
     title: string;
-    image: string;
-    coverImage: string[];
+    coverImage: File | null;
+    image: string[];
     helperText: string;
     isError: boolean;
 };
 const initialState: State = {
     nameCollection: "",
     title: "",
-    image: "",
-    coverImage : [],
+    coverImage: null,
+    image : [],
     helperText: '',
     isError: false,
 };
 type Action =
     | { type: 'setNameCollection'; payload: string }
     | { type: 'setTitle'; payload: string }
-    | { type: 'setImage'; payload: string }
+    | { type: 'setCoverImage'; payload: string }
     | { type: 'setError'; payload: string }
-    | { type: 'setCoverImage'; payload: string[] }
+    | { type: 'setImage'; payload: string[] }
 
 const reducer = (state: State, action: Action): State => {
     switch (action.type) {
@@ -72,11 +73,10 @@ const reducer = (state: State, action: Action): State => {
 function AddCollection() {
     const router = useRouter();
     const [state, dispatch] = useReducer(reducer, initialState);
-    const coverImageRef = useRef<HTMLInputElement>(null);
+    const ImageRef = useRef<HTMLInputElement>(null);
     const fileInputRef = useRef<HTMLInputElement>(null);
     const [dataCoin, setDataCoin] = useState<any>([]);
-    const [coverImageValue, setCoverImageValue] = useState<string>('');
-    console.log('dataCoin',dataCoin)
+    const [imageValue, setImageValue] = useState<string>('');
 
     useEffect(() => {
         const fetchData = async () => {
@@ -103,6 +103,10 @@ function AddCollection() {
         });
     }, []);
 
+    useEffect(() => {
+        setDataCoin(dataCoin);
+    }, [dataCoin]);
+
     const handleNameCollectionChange = (event: React.ChangeEvent<HTMLInputElement>) => {
         dispatch({
             type: 'setNameCollection',
@@ -117,40 +121,39 @@ function AddCollection() {
         });
     };
 
-    const handleImageChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const handleCoverImageChange = (event: React.ChangeEvent<HTMLInputElement>) => {
         if (event.target.files && event.target.files.length > 0) {
-            const file = event.target.files && event.target.files[0];
-            const reader = new FileReader();
-
-            reader.onloadend = () => {
-                dispatch({
-                    type: 'setImage',
-                    payload: reader.result as string,
-                });
-            };
-
-            reader.readAsDataURL(file);
+            const file = event.target.files[0];
+            dispatch({
+                type: 'setCoverImage',
+                payload: file,
+            });
         }
     };
 
-    const handleCoverImageChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-        const coverImageArray = event.target.value.split(',');
+    const handleEditButtonClick = (event: React.MouseEvent<HTMLButtonElement>) => {
+        event.preventDefault();
+        event.stopPropagation();
+        if (fileInputRef.current) {
+            fileInputRef.current.click();
+        }
+    };
+
+
+    const handleImageChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+        const imageArray = event.target.value.split(',');
         dispatch({
-            type: 'setCoverImage',
-            payload: coverImageArray,
+            type: 'setImage',
+            payload:imageArray,
         });
-        setCoverImageValue(event.target.value);
+        setImageValue(event.target.value);
     };
 
     const handleUpdate = async (e) => {
+        e.preventDefault();
         const { nameCollection, title, image, coverImage } = state;
 
-        if (
-            !nameCollection.trim() ||
-            !title.trim() ||
-            coverImage.length === 0 ||
-            !image.trim()
-        ) {
+        if (!nameCollection.trim() || !title.trim() || image.length === 0 || !coverImage) {
             dispatch({
                 type: 'setError',
                 payload: 'Please fill in all fields',
@@ -177,8 +180,7 @@ function AddCollection() {
             formData.append('title', title);
             formData.append('image', image);
             formData.append('coverImage', coverImage);
-            console.log('userId',userId)
-            const response =  await axios.post(
+            await axios.post(
                 `http://localhost:4003/collections/createIMG/${userId}`,formData,
                 {
                     headers: {
@@ -187,16 +189,14 @@ function AddCollection() {
                     method: 'POST'
                 }
             );
-            console.log('response',response)
             router.push(routes.profile);
-            // Handle successful update here
             toast.success('Collection updated successfully');
             // Optionally, you can reset the form after successful update
             dispatch({ type: 'setNameCollection', payload: '' });
             dispatch({ type: 'setTitle', payload: '' });
-            dispatch({ type: 'setImage', payload: '' });
-            dispatch({ type: 'setCoverImage', payload: [] });
-            dispatch({ type: 'error', payload: '' });
+            dispatch({ type: 'setCoverImage', payload: null });
+            dispatch({ type: 'setImage', payload: [] });
+            dispatch({ type: 'setError', payload: '' });
         } catch (error) {
             console.error(error);
             dispatch({
@@ -226,13 +226,13 @@ function AddCollection() {
                             <TextField
                                 style={{ marginBottom: '1rem' }}
                                 fullWidth
-                                id="coverImage"
-                                label="coverImage"
-                                placeholder="coverImage"
-                                value={coverImageValue}
-                                onChange={handleCoverImageChange}
+                                id="image"
+                                label="image"
+                                placeholder="mage"
+                                value={imageValue}
+                                onChange={handleImageChange}
                                 select
-                                inputRef={coverImageRef}
+                                inputRef={ImageRef}
                             >
                                 {dataCoin.map((coin: any) => (
                                     <MenuItem key={coin.full_name} value={coin.full_name}>
@@ -250,15 +250,31 @@ function AddCollection() {
                                 value={state.title}
                                 onChange={handleTitleChange}
                             />
-                            <input
-                                type="file"
-                                className="form-control mb-1"
-                                id="image"
-                                ref={fileInputRef}
-                                placeholder="URL ảnh bìa"
-                                onChange={handleImageChange}
-                            />
-                            <label>Tải ảnh bìa</label>
+                          <div>
+                              <Button className="mt-1" onClick={handleEditButtonClick}>
+                                 Tải ảnh lên
+                              </Button>
+                              <input
+                                  type="file"
+                                  ref={fileInputRef}
+                                  style={{ display: 'none' }}
+                                  onChange={(e) => {
+                                      e.preventDefault();
+                                      e.stopPropagation();
+                                      handleCoverImageChange(e);
+                                  }}
+                              />
+                              {state.coverImage && (
+                                  <Avatar
+                                      image={URL.createObjectURL(state.coverImage)}
+                                      alt="Author"
+                                      className="mr-2 mt-4"
+                                      size="lg"
+                                      width={96}
+                                      height={96}
+                                  />
+                              )}
+                          </div>
                         </div>
                     </CardContent>
                     <CardActions>

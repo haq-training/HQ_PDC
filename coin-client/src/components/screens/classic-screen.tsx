@@ -8,13 +8,15 @@ import TransactCoin from '@/components/ui/transact-coin';
 import Avatar from '@/components/ui/avatar';
 import TopupButton from '@/components/ui/topup-button';
 //images
-
+import routes from '@/config/routes';
+import {useRouter} from 'next/router';
 import React, {useEffect, useState} from 'react';
 import axios from 'axios';
 import Link from "next/link";
 import User from '@/pages/User';
 
 export default function ClassicScreen() {
+    const router = useRouter();
     const [data, setData] = useState<any>([]);
 
     useEffect(() => {
@@ -90,8 +92,7 @@ export default function ClassicScreen() {
       <div className="flex w-full flex-col sm:mt-8 lg:mt-8 lg:flex-row">
         <div className="flex w-full items-center rounded-lg bg-white p-6 shadow-card dark:bg-light-dark md:col-span-1 md:h-[678px] lg:col-span-5 lg:h-[644px] lg:w-1/3 xl:col-span-3 xl:row-start-1 xl:row-end-2 xl:h-auto xl:w-1/4 2xl:col-span-3  2xl:h-[715px] 2xl:p-6 3xl:col-span-3 3xl:h-[730px] 3xl:p-8 4xl:h-[815px]">
           <div className="w-full">
-            <div className="mb-8 h-full">
-                <Link href="/User">
+            <div className="mb-8 h-full"onClick={() => router.push(routes.User)}>
                     {dataUsers.userAvarta && (
                         <Avatar
                         image={dataUsers.userAvarta}
@@ -102,8 +103,6 @@ export default function ClassicScreen() {
                         height={96}
                          />
                      )}
-
-                </Link>
               <h3 className="mb-2 text-center text-sm uppercase tracking-wider text-gray-500 dark:text-gray-400 3xl:mb-3">
                   {dataUsers.userName}
               </h3>

@@ -9,9 +9,10 @@ import Link from "next/link";
 import { useBreakpoint } from '@/lib/hooks/use-breakpoint';
 //images
 import jwt from 'jsonwebtoken';
-import AuthorImage from '@/assets/images/author.jpg';
+
 import axios from 'axios';
-import User from '@/pages/User';
+import routes from '@/config/routes';
+import {useRouter} from 'next/router';
 
 const topPoolsLimit = (breakpoint: string) => {
   switch (breakpoint) {
@@ -25,7 +26,7 @@ const topPoolsLimit = (breakpoint: string) => {
 };
 
 export default function MinimalScreen(){
-
+  const router = useRouter();
   const [data, setData] = useState<any>([]);
 
   useEffect(() => {
@@ -106,8 +107,7 @@ export default function MinimalScreen(){
         <div className="mt-6 grid grid-cols-1 items-start gap-6 md:grid-cols-2 lg:grid-cols-12">
           <div className="flex items-center rounded-lg bg-white p-6 shadow-card dark:bg-light-dark md:col-span-1 md:h-[678px] lg:col-span-5 lg:h-[644px] xl:col-span-3 xl:row-start-1 xl:row-end-2 xl:h-auto 2xl:col-span-3 2xl:h-full 2xl:p-6 3xl:col-span-3 3xl:p-8">
             <div className="w-full">
-              <div className="mb-8 h-full">
-                <Link href="/User">
+              <div className="mb-8 h-full"  onClick={() => router.push(routes.User)}>
                   {dataUsers.userAvarta && (
                       <Avatar
                           image={dataUsers.userAvarta}
@@ -118,8 +118,6 @@ export default function MinimalScreen(){
                           height={96}
                       />
                   )}
-
-                </Link>
                 <h3 className="mb-2 text-center text-sm uppercase tracking-wider text-gray-500 dark:text-gray-400 3xl:mb-3">
                   {dataUsers.userName}
                 </h3>

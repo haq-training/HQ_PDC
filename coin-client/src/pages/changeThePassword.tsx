@@ -10,6 +10,7 @@ import CardContent from '@material-ui/core/CardContent';
 import CardActions from '@material-ui/core/CardActions';
 import CardHeader from '@material-ui/core/CardHeader';
 import Button from '@/components/ui/button';
+import routes from '@/config/routes';
 import {useRouter} from 'next/router';
 
 type State = {
@@ -85,6 +86,7 @@ const reducer = (state: State, action: Action): State => {
 
 function ChangePassword() {
     const [state, dispatch] = useReducer(reducer, initialState);
+    const router = useRouter();
     const handlePasswordChange = (event: React.ChangeEvent<HTMLInputElement>) => {
         dispatch({
             type: 'setCurrentPassword',
@@ -145,6 +147,9 @@ function ChangePassword() {
                     type: 'changePasswordSuccess',
                     payload: 'Password changed successfully',
                 });
+                localStorage.removeItem('token');
+                localStorage.removeItem('accessToken');
+                router.push(routes.login);
                 toast.success('Password changed successfully');
             } else {
                 dispatch({
@@ -207,7 +212,7 @@ function ChangePassword() {
                     </div>
                 </CardContent>
                 <CardActions>
-                    <Link href="/">
+                    <Link href="/auth/login">
                         <Button
                             size="large"
                             className="flex-grow"

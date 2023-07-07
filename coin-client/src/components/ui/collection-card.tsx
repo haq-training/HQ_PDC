@@ -34,7 +34,7 @@ export default function CollectionCard({  item,
                                          idCollection,
                                          idUser,
                                          onClick, }: CardProps) {
-  const { nameCollection, slug, title,coverImage, image, number_of_artwork,userName,userSlug } =
+  const { nameCollection, slug, avatar,title,coverImage, image, number_of_artwork,userName,userSlug } =
   item ?? {};
 
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -160,7 +160,7 @@ export default function CollectionCard({  item,
             >
               <Avatar
                   //@ts-ignore
-                  image={image}
+                  image={avatar}
                   alt={userSlug}
                   size="xs"
                   width={24}

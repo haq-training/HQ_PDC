@@ -14,6 +14,7 @@ const routes = {
   history: '/profile?view=history',
   classic: '/classic',
   editCollection: '/editCollection',
+  User: '/User',
   layoutDetails:'/layout-details',
 };
 
