@@ -9,6 +9,7 @@ import Image from '@/components/ui/image';
 import Button from '@/components/ui/button';
 import routes from '@/config/routes';
 import {useRouter} from 'next/router';
+import Avatar from '@/components/ui/avatar';
 
 type ItemType = {
     userName: string;
@@ -63,28 +64,26 @@ export default function UserForm({ item }: CardProps) {
                     <div className="flex flex-row">
                         <div className="flex flex-col items-center ml-16">
                             {userAvarta && (
-                                <Image
-                                    src={userAvarta}
-                                    placeholder="empty"
-                                    width={60}
-                                    priority
-                                    quality={100}
-                                    height={60}
-                                    alt={userName}
+                                <Avatar
+                                    image={userAvarta}
+                                    alt="userAvarta"
+                                    className="mr-2 mt-4"
+                                    size="lg"
+                                    width={96}
+                                    height={96}
                                 />
                             )}
                             <label>Ảnh đại diện</label>
                         </div>
                         <div className="flex flex-col items-center ml-16">
                             {userCover && (
-                                <Image
-                                    src={userCover}
-                                    placeholder="empty"
-                                    width={60}
-                                    priority
-                                    quality={100}
-                                    height={60}
-                                    alt={userName}
+                                <Avatar
+                                    image={userCover}
+                                    alt="userCover"
+                                    className="mr-2 mt-4"
+                                    size="lg"
+                                    width={96}
+                                    height={96}
                                 />
                             )}
                             <label>Ảnh bìa</label>
@@ -101,7 +100,7 @@ export default function UserForm({ item }: CardProps) {
                         value={newUserName}
                         onChange={handleUserNameChange}
                     />
-                    <Button onClick={handleSaveUserName}>Lưu</Button>
+                    <Button onClick={handleSaveUserName}>Lưu Tên User</Button>
                 </div>
             </CardContent>
         </Card>

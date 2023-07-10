@@ -190,7 +190,7 @@ function AddCollection() {
                 }
             );
             router.push(routes.profile);
-            toast.success('Collection updated successfully');
+            toast.success('Tạo thẻ thành công');
             // Optionally, you can reset the form after successful update
             dispatch({ type: 'setNameCollection', payload: '' });
             dispatch({ type: 'setTitle', payload: '' });
@@ -201,16 +201,16 @@ function AddCollection() {
             console.error(error);
             dispatch({
                 type: 'error',
-                payload: 'Failed to update collection',
+                payload: 'không tạo được thẻ',
             });
-            toast.error('Failed to update collection');
+            toast.error('không tạo được thẻ');
         }
     };
 
     return (
         <RootLayout>
-            <form className="flex flex-wrap w-600 mx-auto flex justify-center" noValidate autoComplete="off">
-                <Card className="mt-10">
+            <form className="flex flex-wrap w-400 mx-auto justify-center" noValidate autoComplete="off">
+                <Card className="mt-10 xs:w-[500px]">
                     <CardHeader className="text-center bg-gray-900 text-white" title="Thêm mới thẻ Collection" />
                     <CardContent>
                         <div style={{ display: 'flex', flexDirection: 'column' }}>
@@ -278,8 +278,8 @@ function AddCollection() {
                         </div>
                     </CardContent>
                     <CardActions>
-                        <Button size="large" className="flex-grow" onClick={handleUpdate}>
-                            Lưu
+                        <Button size="large" className="flex-grow" onClick={handleUpdate} disabled={!state.nameCollection || !state.title || state.image.length === 0 || !state.coverImage}>
+                            Tạo
                         </Button>
                     </CardActions>
                 </Card>

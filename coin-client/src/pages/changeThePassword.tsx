@@ -1,4 +1,4 @@
-import React, { useReducer,useEffect } from 'react';
+import React, {useReducer, useEffect, useState} from 'react';
 import Link from 'next/link';
 import jwt from 'jsonwebtoken';
 import axios from 'axios';
@@ -12,6 +12,7 @@ import CardHeader from '@material-ui/core/CardHeader';
 import Button from '@/components/ui/button';
 import routes from '@/config/routes';
 import {useRouter} from 'next/router';
+import Notification from '@/components/ui/notification';
 
 type State = {
     userPassOld: string;
@@ -86,6 +87,7 @@ const reducer = (state: State, action: Action): State => {
 
 function ChangePassword() {
     const [state, dispatch] = useReducer(reducer, initialState);
+    const [notification, setNotification] = useState('');
     const router = useRouter();
     const handlePasswordChange = (event: React.ChangeEvent<HTMLInputElement>) => {
         dispatch({
@@ -146,26 +148,29 @@ function ChangePassword() {
             if (response.status === 200) {
                 dispatch({
                     type: 'changePasswordSuccess',
-                    payload: 'Password changed successfully',
+                    payload: 'Đổi mật khẩu thành công',
                 });
                 localStorage.removeItem('token');
                 localStorage.removeItem('accessToken');
                 router.push(routes.login);
                 toast.success('Đổi mật khẩu thành công');
+                setNotification('Đổi mật khẩu thành công');
             } else {
                 dispatch({
                     type: 'changePasswordFailed',
-                    payload: 'Failed to change password',
+                    payload: 'Đổi mật khẩu không thành công',
                 });
-                toast.error('Mật khẩu sai');
+                toast.error('Đổi mật khẩu không thành công');
+                setNotification('Đổi mật khẩu không thành công');
             }
         } catch (error) {
             console.error(error);
             dispatch({
                 type: 'changePasswordFailed',
-                payload: 'Failed to change password',
+                payload: 'Mật khẩu sai',
             });
             toast.info('Mật khẩu sai');
+            setNotification('Mật khẩu sai');
         }
     };
 
@@ -233,6 +238,7 @@ function ChangePassword() {
                 </CardActions>
             </Card>
         </form>
+            <Notification message={notification} />
         </RootLayout>
     );
 }

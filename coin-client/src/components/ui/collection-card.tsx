@@ -113,13 +113,13 @@ export default function CollectionCard({  item,
                             onClick={handleEditClick}
                             className="px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
                         >
-                          Edit
+                          Sửa   
                         </button>
                         <button
                             onClick={handleDeleteClick}
                             className="px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
                         >
-                          Delete
+                          Xóa
                         </button>
                       </div>
                   )}

@@ -121,7 +121,7 @@ function LoginPage() {
                     localStorage.setItem('token', token);
                     dispatch({
                         type: 'loginSuccess',
-                        payload: 'Login Successfully',
+                        payload: 'Đăng nhập thành công',
                     });
                     router.push(routes.home);
                     toast.success('Đăng nhập thành công');
@@ -129,16 +129,16 @@ function LoginPage() {
                 } else {
                     dispatch({
                         type: 'loginFailed',
-                        payload: 'Incorrect username or password',
+                        payload: 'Tên hoặc mật khẩu chưa đúng',
                     });
-                    toast.error('Đăng nhập sai');
-                    setNotification('Đăng nhập sai');
+                    toast.error('Tên hoặc mật khẩu chưa đúng');
+                    setNotification('Tên hoặc mật khẩu chưa đúng');
                 }
             } catch (error) {
                 console.error(error);
                 dispatch({
                     type: 'loginFailed',
-                    payload: 'Login Failed',
+                    payload: 'Tên hoặc mật khẩu chưa đúng',
                 });
                 toast.warning('Tên hoặc mật khẩu chưa đúng');
                 setNotification('Tên hoặc mật khẩu chưa đúng');
@@ -146,7 +146,7 @@ function LoginPage() {
         } else {
             dispatch({
                 type: 'loginFailed',
-                payload: 'Please fill in all fields',
+                payload: 'vui lòng điền vào form',
             });
             toast.info('vui lòng điền vào form');
             setNotification('vui lòng điền vào form');
