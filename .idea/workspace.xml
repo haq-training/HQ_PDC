@@ -1,21 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="2c87eb2a-9eb0-4a16-a2b8-a40dc13ff1b4" name="Default Changelist" comment="fix bug">
-      <change afterPath="$PROJECT_DIR$/coin-client/src/components/jwt.tsx" afterDir="false" />
+    <list default="true" id="2c87eb2a-9eb0-4a16-a2b8-a40dc13ff1b4" name="Default Changelist" comment="fix bug login">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/coin-client/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/coin-client/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/coin-client/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/coin-client/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/coin-client/src/components/nft/wallet-connect.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/coin-client/src/components/nft/wallet-connect.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/coin-client/src/components/ui/UserForm.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/coin-client/src/components/ui/UserForm.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/coin-client/src/layouts/sidebar/_default.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/coin-client/src/layouts/sidebar/_default.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/coin-client/src/layouts/sidebar/_expandable.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/coin-client/src/layouts/sidebar/_expandable.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/coin-client/src/layouts/sidebar/_retro-left.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/coin-client/src/layouts/sidebar/_retro-left.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/coin-client/src/layouts/sidebar/_retro-right.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/coin-client/src/layouts/sidebar/_retro-right.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/coin-client/src/pages/auth/login.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/coin-client/src/pages/auth/login.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/coin-client/src/pages/auth/register.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/coin-client/src/pages/auth/register.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/coin-client/src/pages/changeThePassword.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/coin-client/src/pages/changeThePassword.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/coin-client/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/coin-client/yarn.lock" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -173,7 +161,7 @@
       <workItem from="1688865429134" duration="9670000" />
       <workItem from="1688916019196" duration="5061000" />
       <workItem from="1688944077824" duration="6043000" />
-      <workItem from="1688954479793" duration="6062000" />
+      <workItem from="1688954479793" duration="7331000" />
     </task>
     <task id="LOCAL-00001" summary="fix đồng">
       <created>1685416144415</created>
@@ -273,7 +261,14 @@
       <option name="project" value="LOCAL" />
       <updated>1688724988310</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="fix bug login">
+      <created>1688962743583</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1688962743583</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -305,7 +300,8 @@
     <MESSAGE value="fix bug add COllection" />
     <MESSAGE value="fix bug router" />
     <MESSAGE value="fix bug" />
-    <option name="LAST_COMMIT_MESSAGE" value="fix bug" />
+    <MESSAGE value="fix bug login" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix bug login" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

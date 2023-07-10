@@ -83,16 +83,13 @@ function LoginPage() {
 
     useEffect(() => {
         const token = localStorage.getItem('token');
-        console.log('gbguyhbuhjb',token)
         if (token) {
             verifyToken(token);
-            console.log('tokenascafqefq',token)
         }
     }, []);
 
     const verifyToken = async (token: string) => {
         try {
-            console.log('dawng nhap thanh cong')
             dispatch({
                 type: 'loginSuccess',
                 payload: 'Login Successfully',
