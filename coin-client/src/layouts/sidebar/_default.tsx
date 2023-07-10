@@ -48,6 +48,12 @@ export default function Sidebar({ className }: { className?: string }) {
       console.error('Loi: ', e);
     });
   }, []);
+
+
+  const handleChangeThePassassword = (e) => {
+    e.preventDefault();
+    router.push(routes.changeThePassword)
+  };
   return (
     <aside
       className={cn(
@@ -85,7 +91,7 @@ export default function Sidebar({ className }: { className?: string }) {
             ))}
           </div>
         </div>
-        <div className="ml-8" onClick={() => router.push(routes.changeThePassword)}>
+        <div className="ml-8" onClick={handleChangeThePassassword}>
           <div className="flex items-center ">
             {dataUsers.userAvarta && (
                 <Avatar
@@ -94,6 +100,7 @@ export default function Sidebar({ className }: { className?: string }) {
                     role="admin"
                     width={36}
                     height={36}
+                    alt="admin"
                 />
             )}
             <h3 className="mt-3 ml-1 text-center text-sm uppercase tracking-wider text-gray-500 dark:text-gray-400 3xl:mb-3">

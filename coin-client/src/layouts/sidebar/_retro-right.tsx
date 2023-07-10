@@ -61,7 +61,7 @@ export default function Sidebar({ className }: { className?: string }) {
                 {dataUsers.userAvarta && (
                     <Avatar
                         image={dataUsers.userAvarta}
-                        alt="Author"
+                        alt="admin"
                         className="mx-auto mb-6"
                         size="lg"
                         width={96}

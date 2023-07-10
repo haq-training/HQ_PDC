@@ -32,8 +32,9 @@ export default function UserForm({ item }: CardProps) {
         setNewUserName(userName);
     }, [userName]);
 
-    const handleSaveUserName = async () => {
+    const handleSaveUserName = async (e) => {
         try {
+            e.preventDefault();
             const token = typeof window !== 'undefined' ? localStorage.getItem('token') : null;
             const decodedToken: any = jwt.decode(token);
             const userId = decodedToken?.idUser;

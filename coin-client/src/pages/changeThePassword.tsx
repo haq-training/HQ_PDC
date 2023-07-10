@@ -1,4 +1,4 @@
-import React, { useReducer,useState,useEffect } from 'react';
+import React, { useReducer,useEffect } from 'react';
 import Link from 'next/link';
 import jwt from 'jsonwebtoken';
 import axios from 'axios';
@@ -108,7 +108,7 @@ function ChangePassword() {
         });
     };
 
-    const handlePasswordUpdate = async () => {
+    const handlePasswordUpdate = async (e) => {
         const { userPassOld, userPassNew, userPassRetype } = state;
 
         if (!userPassOld.trim() || !userPassNew.trim() || !userPassRetype.trim()) {
@@ -120,6 +120,7 @@ function ChangePassword() {
             return;
         }
         try {
+            e.preventDefault();
             const token = typeof window !== 'undefined' ? localStorage.getItem('token') : null;
 
             if (!token) {
@@ -217,7 +218,6 @@ function ChangePassword() {
                     </div>
                 </CardContent>
                 <CardActions>
-                    <Link href="/auth/login">
                         <Button
                             size="large"
                             className="flex-grow"
@@ -230,7 +230,6 @@ function ChangePassword() {
                         >
                             Lưu mật khẩu
                         </Button>
-                    </Link>
                 </CardActions>
             </Card>
         </form>

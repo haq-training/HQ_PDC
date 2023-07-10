@@ -9,6 +9,8 @@ import { PowerIcon } from '@/components/icons/power';
 import { useModal } from '@/components/modal-views/context';
 import React, { useContext } from 'react';
 import Link from "next/link";
+import routes from '@/config/routes';
+import {useRouter} from 'next/router';
 
 export default function WalletConnect({
                                         btnClassName,
@@ -19,10 +21,12 @@ export default function WalletConnect({
 }) {
   const { openModal } = useModal();
   const { address, disconnectWallet, balance } = useContext(WalletContext);
-
-    const handleLogout = () => {
+    const router = useRouter();
+    const handleLogout = (e) => {
+        e.preventDefault();
         localStorage.removeItem('token');
         localStorage.removeItem('accessToken');
+        router.push(routes.login);
     };
   return (
     <>
@@ -96,11 +100,9 @@ export default function WalletConnect({
           >
             CONNECT
           </Button>
-          <Link href="/auth/login">
           <Button className="text-white-500 ml-2" onClick={handleLogout}>
            Đăng Xuất
           </Button>
-          </Link>
         </div>
 
       )}

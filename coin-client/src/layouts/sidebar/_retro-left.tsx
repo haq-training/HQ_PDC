@@ -53,6 +53,10 @@ export default function Sidebar({ className }: { className?: string }) {
     });
   }, []);
 
+  const handleChangeThePassassword = (e) => {
+    e.preventDefault();
+    router.push(routes.changeThePassword)
+  };
 
   return (
     <aside
@@ -78,7 +82,7 @@ export default function Sidebar({ className }: { className?: string }) {
       </div>
 
       <Scrollbar style={{ height: 'calc(100% - 96px)' }}>
-        <div className="px-6 pb-5 2xl:px-8" onClick={() => router.push(routes.changeThePassword)}>
+        <div className="px-6 pb-5 2xl:px-8" onClick={handleChangeThePassassword}>
           <div className="flex items-center">
             {dataUsers.userAvarta && (
                 <Avatar
@@ -86,6 +90,7 @@ export default function Sidebar({ className }: { className?: string }) {
                     name="Cameron Williamson"
                     role="admin"
                     width={36}
+                    alt="admin"
                     height={36}
                 />
             )}

@@ -83,14 +83,38 @@ function LoginPage() {
 
     useEffect(() => {
         const token = localStorage.getItem('token');
+        console.log('gbguyhbuhjb',token)
         if (token) {
-            router.push(routes.home);
+            verifyToken(token);
+            console.log('tokenascafqefq',token)
         }
     }, []);
 
-    const handleLogin = async () => {
+    const verifyToken = async (token: string) => {
+        try {
+            console.log('dawng nhap thanh cong')
+            dispatch({
+                type: 'loginSuccess',
+                payload: 'Login Successfully',
+            });
+            router.push(routes.home);
+            toast.success('Đăng nhập thành công');
+            setNotification('Đăng nhập thành công');
+        } catch (error) {
+            console.error(error);
+            dispatch({
+                type: 'loginFailed',
+                payload: 'Token verification failed',
+            });
+            toast.error('Đăng nhập sai');
+            setNotification('Đăng nhập sai');
+        }
+    };
+
+    const handleLogin = async (e) => {
         if (state.username.trim() && state.password.trim()) {
             try {
+                e.preventDefault();
                 const response = await httpClient.post('/users/login', {
                     userName: state.username,
                     userPass: state.password,
@@ -188,7 +212,7 @@ function LoginPage() {
                     </CardContent>
                     <CardActions className="flex flex-col">
                         <div className="mb-2 w-full" >
-                            <Link href="/">
+                            {/*<Link href="/">*/}
                                 <Button
                                     size="large"
                                     className="flex-grow w-full"
@@ -198,14 +222,16 @@ function LoginPage() {
                                     Đăng nhập
 
                                 </Button>
-                            </Link>
+                            {/*</Link>*/}
                         </div>
                         <div className="flex justify-center w-full">
                             <div className="text-sm text-gray-600">
                                 Chưa có tài khoản?
-                                    <Button className="text-white-500 mt-5 ml-3 "onClick={() => router.push(routes.register)}>
+                                <Link href="/auth/register">
+                                    <Button className="text-white-500 mt-5 ml-3 ">
                                         Đăng ký ngay
                                     </Button>
+                                </Link>
                             </div>
                         </div>
                     </CardActions>

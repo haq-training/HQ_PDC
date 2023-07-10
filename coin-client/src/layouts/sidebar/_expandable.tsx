@@ -168,6 +168,7 @@ export default function Sidebar({ className }: { className?: string }) {
                           image={dataUsers.userAvarta}
                           name="Cameron Williamson"
                           role="admin"
+                          alt="admin"
                           width={36}
                           height={36}
                       />
@@ -197,6 +198,7 @@ export default function Sidebar({ className }: { className?: string }) {
                             image={dataUsers.userAvarta}
                             name="Cameron Williamson"
                             role="admin"
+                            alt="admin"
                             width={36}
                             height={36}
                         />

@@ -7,6 +7,8 @@ import CardActions from '@material-ui/core/CardActions';
 import CardHeader from '@material-ui/core/CardHeader';
 import Button from '@/components/ui/button';
 import httpClient from '@/data/utils/client';
+import routes from '@/config/routes';
+import {useRouter} from 'next/router';
 
 type State = {
   username: string;
@@ -73,10 +75,11 @@ const reducer = (state: State, action: Action): State => {
 
 function RegisterPage() {
   const [state, dispatch] = useReducer(reducer, initialState);
-
-  const handleRegister = async () => {
+  const router = useRouter();
+  const handleRegister = async (e) => {
     if (state.username.trim() && state.password.trim()) {
       try {
+        e.preventDefault();
       await httpClient.post('/users/register', {
           userName: state.username,
           userPass: state.password,
@@ -85,6 +88,7 @@ function RegisterPage() {
           type: 'registerSuccess',
           payload: 'Registration Successful',
         });
+        router.push(routes.login);
       } catch (error) {
         console.error(error);
         dispatch({
@@ -127,6 +131,7 @@ function RegisterPage() {
       <Card className="mt-10">
         <CardHeader className="text-center bg-gray-900 text-white" title="Đăng Ký" />
         <CardContent>
+
           <div>
             <TextField
               error={state.isError}
@@ -154,7 +159,6 @@ function RegisterPage() {
           </div>
         </CardContent>
         <CardActions>
-          <Link href="/auth/login" >
           <Button
             size="large"
             className="mt-2 flex-grow ml-60"
@@ -163,7 +167,6 @@ function RegisterPage() {
           >
             Đăng Ký
           </Button>
-          </Link>
         </CardActions>
       </Card>
     </form>
