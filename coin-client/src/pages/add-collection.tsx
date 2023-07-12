@@ -211,7 +211,7 @@ function AddCollection() {
         <RootLayout>
             <form className="flex flex-wrap w-400 mx-auto justify-center" noValidate autoComplete="off">
                 <Card className="mt-10 xs:w-[500px]">
-                    <CardHeader className="text-center bg-gray-900 text-white" title="Thêm mới thẻ Collection" />
+                    <CardHeader className="text-center bg-gray-900 text-white" title="Thêm thẻ" />
                     <CardContent>
                         <div style={{ display: 'flex', flexDirection: 'column' }}>
                             <TextField

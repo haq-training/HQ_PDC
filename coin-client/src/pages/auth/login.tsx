@@ -2,6 +2,7 @@ import Link from 'next/link';
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { useRouter } from 'next/router';
+import jwt from 'jsonwebtoken';
 import React, {useReducer, useEffect, useState} from 'react';
 import TextField from '@material-ui/core/TextField';
 import Card from '@material-ui/core/Card';
@@ -90,21 +91,32 @@ function LoginPage() {
 
     const verifyToken = async (token: string) => {
         try {
-            dispatch({
-                type: 'loginSuccess',
-                payload: 'Login Successfully',
-            });
-            router.push(routes.home);
-            toast.success('Đăng nhập thành công');
-            setNotification('Đăng nhập thành công');
+            const decodedToken = jwt.decode(token);
+            const userName = decodedToken.name;
+            if (userName) {
+                dispatch({
+                    type: 'loginSuccess',
+                    payload: 'Login Successfully',
+                });
+                router.push(routes.home);
+                toast.success('Đăng nhập thành công');
+                setNotification('Đăng nhập thành công');
+            } else {
+                dispatch({
+                    type: 'loginFailed',
+                    payload: 'Token verification failed',
+                });
+                toast.error('Token không hợp lệ hoặc không có thông tin người dùng tương ứng');
+                setNotification('Token không hợp lệ hoặc không có thông tin người dùng tương ứng');
+            }
         } catch (error) {
             console.error(error);
             dispatch({
                 type: 'loginFailed',
                 payload: 'Token verification failed',
             });
-            toast.error('Đăng nhập sai');
-            setNotification('Đăng nhập sai');
+            toast.error('Token không hợp lệ hoặc không có thông tin người dùng tương ứng');
+            setNotification('Token không hợp lệ hoặc không có thông tin người dùng tương ứng');
         }
     };
 
@@ -118,14 +130,25 @@ function LoginPage() {
                 });
                 const token = response.token;
                 if (token) {
-                    localStorage.setItem('token', token);
-                    dispatch({
-                        type: 'loginSuccess',
-                        payload: 'Đăng nhập thành công',
-                    });
-                    router.push(routes.home);
-                    toast.success('Đăng nhập thành công');
-                    setNotification('Đăng nhập thành công');
+                    const decodedToken = jwt.decode(token);
+                    const userName = decodedToken.name;
+                    if (userName === state.username) {
+                        localStorage.setItem('token', token);
+                        dispatch({
+                            type: 'loginSuccess',
+                            payload: 'Đăng nhập thành công',
+                        });
+                        router.push(routes.home);
+                        toast.success('Đăng nhập thành công');
+                        setNotification('Đăng nhập thành công');
+                    } else {
+                        dispatch({
+                            type: 'loginFailed',
+                            payload: 'Tên người dùng không khớp',
+                        });
+                        toast.error('Tên người dùng không khớp');
+                        setNotification('Tên người dùng không khớp');
+                    }
                 } else {
                     dispatch({
                         type: 'loginFailed',
@@ -146,10 +169,10 @@ function LoginPage() {
         } else {
             dispatch({
                 type: 'loginFailed',
-                payload: 'vui lòng điền vào form',
+                payload: 'Vui lòng điền vào form',
             });
-            toast.info('vui lòng điền vào form');
-            setNotification('vui lòng điền vào form');
+            toast.info('Vui lòng điền vào form');
+            setNotification('Vui lòng điền vào form');
         }
     };
 
