@@ -33,6 +33,11 @@ export default function RetroScreen() {
             console.error('Loi: ', e);
         });
     }, []);
+
+    useEffect(() => {
+        setData(data);
+    }, [data]);
+
   return (
     <>
       <NextSeo

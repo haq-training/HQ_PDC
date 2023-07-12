@@ -43,6 +43,10 @@ export default function ModernScreen() {
         });
     }, []);
 
+    useEffect(() => {
+        setData(data);
+    }, [data]);
+
     const [dataUser , setDataUser] = useState([]);
     const dataUsers  = React.useMemo(() => dataUser, [dataUser]);
 

@@ -44,6 +44,10 @@ export default function ClassicScreen() {
         });
     }, []);
 
+    useEffect(() => {
+        setData(data);
+    }, [data]);
+
     const [dataUser , setDataUser] = useState([]);
     const dataUsers  = React.useMemo(() => dataUser, [dataUser]);
 

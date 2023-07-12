@@ -54,6 +54,9 @@ export default function MinimalScreen(){
     });
   }, []);
 
+  useEffect(() => {
+    setData(data);
+  }, [data]);
 
   const [dataUser , setDataUser] = useState([]);
   const dataUsers  = React.useMemo(() => dataUser, [dataUser]);
