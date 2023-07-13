@@ -3,10 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="97669270-d24a-4748-a782-490e82cacc1e" name="Default Changelist" comment="fix bug">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/coin-client/.husky/pre-commit" beforeDir="false" afterPath="$PROJECT_DIR$/coin-client/.husky/pre-commit" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/coin-client/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/coin-client/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/coin-client/src/components/ui/UserForm.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/coin-client/src/components/ui/UserForm.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/coin-client/src/pages/auth/login.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/coin-client/src/pages/auth/login.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/coin-client/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/coin-client/yarn.lock" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
