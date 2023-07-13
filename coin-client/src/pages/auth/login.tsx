@@ -149,7 +149,6 @@ function LoginPage() {
                     userPass: state.password,
                 });
                 const token = response.token;
-                console.log('token', token);
                 if (token) {
                     localStorage.setItem('token', token);
                     dispatch({
