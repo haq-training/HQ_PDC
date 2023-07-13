@@ -4,7 +4,6 @@
     <list default="true" id="97669270-d24a-4748-a782-490e82cacc1e" name="Default Changelist" comment="fix bug">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/coin-client/.husky/pre-commit" beforeDir="false" afterPath="$PROJECT_DIR$/coin-client/.husky/pre-commit" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/coin-client/package-lock.json" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/coin-client/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/coin-client/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/coin-client/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/coin-client/yarn.lock" afterDir="false" />
     </list>
@@ -16,6 +15,10 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/coin-client/package.json" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/coin-client/src/pages/auth/login.tsx" root0="FORCE_HIGHLIGHTING" />
+  </component>
   <component name="ProjectId" id="2SSAcAuQ1f42SBxAmaVoOyoFKOB" />
   <component name="ProjectViewState">
     <option name="autoscrollToSource" value="true" />
@@ -24,6 +27,7 @@
     <option name="sortByType" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="Git.Branch.Popup.ShowAllRemotes" value="true" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
@@ -52,7 +56,8 @@
       <updated>1689129684659</updated>
       <workItem from="1689129686221" duration="12249000" />
       <workItem from="1689152327665" duration="6312000" />
-      <workItem from="1689213468321" duration="6386000" />
+      <workItem from="1689213468321" duration="6904000" />
+      <workItem from="1689222049596" duration="4002000" />
     </task>
     <task id="LOCAL-00001" summary="fix bug">
       <created>1689148714092</created>
@@ -68,7 +73,14 @@
       <option name="project" value="LOCAL" />
       <updated>1689215687442</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="fix bug">
+      <created>1689221220761</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1689221220761</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
