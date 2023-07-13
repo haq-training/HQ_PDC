@@ -3,8 +3,9 @@
   <component name="ChangeListManager">
     <list default="true" id="97669270-d24a-4748-a782-490e82cacc1e" name="Default Changelist" comment="fix bug">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/coin-client/.husky/pre-commit" beforeDir="false" afterPath="$PROJECT_DIR$/coin-client/.husky/pre-commit" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/coin-client/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/coin-client/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/coin-client/src/components/ui/UserForm.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/coin-client/src/components/ui/UserForm.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/coin-client/src/pages/auth/login.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/coin-client/src/pages/auth/login.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/coin-client/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/coin-client/yarn.lock" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -13,6 +14,11 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="main" />
+      </map>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="HighlightingSettingsPerFile">
@@ -57,7 +63,7 @@
       <workItem from="1689129686221" duration="12249000" />
       <workItem from="1689152327665" duration="6312000" />
       <workItem from="1689213468321" duration="6904000" />
-      <workItem from="1689222049596" duration="4002000" />
+      <workItem from="1689222049596" duration="14008000" />
     </task>
     <task id="LOCAL-00001" summary="fix bug">
       <created>1689148714092</created>
@@ -80,7 +86,21 @@
       <option name="project" value="LOCAL" />
       <updated>1689221220761</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="fix bug">
+      <created>1689233174788</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1689233174788</updated>
+    </task>
+    <task id="LOCAL-00005" summary="fix bug">
+      <created>1689233181060</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1689233181060</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

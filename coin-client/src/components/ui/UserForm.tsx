@@ -1,14 +1,13 @@
 import TextField from '@material-ui/core/TextField';
-import React, { useState,useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import Card from '@material-ui/core/Card';
 import axios from 'axios';
 import jwt from 'jsonwebtoken';
 import CardContent from '@material-ui/core/CardContent';
 import CardHeader from '@material-ui/core/CardHeader';
-import Image from '@/components/ui/image';
 import Button from '@/components/ui/button';
 import routes from '@/config/routes';
-import {useRouter} from 'next/router';
+import { useRouter } from 'next/router';
 import Avatar from '@/components/ui/avatar';
 
 type ItemType = {
@@ -44,9 +43,9 @@ export default function UserForm({ item }: CardProps) {
                 { userName: newUserName },
                 {
                     headers: {
-                        token: `Bearer ${token}`
+                        token: `Bearer ${token}`,
                     },
-                    method: 'PUT'
+                    method: 'PUT',
                 }
             );
             router.push(routes.home);
@@ -58,34 +57,16 @@ export default function UserForm({ item }: CardProps) {
 
     return (
         <Card className="mt-10" style={{ width: '500px' }}>
-            <CardHeader className="text-center bg-gray-900 text-white" title="Thông tin User" />
+            <CardHeader className="bg-gray-900 text-center text-white" title="Thông tin User" />
             <CardContent>
-                <div className="mb-8 h-full mt-10">
+                <div className="mb-8 mt-10 h-full">
                     <div className="flex flex-row">
-                        <div className="flex flex-col items-center ml-16">
-                            {userAvarta && (
-                                <Avatar
-                                    image={userAvarta}
-                                    alt="userAvarta"
-                                    className="mr-2 mt-4"
-                                    size="lg"
-                                    width={96}
-                                    height={96}
-                                />
-                            )}
+                        <div className="ml-16 flex flex-col items-center">
+                            {userAvarta && <Avatar image={userAvarta} alt="userAvarta" className="mr-2 mt-4" size="lg" width={96} height={96} />}
                             <label>Ảnh đại diện</label>
                         </div>
-                        <div className="flex flex-col items-center ml-16">
-                            {userCover && (
-                                <Avatar
-                                    image={userCover}
-                                    alt="userCover"
-                                    className="mr-2 mt-4"
-                                    size="lg"
-                                    width={96}
-                                    height={96}
-                                />
-                            )}
+                        <div className="ml-16 flex flex-col items-center">
+                            {userCover && <Avatar image={userCover} alt="userCover" className="mr-2 mt-4" size="lg" width={96} height={96} />}
                             <label>Ảnh bìa</label>
                         </div>
                     </div>

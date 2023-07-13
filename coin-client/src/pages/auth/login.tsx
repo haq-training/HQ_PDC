@@ -2,8 +2,9 @@ import Link from 'next/link';
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { useRouter } from 'next/router';
-import jwt,{verify} from 'jsonwebtoken';
-import React, {useReducer, useEffect, useState} from 'react';
+import jwt from 'jsonwebtoken';
+import axios from 'axios';
+import React, { useReducer, useEffect, useState } from 'react';
 import TextField from '@material-ui/core/TextField';
 import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
@@ -82,33 +83,50 @@ function LoginPage() {
     const router = useRouter();
     const [notification, setNotification] = useState('');
 
+    const handleUsernameChange: React.ChangeEventHandler<HTMLInputElement> = (event) => {
+        dispatch({
+            type: 'setUsername',
+            payload: event.target.value,
+        });
+    };
+
+    const handlePasswordChange: React.ChangeEventHandler<HTMLInputElement> = (event) => {
+        dispatch({
+            type: 'setPassword',
+            payload: event.target.value,
+        });
+    };
+
     useEffect(() => {
         const token = localStorage.getItem('token');
-        if (token) {
+        const isFirstLogin = !token;
+        if (isFirstLogin) {
+            handleUsernameChange({ target: { value: '' } });
+            handlePasswordChange({ target: { value: '' } });
+        } else {
             verifyToken(token);
         }
     }, []);
 
     const verifyToken = async (token: string) => {
         try {
-            const decodedToken = jwt.decode(token);
-            const userName = decodedToken.name;
-            if (userName) {
-                dispatch({
-                    type: 'loginSuccess',
-                    payload: 'Login Successfully',
+            await axios
+                .get('http://localhost:4003/users/token', {
+                    headers: {
+                        token: `Bearer ${typeof window !== 'undefined' ? localStorage.getItem('token') : null}`,
+                    },
+                    method: 'GET',
+                })
+                .then((res) => {
+                    return res;
                 });
-                router.push(routes.home);
-                toast.success('Đăng nhập thành công');
-                setNotification('Đăng nhập thành công');
-            } else {
-                dispatch({
-                    type: 'loginFailed',
-                    payload: 'Token verification failed',
-                });
-                toast.error('Token không hợp lệ hoặc không có thông tin người dùng tương ứng');
-                setNotification('Token không hợp lệ hoặc không có thông tin người dùng tương ứng');
-            }
+            dispatch({
+                type: 'loginSuccess',
+                payload: 'Login Successfully',
+            });
+            router.push(routes.home);
+            toast.success('Đăng nhập thành công');
+            setNotification('Đăng nhập thành công');
         } catch (error) {
             console.error(error);
             dispatch({
@@ -117,6 +135,8 @@ function LoginPage() {
             });
             toast.error('Token không hợp lệ hoặc không có thông tin người dùng tương ứng');
             setNotification('Token không hợp lệ hoặc không có thông tin người dùng tương ứng');
+            localStorage.removeItem('token');
+            router.push(routes.login);
         }
     };
 
@@ -129,28 +149,16 @@ function LoginPage() {
                     userPass: state.password,
                 });
                 const token = response.token;
+                console.log('token', token);
                 if (token) {
-                    const decodedToken = jwt.decode(token);
-                    console.log('decodedToken',decodedToken)
-                    const userName = decodedToken.name;
-                    console.log('userName',userName)
-                    if (userName === state.username) {
-                        localStorage.setItem('token', token);
-                        dispatch({
-                            type: 'loginSuccess',
-                            payload: 'Đăng nhập thành công',
-                        });
-                        router.push(routes.home);
-                        toast.success('Đăng nhập thành công');
-                        setNotification('Đăng nhập thành công');
-                    } else {
-                        dispatch({
-                            type: 'loginFailed',
-                            payload: 'Tên người dùng không khớp',
-                        });
-                        toast.error('Tên người dùng không khớp');
-                        setNotification('Tên người dùng không khớp');
-                    }
+                    localStorage.setItem('token', token);
+                    dispatch({
+                        type: 'loginSuccess',
+                        payload: 'Đăng nhập thành công',
+                    });
+                    router.push(routes.home);
+                    toast.success('Đăng nhập thành công');
+                    setNotification('Đăng nhập thành công');
                 } else {
                     dispatch({
                         type: 'loginFailed',
@@ -186,25 +194,11 @@ function LoginPage() {
         }
     };
 
-    const handleUsernameChange: React.ChangeEventHandler<HTMLInputElement> = (event) => {
-        dispatch({
-            type: 'setUsername',
-            payload: event.target.value,
-        });
-    };
-
-    const handlePasswordChange: React.ChangeEventHandler<HTMLInputElement> = (event) => {
-        dispatch({
-            type: 'setPassword',
-            payload: event.target.value,
-        });
-    };
-
     return (
         <>
-            <form className="flex flex-wrap w-400 mx-auto flex justify-center" noValidate autoComplete="off">
+            <form className="w-400 mx-auto flex flex flex-wrap justify-center" noValidate autoComplete="off">
                 <Card className="mt-10">
-                    <CardHeader className="text-center bg-gray-900 text-white" title="Đăng nhập" />
+                    <CardHeader className="bg-gray-900 text-center text-white" title="Đăng nhập" />
                     <CardContent>
                         <div>
                             <TextField
@@ -233,26 +227,18 @@ function LoginPage() {
                         </div>
                     </CardContent>
                     <CardActions className="flex flex-col">
-                        <div className="mb-2 w-full" >
+                        <div className="mb-2 w-full">
                             {/*<Link href="/">*/}
-                                <Button
-                                    size="large"
-                                    className="flex-grow w-full"
-                                    onClick={handleLogin}
-                                    disabled={!state.username || !state.password }
-                                >
-                                    Đăng nhập
-
-                                </Button>
+                            <Button size="large" className="w-full flex-grow" onClick={handleLogin} disabled={!state.username || !state.password}>
+                                Đăng nhập
+                            </Button>
                             {/*</Link>*/}
                         </div>
-                        <div className="flex justify-center w-full">
+                        <div className="flex w-full justify-center">
                             <div className="text-sm text-gray-600">
                                 Chưa có tài khoản?
                                 <Link href="/auth/register">
-                                    <Button className="text-white-500 mt-5 ml-3 ">
-                                        Đăng ký ngay
-                                    </Button>
+                                    <Button className="text-white-500 mt-5 ml-3 ">Đăng ký ngay</Button>
                                 </Link>
                             </div>
                         </div>
