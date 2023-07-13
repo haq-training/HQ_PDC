@@ -2,7 +2,7 @@ import Link from 'next/link';
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { useRouter } from 'next/router';
-import jwt from 'jsonwebtoken';
+import jwt,{verify} from 'jsonwebtoken';
 import React, {useReducer, useEffect, useState} from 'react';
 import TextField from '@material-ui/core/TextField';
 import Card from '@material-ui/core/Card';
@@ -131,7 +131,9 @@ function LoginPage() {
                 const token = response.token;
                 if (token) {
                     const decodedToken = jwt.decode(token);
+                    console.log('decodedToken',decodedToken)
                     const userName = decodedToken.name;
+                    console.log('userName',userName)
                     if (userName === state.username) {
                         localStorage.setItem('token', token);
                         dispatch({
