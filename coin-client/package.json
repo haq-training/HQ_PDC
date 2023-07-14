@@ -1,14 +1,11 @@
 {
-  "name": "Criptic",
-  "version": "1.6.0",
   "private": true,
   "scripts": {
     "clean": "rimraf \"{node_modules,.next,out.cache}\"",
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint",
-    "prepare": "husky install"
+    "lint": "next lint"
   },
   "dependencies": {
     "@emotion/react": "^11.11.1",
@@ -79,7 +76,6 @@
     "eslint": "8.23.1",
     "eslint-config-next": "12.3.1",
     "eslint-config-prettier": "^8.3.0",
-    "husky": "^8.0.3",
     "lint-staged": "^13.0.1",
     "postcss": "^8.4.16",
     "prettier": "^2.7.0",

@@ -4,8 +4,12 @@
     <list default="true" id="97669270-d24a-4748-a782-490e82cacc1e" name="Default Changelist" comment="fix bug">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/coin-client/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/coin-client/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/coin-client/src/components/ui/UserForm.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/coin-client/src/components/ui/UserForm.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/coin-client/src/components/nft/wallet-connect.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/coin-client/src/components/nft/wallet-connect.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/coin-client/src/components/profile/profile-default-avarta.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/coin-client/src/components/profile/profile-default-avarta.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/coin-client/src/components/profile/profile-retro-avarta.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/coin-client/src/components/profile/profile-retro-avarta.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/coin-client/src/pages/add-collection.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/coin-client/src/pages/add-collection.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/coin-client/src/pages/auth/login.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/coin-client/src/pages/auth/login.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/coin-client/src/pages/changeThePassword.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/coin-client/src/pages/changeThePassword.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/coin-client/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/coin-client/yarn.lock" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -38,7 +42,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="js.linters.configure.manually.selectedeslint" value="true" />
-    <property name="last_opened_file_path" value="$USER_HOME$/Documents/sm-client" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../coin-api-srv-PD" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.standard" value="true" />
     <property name="node.js.selected.package.eslint" value="$PROJECT_DIR$/coin-client/node_modules/eslint" />
@@ -64,6 +68,7 @@
       <workItem from="1689152327665" duration="6312000" />
       <workItem from="1689213468321" duration="6904000" />
       <workItem from="1689222049596" duration="14008000" />
+      <workItem from="1689299937973" duration="8760000" />
     </task>
     <task id="LOCAL-00001" summary="fix bug">
       <created>1689148714092</created>
