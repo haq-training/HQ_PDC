@@ -3,7 +3,7 @@
 2. Mở folder HQ-PDC bằng trình duyệt chạy code
 3. tạo file .env trong folder coin-client với nội dung là:
   - GENERATE_SOURCEMAP=false
-  - PORT=3030
+  - PORT=3000
   - NEXT_PUBLIC_ENVIRONMENT=development
   - NEXT_PUBLIC_REST_API_ENDPOINT=http://localhost:4003
 5. chạy lệnh: cd coin-client
