@@ -2,7 +2,6 @@ import Link from 'next/link';
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { useRouter } from 'next/router';
-import jwt from 'jsonwebtoken';
 import axios from 'axios';
 import React, { useReducer, useEffect, useState } from 'react';
 import TextField from '@material-ui/core/TextField';
@@ -155,25 +154,27 @@ function LoginPage() {
                         type: 'loginSuccess',
                         payload: 'Đăng nhập thành công',
                     });
-                    router.push(routes.home);
                     toast.success('Đăng nhập thành công');
                     setNotification('Đăng nhập thành công');
-                } else {
-                    dispatch({
-                        type: 'loginFailed',
-                        payload: 'Tên hoặc mật khẩu chưa đúng',
-                    });
-                    toast.error('Tên hoặc mật khẩu chưa đúng');
-                    setNotification('Tên hoặc mật khẩu chưa đúng');
+                    router.push(routes.home);
                 }
             } catch (error) {
                 console.error(error);
-                dispatch({
-                    type: 'loginFailed',
-                    payload: 'Tên hoặc mật khẩu chưa đúng',
-                });
-                toast.warning('Tên hoặc mật khẩu chưa đúng');
-                setNotification('Tên hoặc mật khẩu chưa đúng');
+                if (error.response && error.response.status === 400) {
+                    dispatch({
+                        type: 'loginFailed',
+                        payload: 'Tên hoặc mật khẩu không đúng',
+                    });
+                    toast.error('Tên hoặc mật khẩu không đúng');
+                    setNotification('Tên hoặc mật khẩu không đúng');
+                } else if (error.response && error.response.status === 401) {
+                    dispatch({
+                        type: 'loginFailed',
+                        payload: 'Tài khoản không tồn tại',
+                    });
+                    toast.error('Tài khoản không tồn tại');
+                    setNotification('Tài khoản không tồn tại');
+                }
             }
         } else {
             dispatch({
@@ -227,11 +228,9 @@ function LoginPage() {
                     </CardContent>
                     <CardActions className="flex flex-col">
                         <div className="mb-2 w-full">
-                            {/*<Link href="/">*/}
-                            <Button size="large" className="w-full flex-grow" onClick={handleLogin} disabled={!state.username || !state.password}>
+                            <Button size="large" className="w-full flex-grow" onClick={handleLogin}>
                                 Đăng nhập
                             </Button>
-                            {/*</Link>*/}
                         </div>
                         <div className="flex w-full justify-center">
                             <div className="text-sm text-gray-600">

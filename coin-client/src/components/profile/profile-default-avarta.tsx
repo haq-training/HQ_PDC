@@ -1,11 +1,11 @@
 import Avatar from '@/components/ui/avatar';
 import Button from '@/components/ui/button';
-import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
-import {faEdit} from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faEdit } from '@fortawesome/free-solid-svg-icons';
 import Link from 'next/link';
 import jwt from 'jsonwebtoken';
-import React, {useEffect, useState,useRef} from 'react';
-import {createStyles, makeStyles} from '@material-ui/core/styles';
+import React, { useEffect, useState, useRef } from 'react';
+import { createStyles, makeStyles } from '@material-ui/core/styles';
 import axios from 'axios';
 
 const useStyles = makeStyles((theme) =>
@@ -17,8 +17,8 @@ const useStyles = makeStyles((theme) =>
             border: 'none',
             borderRadius: '4px',
             fontSize: '16px',
-            marginLeft: theme.spacing(76),
-            marginTop: theme.spacing(1),
+            marginLeft: theme.spacing(0),
+            marginTop: theme.spacing(2),
         },
     })
 );
@@ -31,13 +31,13 @@ type CardProps = {
     item: ItemType;
 };
 
-export default function ProfileDefaultAvarta({ item }: CardProps){
+export default function ProfileDefaultAvarta({ item }: CardProps) {
     const { userAvarta } = item;
 
     const [userAvartaCard, setUserAvarta] = useState(userAvarta);
 
     useEffect(() => {
-        setUserAvarta(userAvarta );
+        setUserAvarta(userAvarta);
     }, [userAvarta]);
 
     const classes = useStyles();
@@ -53,16 +53,17 @@ export default function ProfileDefaultAvarta({ item }: CardProps){
             const decodedToken = jwt.decode(token);
             const userId = decodedToken?.idUser;
             formData.append('userAvarta', file);
-            axios.put(`http://localhost:4003/users/update-Avarta/${userId}`, formData, {
-                headers: {
-                    token: `Bearer ${token}`
-                },
-                method: 'PUT'
-            })
-                .then(response => {
+            axios
+                .put(`http://localhost:4003/users/update-Avarta/${userId}`, formData, {
+                    headers: {
+                        token: `Bearer ${token}`,
+                    },
+                    method: 'PUT',
+                })
+                .then((response) => {
                     console.log('Upload success:', response.data);
                 })
-                .catch(error => {
+                .catch((error) => {
                     console.error('Upload failed:', error);
                 });
         }
@@ -73,35 +74,19 @@ export default function ProfileDefaultAvarta({ item }: CardProps){
             fileInputRef.current.click();
         }
     };
-    return(
+    return (
         <>
             <div className="flex items-center">
-                {userAvartaCard && (
-                    <Avatar
-                        image={userAvartaCard}
-                        alt="Author"
-                        className="mr-2 mt-4"
-                        size="lg"
-                        width={96}
-                        height={96}
-                    />
-                )}
+                {userAvartaCard && <Avatar image={userAvartaCard} alt="Author" className="mr-2 mt-4" size="lg" width={96} height={96} />}
 
                 <Button className="mt-4 ml-4" onClick={handleEditButtonClick}>
                     <FontAwesomeIcon icon={faEdit} />
                 </Button>
-                <input
-                    type="file"
-                    ref={fileInputRef}
-                    style={{ display: 'none' }}
-                    onChange={handleFileChange}
-                />
+                <input type="file" ref={fileInputRef} style={{ display: 'none' }} onChange={handleFileChange} />
                 <Link href="/add-collection">
-                    <Button className={classes.imageButton}>
-                        Thêm Collection
-                    </Button>
+                    <Button className={classes.imageButton}>Thêm Collection</Button>
                 </Link>
             </div>
         </>
-    )
+    );
 }

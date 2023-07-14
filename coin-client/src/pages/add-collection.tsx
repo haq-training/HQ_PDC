@@ -1,6 +1,5 @@
 import React, { useState, useEffect, useReducer, useRef } from 'react';
 import jwt from 'jsonwebtoken';
-import Link from 'next/link';
 import axios from 'axios';
 import RootLayout from '@/layouts/_root-layout';
 import { toast } from 'react-toastify';
@@ -10,10 +9,12 @@ import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
 import CardActions from '@material-ui/core/CardActions';
 import CardHeader from '@material-ui/core/CardHeader';
+import 'react-toastify/dist/ReactToastify.css';
 import Button from '@/components/ui/button';
-import {useRouter} from 'next/router';
+import { useRouter } from 'next/router';
 import routes from '@/config/routes';
 import Avatar from '@/components/ui/avatar';
+import Notification from '@/components/ui/notification';
 type State = {
     nameCollection: string;
     title: string;
@@ -23,10 +24,10 @@ type State = {
     isError: boolean;
 };
 const initialState: State = {
-    nameCollection: "",
-    title: "",
+    nameCollection: '',
+    title: '',
     coverImage: null,
-    image : [],
+    image: [],
     helperText: '',
     isError: false,
 };
@@ -35,7 +36,7 @@ type Action =
     | { type: 'setTitle'; payload: string }
     | { type: 'setCoverImage'; payload: string }
     | { type: 'setError'; payload: string }
-    | { type: 'setImage'; payload: string[] }
+    | { type: 'setImage'; payload: string[] };
 
 const reducer = (state: State, action: Action): State => {
     switch (action.type) {
@@ -77,18 +78,21 @@ function AddCollection() {
     const fileInputRef = useRef<HTMLInputElement>(null);
     const [dataCoin, setDataCoin] = useState<any>([]);
     const [imageValue, setImageValue] = useState<string>('');
+    const [notification, setNotification] = useState('');
 
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const response = await axios.get('http://localhost:4003/coin/img/', {
-                    headers: {
-                        token: `Bearer ${typeof window !== 'undefined' ? localStorage.getItem('token') : null}`
-                    },
-                    method: 'GET'
-                }).then((res) => {
-                    return res;
-                });
+                const response = await axios
+                    .get('http://localhost:4003/coin/img/', {
+                        headers: {
+                            token: `Bearer ${typeof window !== 'undefined' ? localStorage.getItem('token') : null}`,
+                        },
+                        method: 'GET',
+                    })
+                    .then((res) => {
+                        return res;
+                    });
                 const dataCoin = await response.data;
                 if (dataCoin) {
                     setDataCoin(dataCoin.data);
@@ -139,12 +143,11 @@ function AddCollection() {
         }
     };
 
-
     const handleImageChange = (event: React.ChangeEvent<HTMLInputElement>) => {
         const imageArray = event.target.value.split(',');
         dispatch({
             type: 'setImage',
-            payload:imageArray,
+            payload: imageArray,
         });
         setImageValue(event.target.value);
     };
@@ -180,23 +183,20 @@ function AddCollection() {
             formData.append('title', title);
             formData.append('image', image);
             formData.append('coverImage', coverImage);
-            await axios.post(
-                `http://localhost:4003/collections/createIMG/${userId}`,formData,
-                {
-                    headers: {
-                        token: `Bearer ${typeof window !== 'undefined' ? localStorage.getItem('token') : null}`
-                    },
-                    method: 'POST'
-                }
-            );
-            router.push(routes.profile);
-            toast.success('Tạo thẻ thành công');
-            // Optionally, you can reset the form after successful update
+            await axios.post(`http://localhost:4003/collections/createIMG/${userId}`, formData, {
+                headers: {
+                    token: `Bearer ${typeof window !== 'undefined' ? localStorage.getItem('token') : null}`,
+                },
+                method: 'POST',
+            });
             dispatch({ type: 'setNameCollection', payload: '' });
             dispatch({ type: 'setTitle', payload: '' });
             dispatch({ type: 'setCoverImage', payload: null });
             dispatch({ type: 'setImage', payload: [] });
             dispatch({ type: 'setError', payload: '' });
+            toast.success('Tạo thẻ thành công');
+            setNotification('Tạo thẻ thành công');
+            router.push(routes.profile);
         } catch (error) {
             console.error(error);
             dispatch({
@@ -209,9 +209,9 @@ function AddCollection() {
 
     return (
         <RootLayout>
-            <form className="flex flex-wrap w-400 mx-auto justify-center" noValidate autoComplete="off">
+            <form className="w-400 mx-auto flex flex-wrap justify-center" noValidate autoComplete="off">
                 <Card className="mt-10 xs:w-[500px]">
-                    <CardHeader className="text-center bg-gray-900 text-white" title="Thêm thẻ" />
+                    <CardHeader className="bg-gray-900 text-center text-white" title="Thêm thẻ" />
                     <CardContent>
                         <div style={{ display: 'flex', flexDirection: 'column' }}>
                             <TextField
@@ -250,42 +250,47 @@ function AddCollection() {
                                 value={state.title}
                                 onChange={handleTitleChange}
                             />
-                          <div>
-                              <Button className="mt-1" onClick={handleEditButtonClick}>
-                                 Tải ảnh lên
-                              </Button>
-                              <input
-                                  type="file"
-                                  ref={fileInputRef}
-                                  style={{ display: 'none' }}
-                                  onChange={(e) => {
-                                      e.preventDefault();
-                                      e.stopPropagation();
-                                      handleCoverImageChange(e);
-                                  }}
-                              />
-                              {state.coverImage && (
-                                  <Avatar
-                                      image={URL.createObjectURL(state.coverImage)}
-                                      alt="Author"
-                                      className="mr-2 mt-4"
-                                      size="lg"
-                                      width={96}
-                                      height={96}
-                                  />
-                              )}
-                          </div>
+                            <div>
+                                <Button className="mt-1" onClick={handleEditButtonClick}>
+                                    Tải ảnh lên
+                                </Button>
+                                <input
+                                    type="file"
+                                    ref={fileInputRef}
+                                    style={{ display: 'none' }}
+                                    onChange={(e) => {
+                                        e.preventDefault();
+                                        e.stopPropagation();
+                                        handleCoverImageChange(e);
+                                    }}
+                                />
+                                {state.coverImage && (
+                                    <Avatar
+                                        image={URL.createObjectURL(state.coverImage)}
+                                        alt="Author"
+                                        className="mr-2 mt-4"
+                                        size="lg"
+                                        width={96}
+                                        height={96}
+                                    />
+                                )}
+                            </div>
                         </div>
                     </CardContent>
                     <CardActions>
-                        <Button size="large" className="flex-grow" onClick={handleUpdate} disabled={!state.nameCollection || !state.title || state.image.length === 0 || !state.coverImage}>
+                        <Button
+                            size="large"
+                            className="flex-grow"
+                            onClick={handleUpdate}
+                            disabled={!state.nameCollection || !state.title || state.image.length === 0 || !state.coverImage}
+                        >
                             Tạo
                         </Button>
                     </CardActions>
                 </Card>
             </form>
+            <Notification message={notification} />
         </RootLayout>
     );
-
 }
 export default AddCollection;

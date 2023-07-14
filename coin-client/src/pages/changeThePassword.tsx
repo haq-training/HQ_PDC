@@ -1,9 +1,9 @@
-import React, {useReducer, useEffect, useState} from 'react';
-import Link from 'next/link';
+import React, { useReducer, useEffect, useState } from 'react';
 import jwt from 'jsonwebtoken';
 import axios from 'axios';
-import RootLayout from '@/layouts/_root-layout';
 import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import RootLayout from '@/layouts/_root-layout';
 import TextField from '@material-ui/core/TextField';
 import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
@@ -11,7 +11,7 @@ import CardActions from '@material-ui/core/CardActions';
 import CardHeader from '@material-ui/core/CardHeader';
 import Button from '@/components/ui/button';
 import routes from '@/config/routes';
-import {useRouter} from 'next/router';
+import { useRouter } from 'next/router';
 import Notification from '@/components/ui/notification';
 
 type State = {
@@ -119,7 +119,14 @@ function ChangePassword() {
                 payload: 'Please fill in all fields',
             });
             toast.info('Please fill in all fields');
-            return;
+        }
+        if (userPassNew !== userPassRetype) {
+            dispatch({
+                type: 'changePasswordFailed',
+                payload: 'Mật khẩu mới và mật khẩu xác nhận không khớp',
+            });
+            toast.error('Mật khẩu mới và mật khẩu xác nhận không khớp');
+            setNotification('Mật khẩu mới và mật khẩu xác nhận không khớp');
         }
         try {
             e.preventDefault();
@@ -135,16 +142,20 @@ function ChangePassword() {
             }
             const decodedToken = jwt.decode(token);
             const userId = decodedToken.idUser;
-            const response = await axios.put(`http://localhost:4003/users/update-pass/${userId}`, {
-                userPassOld,
-                userPassNew,
-                userPassRetype,
-            },{
-                headers: {
-                    token: `Bearer ${token}`
+            const response = await axios.put(
+                `http://localhost:4003/users/update-pass/${userId}`,
+                {
+                    userPassOld,
+                    userPassNew,
+                    userPassRetype,
                 },
-                method: 'PUT'
-            });
+                {
+                    headers: {
+                        token: `Bearer ${token}`,
+                    },
+                    method: 'PUT',
+                }
+            );
             if (response.status === 200) {
                 dispatch({
                     type: 'changePasswordSuccess',
@@ -152,16 +163,9 @@ function ChangePassword() {
                 });
                 localStorage.removeItem('token');
                 localStorage.removeItem('accessToken');
-                router.push(routes.login);
                 toast.success('Đổi mật khẩu thành công');
                 setNotification('Đổi mật khẩu thành công');
-            } else {
-                dispatch({
-                    type: 'changePasswordFailed',
-                    payload: 'Đổi mật khẩu không thành công',
-                });
-                toast.error('Đổi mật khẩu không thành công');
-                setNotification('Đổi mật khẩu không thành công');
+                router.push(routes.login);
             }
         } catch (error) {
             console.error(error);
@@ -174,70 +178,58 @@ function ChangePassword() {
         }
     };
 
-    useEffect(() => {
-        if (state.helperText === 'Đổi mật khẩu thành công') {
-            router.push(routes.login);
-        }
-    }, [state.helperText]);
-
     return (
         <RootLayout>
-        <form className="flex flex-wrap w-400 mx-auto justify-center" noValidate autoComplete="off">
-            <Card className="mt-10">
-                <CardHeader className="text-center bg-gray-900 text-white" title="Đổi mật khẩu" />
-                <CardContent>
-                    <div>
-                        <TextField
-                            error={state.isError}
-                            fullWidth
-                            id="currentPassword"
-                            type="password"
-                            label="Mật khẩu hiện tại"
-                            placeholder="Mật khẩu hiện tại"
-                            margin="normal"
-                            onChange={handlePasswordChange}
-                        />
-                        <TextField
-                            error={state.isError}
-                            fullWidth
-                            id="newPassword"
-                            type="password"
-                            label="Mật khẩu mới"
-                            placeholder="Mật khẩu mới"
-                            margin="normal"
-                            onChange={handleNewPasswordChange}
-                        />
-                        <TextField
-                            error={state.isError}
-                            fullWidth
-                            id="confirmPassword"
-                            type="password"
-                            label="Xác nhận mật khẩu"
-                            placeholder="Xác nhận mật khẩu"
-                            margin="normal"
-                            onChange={handleConfirmPasswordChange}
-                        />
-                        {state.isError && (
-                            <p className="text-red-500">{state.helperText}</p>
-                        )}
-                    </div>
-                </CardContent>
-                <CardActions>
+            <form className="w-400 mx-auto flex flex-wrap justify-center" noValidate autoComplete="off">
+                <Card className="mt-10">
+                    <CardHeader className="bg-gray-900 text-center text-white" title="Đổi mật khẩu" />
+                    <CardContent>
+                        <div>
+                            <TextField
+                                error={state.isError}
+                                fullWidth
+                                id="currentPassword"
+                                type="password"
+                                label="Mật khẩu hiện tại"
+                                placeholder="Mật khẩu hiện tại"
+                                margin="normal"
+                                onChange={handlePasswordChange}
+                            />
+                            <TextField
+                                error={state.isError}
+                                fullWidth
+                                id="newPassword"
+                                type="password"
+                                label="Mật khẩu mới"
+                                placeholder="Mật khẩu mới"
+                                margin="normal"
+                                onChange={handleNewPasswordChange}
+                            />
+                            <TextField
+                                error={state.isError}
+                                fullWidth
+                                id="confirmPassword"
+                                type="password"
+                                label="Xác nhận mật khẩu"
+                                placeholder="Xác nhận mật khẩu"
+                                margin="normal"
+                                onChange={handleConfirmPasswordChange}
+                            />
+                            {state.isError && <p className="text-red-500">{state.helperText}</p>}
+                        </div>
+                    </CardContent>
+                    <CardActions>
                         <Button
                             size="large"
                             className="flex-grow"
                             onClick={handlePasswordUpdate}
-                            disabled={
-                                !state.userPassOld ||
-                                !state.userPassNew ||
-                                !state.userPassRetype
-                            }
+                            disabled={!state.userPassOld || !state.userPassNew || !state.userPassRetype}
                         >
                             Lưu mật khẩu
                         </Button>
-                </CardActions>
-            </Card>
-        </form>
+                    </CardActions>
+                </Card>
+            </form>
             <Notification message={notification} />
         </RootLayout>
     );
