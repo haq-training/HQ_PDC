@@ -109,16 +109,12 @@ function LoginPage() {
 
     const verifyToken = async (token: string) => {
         try {
-            await axios
-                .get('http://localhost:4003/users/token', {
-                    headers: {
-                        token: `Bearer ${typeof window !== 'undefined' ? localStorage.getItem('token') : null}`,
-                    },
-                    method: 'GET',
-                })
-                .then((res) => {
-                    return res;
-                });
+            await axios.get('http://localhost:4003/users/token', {
+                headers: {
+                    token: `Bearer ${typeof window !== 'undefined' ? localStorage.getItem('token') : null}`,
+                },
+                method: 'GET',
+            });
             dispatch({
                 type: 'loginSuccess',
                 payload: 'Login Successfully',
@@ -128,14 +124,16 @@ function LoginPage() {
             setNotification('Đăng nhập thành công');
         } catch (error) {
             console.error(error);
-            dispatch({
-                type: 'loginFailed',
-                payload: 'Token verification failed',
-            });
-            toast.error('Token không hợp lệ hoặc không có thông tin người dùng tương ứng');
-            setNotification('Token không hợp lệ hoặc không có thông tin người dùng tương ứng');
-            localStorage.removeItem('token');
-            router.push(routes.login);
+            if (error.response && error.response.status === 403) {
+                dispatch({
+                    type: 'loginFailed',
+                    payload: 'Token verification failed',
+                });
+                toast.error('Token không hợp lệ hoặc không có thông tin người dùng tương ứng');
+                setNotification('Token không hợp lệ hoặc không có thông tin người dùng tương ứng');
+                localStorage.removeItem('token');
+                router.push(routes.login);
+            }
         }
     };
 
