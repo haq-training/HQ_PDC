@@ -1,4 +1,4 @@
-import React, { useReducer, useEffect, useState } from 'react';
+import React, { useReducer, useState } from 'react';
 import jwt from 'jsonwebtoken';
 import axios from 'axios';
 import { toast } from 'react-toastify';
@@ -87,8 +87,8 @@ const reducer = (state: State, action: Action): State => {
 
 function ChangePassword() {
     const [state, dispatch] = useReducer(reducer, initialState);
-    const [notification, setNotification] = useState('');
     const router = useRouter();
+    const [notification, setNotification] = useState('');
     const handlePasswordChange = (event: React.ChangeEvent<HTMLInputElement>) => {
         dispatch({
             type: 'setCurrentPassword',
@@ -116,10 +116,13 @@ function ChangePassword() {
         if (!userPassOld.trim() || !userPassNew.trim() || !userPassRetype.trim()) {
             dispatch({
                 type: 'changePasswordFailed',
-                payload: 'Please fill in all fields',
+                payload: 'Vui lòng điền vào form',
             });
-            toast.info('Please fill in all fields');
+            toast.info('Vui lòng điền vào form');
+            setNotification('Vui lòng điền vào form');
+            return;
         }
+
         if (userPassNew !== userPassRetype) {
             dispatch({
                 type: 'changePasswordFailed',
@@ -127,7 +130,9 @@ function ChangePassword() {
             });
             toast.error('Mật khẩu mới và mật khẩu xác nhận không khớp');
             setNotification('Mật khẩu mới và mật khẩu xác nhận không khớp');
+            return;
         }
+
         try {
             e.preventDefault();
             const token = typeof window !== 'undefined' ? localStorage.getItem('token') : null;
@@ -165,6 +170,7 @@ function ChangePassword() {
                 localStorage.removeItem('accessToken');
                 toast.success('Đổi mật khẩu thành công');
                 setNotification('Đổi mật khẩu thành công');
+
                 router.push(routes.login);
             }
         } catch (error) {
@@ -219,12 +225,7 @@ function ChangePassword() {
                         </div>
                     </CardContent>
                     <CardActions>
-                        <Button
-                            size="large"
-                            className="flex-grow"
-                            onClick={handlePasswordUpdate}
-                            disabled={!state.userPassOld || !state.userPassNew || !state.userPassRetype}
-                        >
+                        <Button size="large" className="flex-grow" onClick={handlePasswordUpdate}>
                             Lưu mật khẩu
                         </Button>
                     </CardActions>

@@ -140,49 +140,52 @@ function LoginPage() {
     };
 
     const handleLogin = async (e) => {
-        if (state.username.trim() && state.password.trim()) {
-            try {
-                e.preventDefault();
-                const response = await httpClient.post('/users/login', {
-                    userName: state.username,
-                    userPass: state.password,
-                });
-                const token = response.token;
-                if (token) {
-                    localStorage.setItem('token', token);
-                    dispatch({
-                        type: 'loginSuccess',
-                        payload: 'Đăng nhập thành công',
-                    });
-                    toast.success('Đăng nhập thành công');
-                    setNotification('Đăng nhập thành công');
-                    router.push(routes.home);
-                }
-            } catch (error) {
-                console.error(error);
-                if (error.response && error.response.status === 400) {
-                    dispatch({
-                        type: 'loginFailed',
-                        payload: 'Tên hoặc mật khẩu không đúng',
-                    });
-                    toast.error('Tên hoặc mật khẩu không đúng');
-                    setNotification('Tên hoặc mật khẩu không đúng');
-                } else if (error.response && error.response.status === 401) {
-                    dispatch({
-                        type: 'loginFailed',
-                        payload: 'Tài khoản không tồn tại',
-                    });
-                    toast.error('Tài khoản không tồn tại');
-                    setNotification('Tài khoản không tồn tại');
-                }
-            }
-        } else {
+        const { username, password } = state;
+
+        if (!username.trim() || !password.trim()) {
             dispatch({
                 type: 'loginFailed',
                 payload: 'Vui lòng điền vào form',
             });
             toast.info('Vui lòng điền vào form');
             setNotification('Vui lòng điền vào form');
+            return;
+        }
+
+        try {
+            e.preventDefault();
+            const response = await httpClient.post('/users/login', {
+                userName: username,
+                userPass: password,
+            });
+            const token = response.token;
+            if (token) {
+                localStorage.setItem('token', token);
+                dispatch({
+                    type: 'loginSuccess',
+                    payload: 'Đăng nhập thành công',
+                });
+                toast.success('Đăng nhập thành công');
+                setNotification('Đăng nhập thành công');
+                router.push(routes.home);
+            }
+        } catch (error) {
+            console.error(error);
+            if (error.response && error.response.status === 400) {
+                dispatch({
+                    type: 'loginFailed',
+                    payload: 'Tên hoặc mật khẩu không đúng',
+                });
+                toast.error('Tên hoặc mật khẩu không đúng');
+                setNotification('Tên hoặc mật khẩu không đúng');
+            } else if (error.response && error.response.status === 401) {
+                dispatch({
+                    type: 'loginFailed',
+                    payload: 'Tài khoản không tồn tại',
+                });
+                toast.error('Tài khoản không tồn tại');
+                setNotification('Tài khoản không tồn tại');
+            }
         }
     };
 

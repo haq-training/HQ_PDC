@@ -1,16 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="97669270-d24a-4748-a782-490e82cacc1e" name="Default Changelist" comment="fix bug">
+    <list default="true" id="97669270-d24a-4748-a782-490e82cacc1e" name="Default Changelist" comment="fix bug xong">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/coin-client/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/coin-client/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/coin-client/src/components/nft/wallet-connect.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/coin-client/src/components/nft/wallet-connect.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/coin-client/src/components/profile/profile-default-avarta.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/coin-client/src/components/profile/profile-default-avarta.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/coin-client/src/components/profile/profile-retro-avarta.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/coin-client/src/components/profile/profile-retro-avarta.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/coin-client/src/pages/add-collection.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/coin-client/src/pages/add-collection.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/coin-client/src/pages/auth/login.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/coin-client/src/pages/auth/login.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/coin-client/src/pages/auth/register.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/coin-client/src/pages/auth/register.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/coin-client/src/pages/changeThePassword.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/coin-client/src/pages/changeThePassword.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/coin-client/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/coin-client/yarn.lock" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -18,9 +14,22 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="Git.Settings">
+    <favorite-branches>
+      <branch-storage>
+        <map>
+          <entry type="LOCAL">
+            <value>
+              <list>
+                <branch-info repo="$PROJECT_DIR$" source="main" />
+              </list>
+            </value>
+          </entry>
+        </map>
+      </branch-storage>
+    </favorite-branches>
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="main" />
+        <entry key="$PROJECT_DIR$" value="feature/fix-bug" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />

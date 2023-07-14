@@ -3,6 +3,7 @@ import jwt from 'jsonwebtoken';
 import axios from 'axios';
 import RootLayout from '@/layouts/_root-layout';
 import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import MenuItem from '@material-ui/core/MenuItem';
 import TextField from '@material-ui/core/TextField';
 import Card from '@material-ui/core/Card';
@@ -159,13 +160,14 @@ function AddCollection() {
         if (!nameCollection.trim() || !title.trim() || image.length === 0 || !coverImage) {
             dispatch({
                 type: 'setError',
-                payload: 'Please fill in all fields',
+                payload: 'Vui lòng điền vào form',
             });
+            toast.info('Vui lòng điền vào form');
+            setNotification('Vui lòng điền vào form');
             return;
         }
 
         try {
-            e.preventDefault();
             const token = localStorage.getItem('token');
             if (!token) {
                 dispatch({
@@ -201,9 +203,9 @@ function AddCollection() {
             console.error(error);
             dispatch({
                 type: 'error',
-                payload: 'không tạo được thẻ',
+                payload: 'Không tạo được thẻ',
             });
-            toast.error('không tạo được thẻ');
+            toast.error('Không tạo được thẻ');
         }
     };
 
@@ -278,12 +280,7 @@ function AddCollection() {
                         </div>
                     </CardContent>
                     <CardActions>
-                        <Button
-                            size="large"
-                            className="flex-grow"
-                            onClick={handleUpdate}
-                            disabled={!state.nameCollection || !state.title || state.image.length === 0 || !state.coverImage}
-                        >
+                        <Button size="large" className="flex-grow" onClick={handleUpdate}>
                             Tạo
                         </Button>
                     </CardActions>
